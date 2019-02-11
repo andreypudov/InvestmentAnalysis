@@ -1,0 +1,40 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentAnalysis.CommandLine", "src\InvestmentAnalysis.CommandLine\InvestmentAnalysis.CommandLine.csproj", "{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentAnalysis.Portfolio", "src\InvestmentAnalysis.Portfolio\InvestmentAnalysis.Portfolio.csproj", "{9E3CAC5E-2389-4FAE-ABE6-A9B06371F380}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentAnalysis.Portfolio.Finam", "src\InvestmentAnalysis.Portfolio.Finam\InvestmentAnalysis.Portfolio.Finam.csproj", "{3F50C6F4-3913-4995-9FA4-1210E0258049}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentAnalysis.Runtime.Extensions", "src\InvestmentAnalysis.Runtime.Extensions\InvestmentAnalysis.Runtime.Extensions.csproj", "{47C6A7F8-8E4E-47B3-A0CC-A8EB8325C290}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{167E7198-4BF4-4A78-B564-83C4BB988F7E}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3CAC5E-2389-4FAE-ABE6-A9B06371F380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3CAC5E-2389-4FAE-ABE6-A9B06371F380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3CAC5E-2389-4FAE-ABE6-A9B06371F380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3CAC5E-2389-4FAE-ABE6-A9B06371F380}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F50C6F4-3913-4995-9FA4-1210E0258049}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F50C6F4-3913-4995-9FA4-1210E0258049}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F50C6F4-3913-4995-9FA4-1210E0258049}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F50C6F4-3913-4995-9FA4-1210E0258049}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47C6A7F8-8E4E-47B3-A0CC-A8EB8325C290}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47C6A7F8-8E4E-47B3-A0CC-A8EB8325C290}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47C6A7F8-8E4E-47B3-A0CC-A8EB8325C290}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47C6A7F8-8E4E-47B3-A0CC-A8EB8325C290}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
