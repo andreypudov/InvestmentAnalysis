@@ -10,7 +10,7 @@ namespace InvestmentAnalysis.CommandLine
         public static void Main(string[] args)
         {
             var portfolio = new FinamPortfolioReader(
-                @"C:\Users\apudov\Dropbox\Documents\Finance\Investments\Reports\Пудов Андрей Семенович КлФ-ИИС903418 (01.01.2017 по 31.03.2017).xml")
+                @"portfolio.xml")
                 .Read();
 
             Console.WriteLine(portfolio);

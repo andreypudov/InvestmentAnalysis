@@ -90,15 +90,28 @@ namespace InvestmentAnalysis.Portfolio.Finam
                     switch (reader.NodeType)
                     {
                         case XmlNodeType.Element:
-                            Console.WriteLine("Start Element {0}", reader.Name);
+                            Console.WriteLine($"{new string('\t', reader.Depth)} Start Element {reader.Name}");
+
+                            if (reader.HasAttributes)
+                            {
+                                for (var index = 0; index < reader.AttributeCount; ++index)
+                                {
+                                    reader.MoveToAttribute(index);
+                                    Console.WriteLine($"{new string('\t', reader.Depth + 1)} Attribute {reader.Name} {reader.Value}");
+                                }
+
+                                reader.MoveToElement();
+                            }
                             break;
                         case XmlNodeType.Text:
-                            Console.WriteLine("Text Node: {0}", reader.Value);
+                            Console.WriteLine($"{ new string('\t', reader.Depth)} Text Node {reader.Value}");
                             break;
                         case XmlNodeType.EndElement:
-                            Console.WriteLine("End Element {0}", reader.Name);
+                            Console.WriteLine($"{new string('\t', reader.Depth)} End Element {reader.Name}");
                             break;
                         case XmlNodeType.Attribute:
+                            Console.WriteLine("Attribute {0}", reader.GetAttribute(0));
+                            break;
                         case XmlNodeType.CDATA:
                         case XmlNodeType.Comment:
                         case XmlNodeType.Document:
