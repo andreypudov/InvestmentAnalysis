@@ -9,6 +9,9 @@
     <ProjectReference Include="..\InvestmentAnalysis.Runtime.Extensions\InvestmentAnalysis.Runtime.Extensions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove=".DS_Store" />
+    <None Remove="Schema.xsd" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Schema.xsd" />
   </ItemGroup>
 </Project>

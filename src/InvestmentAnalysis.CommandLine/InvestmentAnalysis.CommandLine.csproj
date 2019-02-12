@@ -5,4 +5,9 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\InvestmentAnalysis.Portfolio.Finam\InvestmentAnalysis.Portfolio.Finam.csproj" />
+    <ProjectReference Include="..\InvestmentAnalysis.Portfolio\InvestmentAnalysis.Portfolio.csproj" />
+  </ItemGroup>
+
 </Project>
