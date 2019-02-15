@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="windows-1251"?>
+<?xml version="1.0"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="REPORT_DOC">
         <xs:complexType>
@@ -130,7 +130,17 @@
                                 </xs:complexType>
                             </xs:element>
                         </xs:sequence>
-                    </xs:complexType>
+						<xs:attribute name="ISREFERENCE" type="xs:boolean" use="optional" >
+							<xs:annotation>
+								<xs:documentation>Тип отчета: справка</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>
+						<xs:attribute name="ISSHORTFORM" type="xs:boolean" use="optional" >
+							<xs:annotation>
+								<xs:documentation>Тип отчета: краткая форма</xs:documentation>
+							</xs:annotation>
+						</xs:attribute>						
+					</xs:complexType>
                 </xs:element>
                 <xs:element name="SECTIONS">
                     <xs:complexType>
@@ -191,6 +201,11 @@
                                                         <xs:documentation>значение на конец периода</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
+                                                <xs:attribute name="Delta" type="xs:decimal" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>изменение за период</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>												
                                             </xs:complexType>
                                         </xs:element>
                                     </xs:sequence>
@@ -201,7 +216,7 @@
                                     </xs:attribute>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="DB2">
+                            <xs:element name="DB2" minOccurs="0">
                                 <xs:complexType>
                                     <xs:annotation>
                                         <xs:documentation>таблица "Оценка рублевой позиции"</xs:documentation>
@@ -293,272 +308,7 @@
                                     </xs:attribute>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="DB20">
-                                <xs:complexType>
-                                    <xs:annotation>
-                                        <xs:documentation>таблица "Оценка денежной позиции"</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:sequence>
-                                        <xs:element minOccurs="0" name="R">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="B">
-                                                        <xs:complexType>
-                                                            <xs:annotation>
-                                                                <xs:documentation>На начало периода</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:attribute name="SumC" type="xs:decimal" use="required" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Входящий плановый остаток</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Free" type="xs:decimal" use="required" >
-                                                                <xs:annotation>
-                                                                <xs:documentation>в т.ч. Свободный входящий плановый остаток</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Blk" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>в т.ч. Блокировано</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Debt" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>в т.ч. Задолженность</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Tax" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Задолженность  по налогам (справочно)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Sum" type="xs:decimal" use="required" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Оценка денежной позиции (руб)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                    <xs:element name="E">
-                                                        <xs:complexType>
-                                                            <xs:annotation>
-                                                                <xs:documentation>На конец периода</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:attribute name="SumC" type="xs:decimal" use="required" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Исходящий остаток</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Free" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                <xs:documentation>в т.ч. Свободный исходящий плановый остаток</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Blk" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>в т.ч. Блокировано</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Mrg" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>в т.ч. Задолженность маржинальная</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Debt" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>в т.ч. Задолженность прочая</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Tax" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Задолженность  по налогам (справочно)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="Sum" type="xs:decimal" use="required" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>Оценка денежной позиции (руб)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                    <xs:element name="E">
-                                                        <xs:complexType>
-                                                            <xs:annotation>
-                                                                <xs:documentation>Плановый остаток</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:attribute name="T1" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>на Т+1</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="T2" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                <xs:documentation>на Т+2</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="T3" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>на Т+3 </xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                            <xs:attribute name="TN" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>на Т+n</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                                <xs:attribute name="Name" type="xs:string" use="required" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Валюта</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                            </xs:complexType>
-                                        </xs:element>
-                                        <xs:element name="T">
-                                            <xs:complexType>
-                                                <xs:annotation>
-                                                    <xs:documentation>строка с итогами таблицы "Оценка денежной позиции"</xs:documentation>
-                                                </xs:annotation>
-                                                <xs:sequence>
-                                                    <xs:element name="B">
-                                                        <xs:complexType>
-                                                            <xs:annotation>
-                                                                <xs:documentation>итоги, раздел "На начало периода" таблицы "Оценка денежной позиции"</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:attribute name="Sum" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>сумма по колонке На начало периода Оценка  денежной позиции (руб)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                    <xs:element name="E">
-                                                        <xs:complexType>
-                                                            <xs:annotation>
-                                                                <xs:documentation>итоги, раздел "На конец периода" таблицы "Оценка денежной позиции"</xs:documentation>
-                                                            </xs:annotation>
-                                                            <xs:attribute name="Sum" type="xs:decimal" use="optional" >
-                                                                <xs:annotation>
-                                                                    <xs:documentation>сумма по колонке На конец периода Оценка денежной позиции (руб)</xs:documentation>
-                                                                </xs:annotation>
-                                                            </xs:attribute>
-                                                        </xs:complexType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                    <xs:attribute name="Name" type="xs:string" use="required" >
-                                        <xs:annotation>
-                                            <xs:documentation>Название таблицы</xs:documentation>
-                                        </xs:annotation>
-                                    </xs:attribute>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="DB21">
-                                <xs:complexType>
-                                    <xs:annotation>
-                                        <xs:documentation>таблица "Виды движений денежный средств"</xs:documentation>
-                                    </xs:annotation>
-                                    <xs:sequence>
-                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="R">
-                                            <xs:complexType>
-                                                <xs:annotation>
-                                                    <xs:documentation>строка таблицы Виды движений денежный средств</xs:documentation>
-                                                </xs:annotation>
-                                                <xs:attribute name="Name" type="xs:string" use="required" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Валюта</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="MI" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Ввод ДС</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="MO" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Вывод ДС</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="SNE" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Получено от продажи - внебиржевые сделки</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="SE" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Получено от продажи - биржевые сделки с ЦБ</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="SV" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Получено от продажи - биржевые сделки с валютой</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="BNE" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Затрачено на покупку - внебиржевые сделки</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="BE" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Затрачено на покупку - биржевые сделки с ЦБ</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="BV" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Затрачено на покупку - биржевые сделки с валютой</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="VM" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Вариационная маржа / Премия</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="GO" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Изменение ГО</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="C" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Биржевой сбор</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="D" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Дивиденды / НКД</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="BC" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Вознаграждение брокера</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="Tax" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Уплаченные налоги</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="Oth" type="xs:decimal" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Иное</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                    <xs:attribute name="Name" type="xs:string" use="required" >
-                                        <xs:annotation>
-                                            <xs:documentation>Название таблицы</xs:documentation>
-                                        </xs:annotation>
-                                    </xs:attribute>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="DB3">
+                            <xs:element name="DB3" minOccurs="0">
                                 <xs:complexType>
                                     <xs:annotation>
                                         <xs:documentation>таблица Оценка валютной позиции</xs:documentation>
@@ -731,7 +481,7 @@
                                                 </xs:attribute>
                                             </xs:complexType>
                                         </xs:element>
-                                        <xs:element name="T">
+                                        <xs:element minOccurs="0" name="T">
                                             <xs:complexType>
                                                 <xs:annotation>
                                                     <xs:documentation>итоги по таблице Оценка позиции по пфи (руб)</xs:documentation>
@@ -830,6 +580,26 @@
                                                 <xs:attribute name="P" type="xs:string" use="required" >
                                                     <xs:annotation>
                                                         <xs:documentation>Место учета / хранения </xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>												
+                                                <xs:attribute name="T1" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Плановый остаток на Т+1 (шт.)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="T2" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Плановый остаток на Т+2 (шт.)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="T3" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Плановый остаток на Т+3 (шт.)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="TN" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Плановый остаток на Т+N (шт.)</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
                                             </xs:complexType>
@@ -1722,7 +1492,280 @@
                                     </xs:attribute>
                                 </xs:complexType>
                             </xs:element>
-                            <xs:element name="DB_REF">
+                            <xs:element name="DB20">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>таблица "Оценка денежной позиции"</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element maxOccurs="unbounded" name="R">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="B">
+                                                        <xs:complexType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>На начало периода</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:attribute name="SumC" type="xs:decimal" use="required" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Входящий плановый остаток</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Free" type="xs:decimal" use="required" >
+                                                                <xs:annotation>
+                                                                <xs:documentation>в т.ч. Свободный входящий плановый остаток</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Blk" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Блокировано</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Mrg" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Задолженность маржинальная</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>															
+                                                            <xs:attribute name="Debt" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Задолженность прочая</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Tax" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Задолженность  по налогам (справочно)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Sum" type="xs:decimal" use="required" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Оценка денежной позиции (руб)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="E">
+                                                        <xs:complexType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>На конец периода</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:attribute name="SumC" type="xs:decimal" use="required" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Исходящий остаток</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Free" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                <xs:documentation>в т.ч. Свободный исходящий плановый остаток</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Blk" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Блокировано</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Mrg" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Задолженность маржинальная</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Debt" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>в т.ч. Задолженность прочая</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Tax" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Задолженность  по налогам (справочно)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Sum" type="xs:decimal" use="required" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>Оценка денежной позиции (руб)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                                <xs:attribute name="Name" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Валюта</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="T1" type="xs:decimal" use="optional" >
+													<xs:annotation>
+														<xs:documentation>Плановый остаток на Т+1</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="T2" type="xs:decimal" use="optional" >
+													<xs:annotation>
+														<xs:documentation>Плановый остаток на Т+2</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="T3" type="xs:decimal" use="optional" >
+													<xs:annotation>
+														<xs:documentation>Плановый остаток на Т+3 </xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+												<xs:attribute name="TN" type="xs:decimal" use="optional" >
+													<xs:annotation>
+														<xs:documentation>Плановый остаток на Т+n</xs:documentation>
+													</xs:annotation>
+												</xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="T">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>строка с итогами таблицы "Оценка денежной позиции"</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:sequence>
+                                                    <xs:element name="B">
+                                                        <xs:complexType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>итоги, раздел "На начало периода" таблицы "Оценка денежной позиции"</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:attribute name="Sum" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>сумма по колонке На начало периода Оценка  денежной позиции (руб)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="E">
+                                                        <xs:complexType>
+                                                            <xs:annotation>
+                                                                <xs:documentation>итоги, раздел "На конец периода" таблицы "Оценка денежной позиции"</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:attribute name="Sum" type="xs:decimal" use="optional" >
+                                                                <xs:annotation>
+                                                                    <xs:documentation>сумма по колонке На конец периода Оценка денежной позиции (руб)</xs:documentation>
+                                                                </xs:annotation>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>                                               
+												</xs:sequence>
+                                                <xs:attribute name="Name" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Итого</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DB21">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>таблица "Виды движений денежный средств"</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="R">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>строка таблицы Виды движений денежный средств</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:attribute name="Name" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Валюта</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="MI" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Ввод ДС</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="MO" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вывод ДС</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="SNE" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Получено от продажи - внебиржевые сделки</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="SE" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Получено от продажи - биржевые сделки с ЦБ</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="SV" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Получено от продажи - биржевые сделки с валютой</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="BNE" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Затрачено на покупку - внебиржевые сделки</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="BE" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Затрачено на покупку - биржевые сделки с ЦБ</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="BV" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Затрачено на покупку - биржевые сделки с валютой</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="VM" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вариационная маржа / Премия</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="GO" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Изменение ГО</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="C" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Биржевой сбор</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="D" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дивиденды / НКД</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="BC" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вознаграждение брокера</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="AC" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вознаграждение инвестиционного советника</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>												
+                                                <xs:attribute name="Tax" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Уплаченные налоги</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Oth" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Иное</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+							<xs:element name="DB_REF">
                                 <xs:complexType>
                                     <xs:annotation>
                                         <xs:documentation>Требуемая для расчетов сумма ДС, оцениваемая Брокером в соответсвии с п. 9.3.5.3 Регламента</xs:documentation>
@@ -1733,14 +1776,24 @@
                                                 <xs:annotation>
                                                     <xs:documentation>Строка таблицы "Требуемая для расчетов сумма ДС, оцениваемая Брокером в соответсвии с п. 9.3.5.3 Регламента" в Рублях</xs:documentation>
                                                 </xs:annotation>
-                                                <xs:attribute name="IS" type="xs:string" use="optional" >
+                                                <xs:attribute name="Type" type="xs:string" use="optional" >
                                                     <xs:annotation>
                                                         <xs:documentation>Вид сделки переноса позиций</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
                                                 <xs:attribute name="D" type="xs:string" use="optional" >
                                                     <xs:annotation>
-                                                        <xs:documentation>Дата</xs:documentation>
+                                                        <xs:documentation>Дата сделки</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="D1Pt" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата исполнения 1ч</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>		
+												<xs:attribute name="D2Pt" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата исполнения 2ч</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
                                                 <xs:attribute name="IS" type="xs:string" use="optional" >
@@ -1750,14 +1803,9 @@
                                                 </xs:attribute>
                                                 <xs:attribute name="Qty" type="xs:decimal" use="optional" >
                                                     <xs:annotation>
-                                                        <xs:documentation>Количество инструмента</xs:documentation>
+                                                        <xs:documentation>Количество</xs:documentation>
                                                     </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="D1Pt" type="xs:string" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Дата исполнения 1ч</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
+                                                </xs:attribute>   
                                                 <xs:attribute name="Pr1Pt" type="xs:decimal" use="optional" >
                                                     <xs:annotation>
                                                         <xs:documentation>Цена, 1ч</xs:documentation>
@@ -1765,12 +1813,7 @@
                                                 </xs:attribute>
                                                 <xs:attribute name="S1Pt" type="xs:decimal" use="optional" >
                                                     <xs:annotation>
-                                                        <xs:documentation>Сумма сделки переноса 1ч (руб) при @G=R, итог на дату @G=S  или Сумма требуемая для расчетов  по ДС на дату при @G=T</xs:documentation>
-                                                    </xs:annotation>
-                                                </xs:attribute>
-                                                <xs:attribute name="D2Pt" type="xs:string" use="optional" >
-                                                    <xs:annotation>
-                                                        <xs:documentation>Дата исполнения 2ч</xs:documentation>
+                                                        <xs:documentation>Сумма сделки переноса 1ч (руб) при @G=R, итог на дату @G=S или Сумма требуемая для расчетов по ДС на дату при @G=T</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
                                                 <xs:attribute name="Pr2Pt" type="xs:decimal" use="optional" >
@@ -1783,7 +1826,12 @@
                                                         <xs:documentation>Сумма сделки переноса 2ч (руб) при @G=S</xs:documentation>
                                                     </xs:annotation>
                                                 </xs:attribute>
-                                                <xs:attribute name="G" type="xs:string" use="optional" >
+												<xs:attribute name="SumDif" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Разница переноса</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="G" type="xs:string" use="optional" >
                                                     <xs:annotation>
                                                         <xs:documentation>Признак строки, является ли она итогом (Сумма по сделке @G=R, итог на дату @G=S, Сумма требуемая для расчетов по ДС на дату при @G=T)</xs:documentation>
                                                     </xs:annotation>
@@ -1798,10 +1846,254 @@
                                     </xs:attribute>
                                 </xs:complexType>
                             </xs:element>
-                        </xs:sequence>
+                            <xs:element name="DB22">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>таблица Комиссии за торговые операции</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="T">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>строка таблицы</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:attribute name="Op" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Тип операции</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="CurF" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Валюта</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Fee" type="xs:decimal" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Количество</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="C" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Комментарии</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DB23">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>таблица Расходы при переносе позиций</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="T">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>строка таблицы</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:attribute name="Op" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Тип операции</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Cur" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Валюта</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Fee" type="xs:decimal" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Количество</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="C" type="xs:string" use="required" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Комментарии</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+							<xs:element name="DB_REPO_MMA">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>Разность переноса РЕПО ММА</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="R">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>Строка таблицы</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:attribute name="Type" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вид сделки переноса позиций</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="D" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата сделки</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="D1Pt" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата исполнения 1ч</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>		
+												<xs:attribute name="D2Pt" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата исполнения 2ч</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="IS" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Краткое наименование инструмента</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Qty" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Количество</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>   
+                                                <xs:attribute name="Pr1Pt" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Цена, 1ч</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="S1Pt" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Сумма сделки переноса 1ч (дол) при @G=R, итог на дату @G=S или Сумма требуемая для расчетов по ДС на дату при @G=T</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Pr2Pt" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Цена, 2ч</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="S2Pt" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Сумма сделки переноса 2ч (дол) при @G=S</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="SumDif" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Разница переноса</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="G" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Признак строки, является ли она итогом (Сумма по сделке @G=R, итог на дату @G=S, Сумма требуемая для расчетов по ДС на дату при @G=T)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>                                                
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>
+							<xs:element name="DB_SWAP">
+                                <xs:complexType>
+                                    <xs:annotation>
+                                        <xs:documentation>Разность переноса за сделки СВОП</xs:documentation>
+                                    </xs:annotation>
+                                    <xs:sequence>
+                                        <xs:element minOccurs="0" maxOccurs="unbounded" name="R">
+                                            <xs:complexType>
+                                                <xs:annotation>
+                                                    <xs:documentation>Строка таблицы</xs:documentation>
+                                                </xs:annotation>
+                                                <xs:attribute name="Type" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Вид сделки переноса позиций</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="D" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Дата сделки</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="IS" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Краткое наименование инструмента</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="V" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Валюта расчетов</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="Qty" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Количество</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>   
+                                                <xs:attribute name="PrS" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Цена (СПОТ)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="SumS" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Сумма (СПОТ) при @G=R, итог на дату @G=S или Сумма требуемая для расчетов по ДС на дату при @G=T</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="PrF" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Цена (СВОП Форвард)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+                                                <xs:attribute name="SumF" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Сумма (СВОП Форвард) при @G=S</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="SumDif" type="xs:decimal" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Разность переноса за сделки СВОП</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>
+												<xs:attribute name="G" type="xs:string" use="optional" >
+                                                    <xs:annotation>
+                                                        <xs:documentation>Признак строки, является ли она итогом (Сумма по сделке @G=R, итог на дату @G=S, Сумма требуемая для расчетов по ДС на дату при @G=T)</xs:documentation>
+                                                    </xs:annotation>
+                                                </xs:attribute>                                                
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                    <xs:attribute name="Name" type="xs:string" use="required" >
+                                        <xs:annotation>
+                                            <xs:documentation>Название таблицы</xs:documentation>
+                                        </xs:annotation>
+                                    </xs:attribute>
+                                </xs:complexType>
+                            </xs:element>		
+						</xs:sequence>
                     </xs:complexType>
                 </xs:element>
-            </xs:sequence>
+				<xs:element name="SHOW_SECTION" minOccurs="0" >
+					<xs:annotation>
+						<xs:documentation>Отображение разделов (служ.)</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+			</xs:sequence>
         </xs:complexType>
     </xs:element>
 </xs:schema>

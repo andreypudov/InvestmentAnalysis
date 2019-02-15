@@ -1,17 +1,28 @@
 ﻿// Copyright (c) Andrey Pudov.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See LICENSE.txt in the project root for license information.
 
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Schema;
 using InvestmentAnalysis.Runtime.Extensions;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
     public sealed class FinamPortfolioReader : PortfolioReader
     {
-        private const int DefaultBufferSize         = 1024; // Byte buffer size
+        private sealed class ValidationException : XmlSchemaValidationException
+        {
+            public ValidationException(IList<string> errors)
+            {
+                Data["Errors"] = errors;
+            }
+        }
+
+        private const int DefaultBufferSize = 1024; // Byte buffer size
 
         private StreamReader _stream;
 
@@ -83,7 +94,29 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 throw new ObjectDisposedException(null, Messages.ObjectDisposed_ReaderClosed);
             }
 
-            using (var reader = XmlReader.Create(_stream))
+            var validationErrors = new List<string>();
+            var portfolio = ReadXml(_stream, validationErrors);
+
+            CheckValidation(validationErrors);
+
+            return portfolio;
+        }
+
+        public Task<Portfolio> ReadAsync()
+        {
+            return Task.FromResult(Read());
+        }
+
+        /// <summary>
+        /// Reads the specified XML stream for a Portfolio schema.
+        /// </summary>
+        /// <param name="xmlStream">The XML stream.</param>
+        /// <param name="validationErrors">The validation errors.</param>
+        /// <returns></returns>
+        private static Portfolio ReadXml(TextReader xmlStream, ICollection<string> validationErrors)
+        {
+            using (var xsdStream = OpenXsd())
+            using (var reader = OpenXml(xmlStream, xsdStream, validationErrors))
             {
                 while (reader.Read())
                 {
@@ -138,9 +171,42 @@ namespace InvestmentAnalysis.Portfolio.Finam
             return Portfolio.Empty;
         }
 
-        public Task<Portfolio> ReadAsync()
+        /// <summary>
+        /// Opens the XML stream, given an XSD validation.
+        /// </summary>
+        /// <param name="xmlStream">The XML stream.</param>
+        /// <param name="xsdStream">The XSD stream.</param>
+        /// <param name="validationErrors">The validation errors.</param>
+        /// <returns></returns>
+        private static XmlReader OpenXml(TextReader xmlStream, Stream xsdStream, ICollection<string> validationErrors)
         {
-            return Task.FromResult(Read());
+            validationErrors.Clear();
+
+            var xmlReaderSettings = new XmlReaderSettings();
+            xmlReaderSettings.Schemas.Add(null, XmlReader.Create(xsdStream));
+            xmlReaderSettings.ValidationType = ValidationType.Schema;
+            xmlReaderSettings.ValidationEventHandler += ((sender, e) => validationErrors.Add(e.Message));
+
+            var xmlValidator = XmlReader.Create(xmlStream, xmlReaderSettings);
+
+            return xmlValidator;
+        }
+
+        /// <summary>
+        /// Opens the XSD validation file.
+        /// </summary>
+        /// <returns></returns>
+        private static Stream OpenXsd()
+        {
+            return Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(FinamPortfolioReader), "Schema.xsd");
+        }
+
+        private static void CheckValidation(IList<string> validationErrors)
+        {
+            if (validationErrors.Count > 0)
+            {
+                throw new ValidationException(validationErrors);
+            }
         }
 
         #region IDisposable Support
