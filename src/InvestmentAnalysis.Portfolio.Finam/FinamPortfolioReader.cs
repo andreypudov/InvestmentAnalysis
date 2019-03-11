@@ -6,60 +6,35 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
-using InvestmentAnalysis.Runtime.Extensions;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    public sealed class FinamPortfolioReader : PortfolioReader
+    public sealed class FinamPortfolioReader : IPortfolioReader
     {
-        private const string TradeDealsElement = "DB9"; 
+        private const string TradeDealsElement = "DB9";
 
-        private const int DefaultBufferSize = 1024; // Byte buffer size
+        private readonly string _path;
 
-        private Stream _stream;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfoloReader"/> class for the specified file name.
-        /// </summary>
-        /// <param name="path">The complete file path to be read.</param>
         public FinamPortfolioReader(string path)
         {
-            if (path == null)
+            _path = path ?? throw new ArgumentNullException(nameof(path));
+        }
+
+        public IPortfolio Read()
+        {
+            using (var stream = new FileStream(_path, FileMode.Open))
             {
-                throw new ArgumentNullException(nameof(path));
+
+                var validationErrors = new List<string>();
+                var portfolio = ReadXml(stream, validationErrors);
+
+                CheckValidation(validationErrors);
+
+                return portfolio;
             }
-
-            var stream = new FileStream(path, FileMode.Open);
-
-            Init(stream);
         }
 
-        private void Init(Stream stream)
-        {
-            _stream = stream;
-        }
-
-        public override void Close()
-        {
-            Dispose(true);
-        }
-
-        public override Portfolio Read()
-        {
-            if (_disposedValue)
-            {
-                throw new ObjectDisposedException(null, Messages.ObjectDisposed_ReaderClosed);
-            }
-
-            var validationErrors = new List<string>();
-            var portfolio = ReadXml(_stream, validationErrors);
-
-            CheckValidation(validationErrors);
-
-            return portfolio;
-        }
-
-        public Task<Portfolio> ReadAsync()
+        public Task<IPortfolio> ReadAsync()
         {
             return Task.FromResult(Read());
         }
@@ -70,9 +45,9 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="xmlStream">The XML stream.</param>
         /// <param name="validationErrors">The validation errors.</param>
         /// <returns></returns>
-        private static Portfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
+        private static FinamPortfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
         {
-            var transactions = new List<FinamTransaction>;
+            var transactions = new List<FinamTransaction>();
 
             using (var xsdStream = OpenXsd())
             using (var reader = OpenXml(xmlStream, xsdStream, validationErrors))
@@ -128,7 +103,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 }
             }
 
-            return Portfolio.Empty;
+            return FinamPortfolio.Empty;
         }
 
         private static List<FinamTransaction> ReadTradeDeals(XmlReader reader)
@@ -194,37 +169,5 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 throw new PortfolioReaderException(string.Empty, validationErrors);
             }
         }
-
-        #region IDisposable Support
-        private bool _disposedValue = false; // To detect redundant calls
-
-        /// <summary>
-        /// Dispose the specified disposing.
-        /// </summary>
-        /// <param name="disposing">If set to <c>true</c> disposing.</param>
-        protected override void Dispose(bool disposing)
-        {
-            try
-            {
-                if (!_disposedValue)
-                {
-                    if (disposing)
-                    {
-                        _stream.Close();
-                    }
-
-                    _disposedValue = true;
-                }
-            }
-            finally
-            {
-                if (_stream != null)
-                {
-                    _stream = null;
-                    base.Dispose(disposing);
-                }
-            }
-        }
-        #endregion
     }
 }
