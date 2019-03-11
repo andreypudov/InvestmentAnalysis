@@ -4,80 +4,37 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Schema;
 using InvestmentAnalysis.Runtime.Extensions;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
     public sealed class FinamPortfolioReader : PortfolioReader
     {
-        private sealed class ValidationException : XmlSchemaValidationException
-        {
-            public ValidationException(IList<string> errors)
-            {
-                Data["Errors"] = errors;
-            }
-        }
+        private const string TradeDealsElement = "DB9"; 
 
         private const int DefaultBufferSize = 1024; // Byte buffer size
 
-        private StreamReader _stream;
+        private Stream _stream;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfoloReader"/> class for the specified file name.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         public FinamPortfolioReader(string path)
-            : this(path, true)
-        {
-        }
-
-        public FinamPortfolioReader(string path, bool detectEncodingFromByteOrderMarks)
-            : this(path, Encoding.Unicode, detectEncodingFromByteOrderMarks, DefaultBufferSize)
-        {
-        }
-
-        public FinamPortfolioReader(string path, Encoding encoding)
-            : this(path, encoding, true, DefaultBufferSize)
-        {
-        }
-
-        public FinamPortfolioReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks)
-            : this(path, encoding, detectEncodingFromByteOrderMarks, DefaultBufferSize)
-        {
-        }
-
-        public FinamPortfolioReader(string path, Encoding encoding, bool detectEncodingFromByteOrderMarks, int bufferSize)
         {
             if (path == null)
             {
                 throw new ArgumentNullException(nameof(path));
             }
 
-            if (encoding == null)
-            {
-                throw new ArgumentNullException(nameof(encoding));
-            }
-
-            if (path.Length == 0)
-            {
-                throw new ArgumentException(Messages.Argument_EmptyPath);
-            }
-
-            if (bufferSize <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(bufferSize), Messages.ArgumentOutOfRange_NeedPosNum);
-            }
-
-            var stream = new StreamReader(path, encoding, detectEncodingFromByteOrderMarks, bufferSize);
+            var stream = new FileStream(path, FileMode.Open);
 
             Init(stream);
         }
 
-        private void Init(StreamReader stream)
+        private void Init(Stream stream)
         {
             _stream = stream;
         }
@@ -113,8 +70,10 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="xmlStream">The XML stream.</param>
         /// <param name="validationErrors">The validation errors.</param>
         /// <returns></returns>
-        private static Portfolio ReadXml(TextReader xmlStream, ICollection<string> validationErrors)
+        private static Portfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
         {
+            var transactions = new List<FinamTransaction>;
+
             using (var xsdStream = OpenXsd())
             using (var reader = OpenXml(xmlStream, xsdStream, validationErrors))
             {
@@ -125,16 +84,17 @@ namespace InvestmentAnalysis.Portfolio.Finam
                         case XmlNodeType.Element:
                             Console.WriteLine($"{new string('\t', reader.Depth)} Start Element {reader.Name}");
 
-                            if (reader.HasAttributes)
+                            switch (reader.Name)
                             {
-                                for (var index = 0; index < reader.AttributeCount; ++index)
-                                {
-                                    reader.MoveToAttribute(index);
-                                    Console.WriteLine($"{new string('\t', reader.Depth + 1)} Attribute {reader.Name} {reader.Value}");
-                                }
-
-                                reader.MoveToElement();
+                                case TradeDealsElement:
+                                    transactions = ReadTradeDeals(reader);
+                                    break;
+                                default:
+                                    // Intentionally left blank
+                                    break;
                             }
+
+
                             break;
                         case XmlNodeType.Text:
                             Console.WriteLine($"{ new string('\t', reader.Depth)} Text Node {reader.Value}");
@@ -171,6 +131,32 @@ namespace InvestmentAnalysis.Portfolio.Finam
             return Portfolio.Empty;
         }
 
+        private static List<FinamTransaction> ReadTradeDeals(XmlReader reader)
+        {
+            var transactions = new List<FinamTransaction>();
+
+            while (reader.Read())
+            {
+                if ((reader.Name != "R") && (reader.HasAttributes))
+                {
+                    TransactionType TransactionType;
+                    long date;
+                    int units;
+                    decimal price;
+
+                    for (var index = 0; index < reader.AttributeCount; ++index)
+                    {
+                        reader.MoveToAttribute(index);
+                        Console.WriteLine($"{new string('\t', reader.Depth + 1)} Attribute {reader.Name} {reader.Value}");
+                    }
+
+                    reader.MoveToElement();
+                }
+            }
+
+            return transactions;
+        }
+
         /// <summary>
         /// Opens the XML stream, given an XSD validation.
         /// </summary>
@@ -178,7 +164,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="xsdStream">The XSD stream.</param>
         /// <param name="validationErrors">The validation errors.</param>
         /// <returns></returns>
-        private static XmlReader OpenXml(TextReader xmlStream, Stream xsdStream, ICollection<string> validationErrors)
+        private static XmlReader OpenXml(Stream xmlStream, Stream xsdStream, ICollection<string> validationErrors)
         {
             validationErrors.Clear();
 
@@ -205,7 +191,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         {
             if (validationErrors.Count > 0)
             {
-                throw new ValidationException(validationErrors);
+                throw new PortfolioReaderException(string.Empty, validationErrors);
             }
         }
 
