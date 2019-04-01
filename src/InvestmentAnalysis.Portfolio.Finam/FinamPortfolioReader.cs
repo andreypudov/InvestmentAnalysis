@@ -15,6 +15,10 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         private readonly string _path;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfoloReader"/> class for the specified file name.
+        /// </summary>
+        /// <param name="path">The complete file path to be read.</param>
         public FinamPortfolioReader(string path)
         {
             _path = path ?? throw new ArgumentNullException(nameof(path));
@@ -114,10 +118,10 @@ namespace InvestmentAnalysis.Portfolio.Finam
             {
                 if ((reader.Name != "R") && (reader.HasAttributes))
                 {
-                    TransactionType TransactionType;
-                    long date;
-                    int units;
-                    decimal price;
+                    // TransactionType TransactionType;
+                    // long date;
+                    // int units;
+                    // decimal price;
 
                     for (var index = 0; index < reader.AttributeCount; ++index)
                     {
