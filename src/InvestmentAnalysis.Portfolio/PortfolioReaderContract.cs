@@ -4,9 +4,13 @@ using System.Diagnostics.Contracts;
 
 namespace InvestmentAnalysis.Portfolio
 {
-    [ContractClass(typeof(PortfolioReaderContract))]
-    public interface IPortfolioReader
+    [ContractClassFor(typeof(IPortfolioReader))]
+    public abstract class PortfolioReaderContract : IPortfolioReader
     {
-        IPortfolio Read();
+        [Pure]
+        public IPortfolio Read()
+        {
+            return Contract.Result<IPortfolio>();
+        }
     }
 }

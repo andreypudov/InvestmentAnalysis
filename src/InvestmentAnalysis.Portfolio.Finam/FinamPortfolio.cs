@@ -10,8 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         public IEnumerable<ITransaction> Transactions
         { 
-            get => throw new System.NotImplementedException(); 
-            set => throw new System.NotImplementedException();
+            get => throw new System.NotImplementedException();
         }
 
         private class NullPortfolio : FinamPortfolio

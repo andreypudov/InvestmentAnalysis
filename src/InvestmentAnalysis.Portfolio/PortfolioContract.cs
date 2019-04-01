@@ -6,7 +6,7 @@ using System.Diagnostics.Contracts;
 namespace InvestmentAnalysis.Portfolio
 {
     [ContractClassFor(typeof(IPortfolio))]
-    public abstract class PortfolioContract
+    public abstract class PortfolioContract : IPortfolio
     {
         public IEnumerable<ITransaction> Transactions
         {
