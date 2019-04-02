@@ -5,8 +5,7 @@ using System.Diagnostics.Contracts;
 namespace InvestmentAnalysis.Portfolio
 {
     [ContractClass(typeof(PortfolioReaderContract))]
-    public interface IPortfolioReader<out T> where T : IPortfolio<ITransaction>
-    {
+    public interface IPortfolioReader<out T> where T : IPortfolio<ITransaction> {
         T Read();
     }
 }
