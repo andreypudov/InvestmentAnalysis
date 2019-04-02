@@ -5,15 +5,9 @@ using System.Diagnostics.Contracts;
 
 namespace InvestmentAnalysis.Portfolio
 {
-    [ContractClassFor(typeof(IPortfolio))]
-    public abstract class PortfolioContract : IPortfolio
+    [ContractClassFor(typeof(IPortfolio<>))]
+    public abstract class PortfolioContract : IPortfolio<ITransaction>
     {
-        public IEnumerable<ITransaction> Transactions
-        {
-            get
-            {
-                return Contract.Result<IEnumerable<ITransaction>>();
-            }
-        }
+        public IEnumerable<ITransaction> Transactions { get; } = Contract.Result<IEnumerable<ITransaction>>();
     }
 }

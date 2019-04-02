@@ -9,7 +9,7 @@ namespace InvestmentAnalysis.Portfolio
     {
         TransactionType TransactionType { get; }
 
-        long Date { get; }
+        long DateTime { get; }
 
         int Units { get; }
 

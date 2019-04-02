@@ -7,19 +7,19 @@ using System.Linq;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    public class FinamPortfolio : IPortfolio
+    public class FinamPortfolio : IPortfolio<FinamTransaction>
     {
         public static readonly FinamPortfolio Empty = new NullPortfolio();
 
         public FinamPortfolio()
         {
-            Transactions = Enumerable.Empty<ITransaction>();
+            Transactions = Enumerable.Empty<FinamTransaction>();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio`1"></see> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.</summary>
+        /// <summary>Initializes a new instance of the <see cref="InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"></see> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.</summary>
         /// <param name="collection">The collection whose elements are copied to the new list.</param>
-        /// <exception cref="T:System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
-        public FinamPortfolio(IEnumerable<ITransaction> collection)
+        /// <exception cref="System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
+        public FinamPortfolio(IEnumerable<FinamTransaction> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
             if (collection == null)
@@ -27,17 +27,17 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 throw new ArgumentNullException(nameof(collection));
             }
 
-            Transactions = new List<ITransaction>(collection);
+            Transactions = new List<FinamTransaction>(collection);
         }
 
-        public IEnumerable<ITransaction> Transactions
+        public IEnumerable<FinamTransaction> Transactions
         {
             get;
         }
 
         private class NullPortfolio : FinamPortfolio
         {
-            internal NullPortfolio() {}
+            // internal NullPortfolio() {}
         }
     }
 }

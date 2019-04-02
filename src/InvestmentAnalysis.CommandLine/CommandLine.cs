@@ -5,11 +5,11 @@ using InvestmentAnalysis.Portfolio.Finam;
 
 namespace InvestmentAnalysis.CommandLine
 {
-    public sealed class CommandLine
+    public sealed class CommandLineInterface
     {
-        public static void Main(string[] args)
+        public static void Main(/* string[] args */)
         {
-            var portfolio = new FinamPortfolioReader(@"/Users/andrey/Downloads/SamplePortfolio.xml").Read();
+            var portfolio = new FinamPortfolioReader(@"SamplePortfolio.xml").Read();
 
             Console.WriteLine(portfolio);
         }

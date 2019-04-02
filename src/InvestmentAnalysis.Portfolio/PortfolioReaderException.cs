@@ -5,8 +5,16 @@ using System.Collections.Generic;
 
 namespace InvestmentAnalysis.Portfolio
 {
-    public class PortfolioReaderException : Exception
+    public sealed class PortfolioReaderException : Exception
     {
+        public PortfolioReaderException()
+        {
+        }
+
+        public PortfolioReaderException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+
         public PortfolioReaderException(string message)
             : this(message, new List<string>())
         {

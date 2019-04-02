@@ -6,7 +6,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
     {
         public TransactionType TransactionType { get; }
 
-        public long Date { get; }
+        public long DateTime { get; }
 
         public int Units { get; }
 
@@ -15,7 +15,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         public FinamTransaction(TransactionType transactionType, long date, int units, decimal price)
         {
             TransactionType = transactionType;
-            Date = date;
+            DateTime = date;
             Units = units;
             Price = price;
         }

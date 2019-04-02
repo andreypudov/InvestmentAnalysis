@@ -5,8 +5,8 @@ using System.Diagnostics.Contracts;
 namespace InvestmentAnalysis.Portfolio
 {
     [ContractClass(typeof(PortfolioWriterContract))]
-    public interface IPortfolioWriter
+    public interface IPortfolioWriter<in T> where T : IPortfolio<ITransaction>
     {
-        void Write(IPortfolio portfolio);
+        void Write(T portfolio);
     }
 }

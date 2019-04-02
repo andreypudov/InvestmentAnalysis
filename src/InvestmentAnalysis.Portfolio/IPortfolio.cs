@@ -6,8 +6,8 @@ using System.Diagnostics.Contracts;
 namespace InvestmentAnalysis.Portfolio
 {
     [ContractClass(typeof(PortfolioContract))]
-    public interface IPortfolio
+    public interface IPortfolio<out T> where T : ITransaction
     {
-        IEnumerable<ITransaction> Transactions { get; }
+        IEnumerable<T> Transactions { get; }
     }
 }

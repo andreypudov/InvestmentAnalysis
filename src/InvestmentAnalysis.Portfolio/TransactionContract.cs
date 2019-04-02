@@ -7,36 +7,12 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(ITransaction))]
     public abstract class TransactionContract : ITransaction
     {
-        public TransactionType TransactionType
-        {
-            get
-            {
-                return Contract.Result<TransactionType>();
-            }
-        }
+        public TransactionType TransactionType => Contract.Result<TransactionType>();
 
-        public long Date
-        {
-            get
-            {
-                return Contract.Result<int>();
-            }
-        }
+        public long DateTime => Contract.Result<int>();
 
-        public int Units
-        {
-            get
-            {
-                return Contract.Result<int>();
-            }
-        }
+        public int Units => Contract.Result<int>();
 
-        public decimal Price
-        {
-            get
-            {
-                return Contract.Result<decimal>();
-            }
-        }
+        public decimal Price => Contract.Result<decimal>();
     }
 }

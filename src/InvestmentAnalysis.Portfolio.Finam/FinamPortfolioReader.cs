@@ -9,14 +9,14 @@ using System.Xml;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    public sealed class FinamPortfolioReader : IPortfolioReader
+    public class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
         private const string TradeDealsElement = "DB9";
 
         private readonly string _path;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfoloReader"/> class for the specified file name.
+        /// Initializes a new instance of the <see cref="InvestmentAnalysis.Portfolio.Finam.FinamPortfoloReader"/> class for the specified file name.
         /// </summary>
         /// <param name="path">The complete file path to be read.</param>
         public FinamPortfolioReader(string path)
@@ -24,7 +24,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             _path = path ?? throw new ArgumentNullException(nameof(path));
         }
 
-        public IPortfolio Read()
+        public FinamPortfolio Read()
         {
             using (var stream = new FileStream(_path, FileMode.Open))
             {
@@ -38,7 +38,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
         }
 
-        public Task<IPortfolio> ReadAsync()
+        public Task<FinamPortfolio> ReadAsync()
         {
             return Task.FromResult(Read());
         }
@@ -72,7 +72,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
                                     // Intentionally left blank
                                     break;
                             }
-
 
                             break;
                         case XmlNodeType.Text:

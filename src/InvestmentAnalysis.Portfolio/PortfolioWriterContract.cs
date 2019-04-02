@@ -4,11 +4,10 @@ using System.Diagnostics.Contracts;
 
 namespace InvestmentAnalysis.Portfolio
 {
-    [ContractClassFor(typeof(IPortfolioWriter))]
-    public abstract class PortfolioWriterContract : IPortfolioWriter
+    [ContractClassFor(typeof(IPortfolioWriter<>))]
+    public abstract class PortfolioWriterContract : IPortfolioWriter<IPortfolio<ITransaction>>
     {
-        [Pure]
-        public void Write(IPortfolio portfolio)
+        public void Write(IPortfolio<ITransaction> portfolio)
         {
             Contract.Requires(portfolio != null);
         }
