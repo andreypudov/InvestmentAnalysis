@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace InvestmentAnalysis.Portfolio.Finam
@@ -28,7 +27,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
         {
             using (var stream = new FileStream(_path, FileMode.Open))
             {
-
                 var validationErrors = new List<string>();
                 var portfolio = ReadXml(stream, validationErrors);
 
@@ -36,11 +34,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
                 return portfolio;
             }
-        }
-
-        public Task<FinamPortfolio> ReadAsync()
-        {
-            return Task.FromResult(Read());
         }
 
         /// <summary>

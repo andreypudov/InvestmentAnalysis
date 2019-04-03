@@ -9,15 +9,18 @@ namespace InvestmentAnalysis.Portfolio
     {
         public PortfolioReaderException()
         {
+            // Intentionally left blank
         }
 
         public PortfolioReaderException(string message, Exception innerException) : base(message, innerException)
         {
+            // Intentionally left blank
         }
 
         public PortfolioReaderException(string message)
             : this(message, new List<string>())
         {
+            // Intentionally left blank
         }
 
         public PortfolioReaderException(string message, IEnumerable<string> errors)

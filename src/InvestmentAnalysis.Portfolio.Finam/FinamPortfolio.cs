@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
@@ -27,7 +28,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 throw new ArgumentNullException(nameof(collection));
             }
 
-            Transactions = new List<FinamTransaction>(collection);
+            Transactions = collection.ToImmutableList();
         }
 
         public IEnumerable<FinamTransaction> Transactions
