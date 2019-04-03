@@ -14,5 +14,7 @@ namespace InvestmentAnalysis.Portfolio
         public int Units => Contract.Result<int>();
 
         public decimal Price => Contract.Result<decimal>();
+
+        public bool Equals(ITransaction other) => Contract.Result<bool>();
     }
 }
