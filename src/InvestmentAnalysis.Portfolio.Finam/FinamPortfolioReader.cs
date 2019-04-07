@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Xml;
+using System.Xml.Serialization;
+using InvestmentAnalysis.Portfolio.Finam.FinamReport;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
@@ -44,88 +46,15 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <returns></returns>
         private static FinamPortfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
         {
-            var transactions = new List<FinamTransaction>();
+            var serializer = new XmlSerializer(typeof(Report));
 
             using (var xsdStream = OpenXsd())
             using (var reader = OpenXml(xmlStream, xsdStream, validationErrors))
             {
-                while (reader.Read())
-                {
-                    switch (reader.NodeType)
-                    {
-                        case XmlNodeType.Element:
-                            Console.WriteLine($"{new string('\t', reader.Depth)} Start Element {reader.Name}");
-
-                            switch (reader.Name)
-                            {
-                                case TradeDealsElement:
-                                    transactions = ReadTradeDeals(reader);
-                                    break;
-                                default:
-                                    // Intentionally left blank
-                                    break;
-                            }
-
-                            break;
-                        case XmlNodeType.Text:
-                            Console.WriteLine($"{ new string('\t', reader.Depth)} Text Node {reader.Value}");
-                            break;
-                        case XmlNodeType.EndElement:
-                            Console.WriteLine($"{new string('\t', reader.Depth)} End Element {reader.Name}");
-                            break;
-                        case XmlNodeType.Attribute:
-                            Console.WriteLine("Attribute {0}", reader.GetAttribute(0));
-                            break;
-                        case XmlNodeType.CDATA:
-                        case XmlNodeType.Comment:
-                        case XmlNodeType.Document:
-                        case XmlNodeType.DocumentFragment:
-                        case XmlNodeType.DocumentType:
-                        case XmlNodeType.EndEntity:
-                        case XmlNodeType.Entity:
-                        case XmlNodeType.EntityReference:
-                        case XmlNodeType.None:
-                        case XmlNodeType.Notation:
-                        case XmlNodeType.ProcessingInstruction:
-                        case XmlNodeType.SignificantWhitespace:
-                        case XmlNodeType.Whitespace:
-                        case XmlNodeType.XmlDeclaration:
-                            break;
-                        default:
-                            Console.WriteLine("Other node {0} with value {1}",
-                                reader.NodeType, reader.Value);
-                            break;
-                    }
-                }
+                var report = (Report) serializer.Deserialize(reader);
             }
 
             return FinamPortfolio.Empty;
-        }
-
-        private static List<FinamTransaction> ReadTradeDeals(XmlReader reader)
-        {
-            var transactions = new List<FinamTransaction>();
-
-            while (reader.Read())
-            {
-                if ((reader.Name != "R") && (reader.HasAttributes))
-                {
-                    // TransactionType TransactionType;
-                    // long date;
-                    // int units;
-                    // decimal price;
-
-                    for (var index = 0; index < reader.AttributeCount; ++index)
-                    {
-                        reader.MoveToAttribute(index);
-                        Console.WriteLine($"{new string('\t', reader.Depth + 1)} Attribute {reader.Name} {reader.Value}");
-                    }
-
-                    reader.MoveToElement();
-                }
-            }
-
-            return transactions;
         }
 
         /// <summary>
