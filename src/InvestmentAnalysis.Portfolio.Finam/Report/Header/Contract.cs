@@ -3,17 +3,17 @@
 using System;
 using System.Xml.Serialization;
 
-namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
+namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
     /// <summary>
-    /// Клиент.
+    /// Договор с клиентом.
     /// </summary>
     [Serializable()]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
-    public class Client
+    public class Contract
     {
         /// <summary>
-        /// Наименование клиента.
+        /// Наименование договора.
         /// </summary>
         /// <value>The name.</value>
         [XmlAttribute]

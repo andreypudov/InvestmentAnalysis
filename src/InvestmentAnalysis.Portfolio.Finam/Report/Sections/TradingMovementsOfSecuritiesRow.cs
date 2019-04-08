@@ -3,7 +3,7 @@
 using System;
 using System.Xml.Serialization;
 
-namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
+namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
     /// <summary>
     /// Строка таблицы "Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии".

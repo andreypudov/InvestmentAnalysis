@@ -3,23 +3,20 @@
 using System;
 using System.Xml.Serialization;
 
-namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
+namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
     /// <summary>
-    /// Счет клиента.
+    /// Счет(а) депо.
     /// </summary>
     [Serializable()]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
-    public class Account
+    public class DepoAccount
     {
         /// <summary>
-        /// Наименование счета клиента.
+        /// Наименование. (optional)
         /// </summary>
         /// <value>The name.</value>
-        [XmlAttribute]
+        [XmlAttribute("N")]
         public string Name { get; set; }
-
-        [XmlAttribute("ID")]
-        public uint Id { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Serialization;
-using InvestmentAnalysis.Portfolio.Finam.FinamReport;
+using InvestmentAnalysis.Portfolio.Finam.Report;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
@@ -44,15 +44,18 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <returns></returns>
         private static FinamPortfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
         {
-            var serializer = new XmlSerializer(typeof(Report));
+            var serializer = new XmlSerializer(typeof(FinamReport));
+            var portfolio = FinamPortfolio.Empty;
 
             using (var xsdStream = OpenXsd())
             using (var reader = OpenXml(xmlStream, xsdStream, validationErrors))
             {
-                var report = (Report) serializer.Deserialize(reader);
+                var report = (FinamReport) serializer.Deserialize(reader);
+
+                portfolio = new FinamPortfolioFactory(report).CreatePortfolio();
             }
 
-            return FinamPortfolio.Empty;
+            return portfolio;
         }
 
         /// <summary>

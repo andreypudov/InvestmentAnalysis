@@ -3,11 +3,11 @@
 using System;
 using System.Xml.Serialization;
 
-namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
+namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
     [Serializable()]
     [XmlRoot("REPORT_DOC")]
-    public class Report
+    public class FinamReport
     {
         [XmlElement("DOC_REQUISITES")]
         public Requisites Requisites { get; set; }
