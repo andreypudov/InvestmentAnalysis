@@ -7,7 +7,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
     [Serializable()]
     [XmlRoot("REPORT_DOC")]
-    public class FinamReport
+    public sealed class FinamReport
     {
         [XmlElement("DOC_REQUISITES")]
         public Requisites Requisites { get; set; }

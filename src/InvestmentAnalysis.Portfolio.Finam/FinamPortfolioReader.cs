@@ -8,7 +8,7 @@ using System.Xml;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    public class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
+    public sealed class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
         private readonly string _path;
 

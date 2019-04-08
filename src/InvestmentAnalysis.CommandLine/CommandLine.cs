@@ -5,9 +5,9 @@ using InvestmentAnalysis.Portfolio.Finam;
 
 namespace InvestmentAnalysis.CommandLine
 {
-    public sealed class CommandLineInterface
+    sealed class CommandLineInterface
     {
-        public static void Main(/* string[] args */)
+        static void Main(/* string[] args */)
         {
             var portfolio = new FinamPortfolioReader(@"SamplePortfolio.xml").Read();
 

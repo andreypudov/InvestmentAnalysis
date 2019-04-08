@@ -4,7 +4,7 @@ using System;
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    public class FinamTransaction : ITransaction
+    public sealed class FinamTransaction : ITransaction
     {
         public TransactionType TransactionType { get; }
 

@@ -10,7 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     /// </summary>
     [Serializable()]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
-    public class Header
+    public sealed class Header
     {
         [XmlAttribute("ISREFERENCE")]
         public bool IsReference { get; set; }

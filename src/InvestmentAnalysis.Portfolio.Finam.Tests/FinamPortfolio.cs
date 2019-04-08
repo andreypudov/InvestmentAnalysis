@@ -4,7 +4,7 @@ using Xunit;
 
 namespace InvestmentAnalysis.Portfolio.Finam.Tests
 {
-    public class FinamPortfolio
+    public sealed class FinamPortfolio
     {
         [Fact]
         public void Test1()

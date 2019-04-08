@@ -10,7 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     /// </summary>
     [Serializable()]
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
-    public class TradingMovementsOfSecuritiesTotal
+    public sealed class TradingMovementsOfSecuritiesTotal
     {
         /// <summary>
         /// Итого.
