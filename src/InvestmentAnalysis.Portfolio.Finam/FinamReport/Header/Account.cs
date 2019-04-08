@@ -9,6 +9,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
     /// Счет клиента.
     /// </summary>
     [Serializable()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
     public class Account
     {
         /// <summary>

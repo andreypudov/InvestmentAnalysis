@@ -9,6 +9,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
     /// Строка таблицы "Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии".
     /// </summary>
     [Serializable()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
     public class TradingMovementsOfSecuritiesRow
     {
         /// <summary>

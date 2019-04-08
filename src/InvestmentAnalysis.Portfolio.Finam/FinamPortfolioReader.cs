@@ -12,8 +12,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
 {
     public class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
-        private const string TradeDealsElement = "DB9";
-
         private readonly string _path;
 
         /// <summary>

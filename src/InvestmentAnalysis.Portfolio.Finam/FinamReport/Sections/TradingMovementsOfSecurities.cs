@@ -1,7 +1,7 @@
 ﻿// Copyright (c) Andrey Pudov.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See LICENSE.txt in the project root for license information.
 
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 
 namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
@@ -10,6 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
     /// Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии.
     /// </summary>
     [Serializable()]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.CodeAnalysis.FxCopAnalyzers", "CA2235: Mark all non-serializable fields")]
     public class TradingMovementsOfSecurities
     {
         /// <summary>
@@ -20,9 +21,15 @@ namespace InvestmentAnalysis.Portfolio.Finam.FinamReport
         public string Name { get; set; }
 
         [XmlElement("R")]
-        public List<TradingMovementsOfSecuritiesRow> Rows { get; set; }
+        public Collection<TradingMovementsOfSecuritiesRow> Rows { get; private set; }
 
         [XmlElement("T")]
-        public List<TradingMovementsOfSecuritiesTotal> Total { get; set; }
+        public Collection<TradingMovementsOfSecuritiesTotal> Total { get; private set; }
+
+        public TradingMovementsOfSecurities()
+        {
+            Rows = new Collection<TradingMovementsOfSecuritiesRow>();
+            Total = new Collection<TradingMovementsOfSecuritiesTotal>();
+        }
     }
 }
