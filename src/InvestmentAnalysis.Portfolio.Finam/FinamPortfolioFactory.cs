@@ -15,7 +15,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         private readonly TimeZoneInfo RussianStandardTime;
         
-        FinamPortfolioFactory()
+        internal FinamPortfolioFactory()
         {
             RussianStandardTime = TimeZoneInfo.GetSystemTimeZones()
                 .First(tz => ((tz.Id == RussianStandardTimeZoneId) || (tz.Id == EuropeMoscowTimeZoneId)));
