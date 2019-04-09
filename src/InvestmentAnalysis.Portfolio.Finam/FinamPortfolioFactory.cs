@@ -10,7 +10,16 @@ namespace InvestmentAnalysis.Portfolio.Finam
 {
     sealed class FinamPortfolioFactory : IPortfolioFactory<FinamPortfolio>
     {
-        private readonly TimeZoneInfo MoscowZone = TimeZoneInfo.FindSystemTimeZoneById("Europe/Moscow");
+        private const string RussianStandardTimeZoneId = "Russian Standard Time";
+        private const string EuropeMoscowTimeZoneId = "Europe/Moscow";
+
+        private readonly TimeZoneInfo RussianStandardTime;
+        
+        FinamPortfolioFactory()
+        {
+            RussianStandardTime = TimeZoneInfo.GetSystemTimeZones()
+                .First(tz => ((tz.Id == RussianStandardTimeZoneId) || (tz.Id == EuropeMoscowTimeZoneId)));
+        }
 
         public FinamPortfolio CreatePortfolio(XmlReader reader)
         {
@@ -34,14 +43,14 @@ namespace InvestmentAnalysis.Portfolio.Finam
                         DateTime
                             .ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture)
                             .Add(row.TradeTime.TimeOfDay),
-                        MoscowZone,
+                        RussianStandardTime,
                         TimeZoneInfo.Utc)
                     .Ticks,
                 (int) row.Quantity,
                 row.Price);
         }
 
-        private TransactionType GetTransactionType(string tradeType)
+        private static TransactionType GetTransactionType(string tradeType)
         {
             switch (tradeType)
             {
