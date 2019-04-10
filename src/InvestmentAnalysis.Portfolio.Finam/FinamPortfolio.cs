@@ -22,7 +22,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <exception cref="System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
         public FinamPortfolio(IEnumerable<FinamTransaction> collection)
         {
-            // Contract.Requires<ArgumentNullException>(collection != null);
+            Contract.Requires<ArgumentNullException>(collection != null);
             if (collection == null)
             {
                 throw new ArgumentNullException(nameof(collection));

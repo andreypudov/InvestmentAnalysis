@@ -6,6 +6,8 @@ namespace InvestmentAnalysis.Portfolio.Finam
 {
     public sealed class FinamTransaction : ITransaction
     {
+        public string Symbol { get; }
+
         public TransactionType TransactionType { get; }
 
         public long DateTime { get; }
@@ -14,12 +16,16 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         public decimal Price { get; }
 
-        public FinamTransaction(TransactionType transactionType, long date, int units, decimal price)
+        public Currency Currency { get; }
+
+        public FinamTransaction(string symbol, TransactionType transactionType, long date, int units, decimal price, Currency currency)
         {
+            Symbol = symbol;
             TransactionType = transactionType;
             DateTime = date;
             Units = units;
             Price = price;
+            Currency = currency;
         }
 
         public override bool Equals(object obj)

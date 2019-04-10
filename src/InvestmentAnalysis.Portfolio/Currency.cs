@@ -7,6 +7,8 @@ namespace InvestmentAnalysis.Portfolio
     /// </summary>
     public enum Currency
     {
+        Invalid = 0,
+
         AED = 784, // 2 United Arab Emirates dirham United Arab Emirates
         AFN = 971, // 2 Afghan afghani Afghanistan
         ALL = 008, // 2 Albanian lek Albania
@@ -185,6 +187,6 @@ namespace InvestmentAnalysis.Portfolio
         YER = 886, // 2 Yemeni rial Yemen
         ZAR = 710, // 2 South African rand Lesotho, Namibia, South Africa
         ZMW = 967, // 2 Zambian kwacha Zambia
-        ZWL = 932, // 2 Zimbabwean dollar Zimbabwe
+        ZWL = 932  // 2 Zimbabwean dollar Zimbabwe
     }
 }

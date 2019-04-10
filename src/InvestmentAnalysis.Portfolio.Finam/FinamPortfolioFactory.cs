@@ -13,11 +13,11 @@ namespace InvestmentAnalysis.Portfolio.Finam
         private const string RussianStandardTimeZoneId = "Russian Standard Time";
         private const string EuropeMoscowTimeZoneId = "Europe/Moscow";
 
-        private readonly TimeZoneInfo RussianStandardTime;
+        private readonly TimeZoneInfo _russianStandardTime;
         
         internal FinamPortfolioFactory()
         {
-            RussianStandardTime = TimeZoneInfo.GetSystemTimeZones()
+            _russianStandardTime = TimeZoneInfo.GetSystemTimeZones()
                 .First(tz => ((tz.Id == RussianStandardTimeZoneId) || (tz.Id == EuropeMoscowTimeZoneId)));
         }
 
@@ -30,24 +30,31 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 .Sections
                 .TradingMovementsOfSecurities
                 .Rows
-                .Select(row => GetTransaction(row));
+                .Select(GetTradingMovementsTransaction);
 
             return new FinamPortfolio(transactions);
         }
 
-        private FinamTransaction GetTransaction(TradingMovementsOfSecuritiesRow row)
+        private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
         {
+            if (Enum.TryParse(row.Currency, out Currency currency) == false)
+            {
+                currency = Currency.Invalid;
+            }
+
             return new FinamTransaction(
+                row.ShortName,
                 GetTransactionType(row.TradeType),
                 TimeZoneInfo.ConvertTime(
                         DateTime
                             .ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture)
                             .Add(row.TradeTime.TimeOfDay),
-                        RussianStandardTime,
+                        _russianStandardTime,
                         TimeZoneInfo.Utc)
                     .Ticks,
                 (int) row.Quantity,
-                row.Price);
+                row.Price,
+                currency);
         }
 
         private static TransactionType GetTransactionType(string tradeType)

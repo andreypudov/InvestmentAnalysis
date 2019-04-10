@@ -7,6 +7,8 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(ITransaction))]
     public abstract class TransactionContract : ITransaction
     {
+        public string Symbol => Contract.Result<string>();
+
         public TransactionType TransactionType => Contract.Result<TransactionType>();
 
         public long DateTime => Contract.Result<int>();
@@ -14,6 +16,8 @@ namespace InvestmentAnalysis.Portfolio
         public int Units => Contract.Result<int>();
 
         public decimal Price => Contract.Result<decimal>();
+
+        public Currency Currency => Contract.Result<Currency>();
 
         public bool Equals(ITransaction other) => Contract.Result<bool>();
     }

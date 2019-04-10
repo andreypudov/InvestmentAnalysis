@@ -8,6 +8,8 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClass(typeof(TransactionContract))]
     public interface ITransaction : IEquatable<ITransaction>
     {
+        string Symbol { get; }
+
         TransactionType TransactionType { get; }
 
         long DateTime { get; }
@@ -15,5 +17,7 @@ namespace InvestmentAnalysis.Portfolio
         int Units { get; }
 
         decimal Price { get; }
+
+        Currency Currency { get; }
     }
 }
