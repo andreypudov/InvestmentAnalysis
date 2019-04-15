@@ -187,6 +187,6 @@ namespace InvestmentAnalysis.Portfolio
         YER = 886, // 2 Yemeni rial Yemen
         ZAR = 710, // 2 South African rand Lesotho, Namibia, South Africa
         ZMW = 967, // 2 Zambian kwacha Zambia
-        ZWL = 932  // 2 Zimbabwean dollar Zimbabwe
+        ZWL = 932, // 2 Zimbabwean dollar Zimbabwe
     }
 }

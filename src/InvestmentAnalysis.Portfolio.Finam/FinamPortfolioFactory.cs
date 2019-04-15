@@ -37,11 +37,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
         {
-            if (Enum.TryParse(row.Currency, out Currency currency) == false)
-            {
-                currency = Currency.Invalid;
-            }
-
             return new FinamTransaction(
                 row.ShortName,
                 GetTransactionType(row.TradeType),
@@ -54,7 +49,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
                     .Ticks,
                 (int) row.Quantity,
                 row.Price,
-                currency);
+                FinamCurrency.Parse(row.Currency));
         }
 
         private static TransactionType GetTransactionType(string tradeType)
