@@ -2,12 +2,12 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-using System;
-using System.Collections.ObjectModel;
-using System.Xml.Serialization;
-
 namespace InvestmentAnalysis.Portfolio.Finam.Report
 {
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Xml.Serialization;
+
     /// <summary>
     /// Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии.
     /// </summary>

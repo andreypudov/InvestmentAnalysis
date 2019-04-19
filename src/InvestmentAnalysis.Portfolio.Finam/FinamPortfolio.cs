@@ -2,14 +2,14 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Diagnostics.Contracts;
-using System.Linq;
-
 namespace InvestmentAnalysis.Portfolio.Finam
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Collections.Immutable;
+    using System.Diagnostics.Contracts;
+    using System.Linq;
+
     public class FinamPortfolio : IPortfolio<FinamTransaction>
     {
         public static readonly FinamPortfolio Empty = new NullPortfolio();

@@ -2,14 +2,14 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Xml;
-
 namespace InvestmentAnalysis.Portfolio.Finam
 {
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Reflection;
+    using System.Xml;
+
     public sealed class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
         private readonly string _path;
