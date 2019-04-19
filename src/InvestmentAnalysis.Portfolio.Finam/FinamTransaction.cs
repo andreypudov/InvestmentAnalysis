@@ -22,40 +22,42 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
         public FinamTransaction(string symbol, TransactionType transactionType, long date, int units, decimal price, Currency currency)
         {
-            Symbol = symbol;
-            TransactionType = transactionType;
-            DateTime = date;
-            Units = units;
-            Price = price;
-            Currency = currency;
+            this.Symbol = symbol;
+            this.TransactionType = transactionType;
+            this.DateTime = date;
+            this.Units = units;
+            this.Price = price;
+            this.Currency = currency;
         }
 
         public override bool Equals(object obj)
         {
-            if ((obj == null) || (GetType() != obj.GetType()))
+            if ((obj == null) || (this.GetType() != obj.GetType()))
             {
                 return false;
             }
 
-            var transaction = (FinamTransaction) obj;
-            return ((TransactionType == transaction.TransactionType)
-                   && (DateTime == transaction.DateTime)
-                   && (Units == transaction.Units)
-                   && (Price == transaction.Price));
+            var transaction = (FinamTransaction)obj;
+            return (this.Symbol == transaction.Symbol)
+                   && (this.TransactionType == transaction.TransactionType)
+                   && (this.DateTime == transaction.DateTime)
+                   && (this.Units == transaction.Units)
+                   && (this.Price == transaction.Price)
+                   && (this.Currency == transaction.Currency);
         }
 
         public override int GetHashCode()
         {
             unchecked
             {
-                var hashCode = (int) TransactionType;
+                var hashCode = (int)this.TransactionType;
 
-                hashCode = (hashCode * 397) ^ Symbol.GetHashCode(StringComparison.Ordinal);
-                hashCode = (hashCode * 397) ^ TransactionType.GetHashCode();
-                hashCode = (hashCode * 397) ^ DateTime.GetHashCode();
-                hashCode = (hashCode * 397) ^ Units;
-                hashCode = (hashCode * 397) ^ Price.GetHashCode();
-                hashCode = (hashCode * 397) ^ Currency.GetHashCode();
+                hashCode = (hashCode * 397) ^ this.Symbol.GetHashCode(StringComparison.Ordinal);
+                hashCode = (hashCode * 397) ^ this.TransactionType.GetHashCode();
+                hashCode = (hashCode * 397) ^ this.DateTime.GetHashCode();
+                hashCode = (hashCode * 397) ^ this.Units;
+                hashCode = (hashCode * 397) ^ this.Price.GetHashCode();
+                hashCode = (hashCode * 397) ^ this.Currency.GetHashCode();
 
                 return hashCode;
             }
@@ -68,10 +70,12 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 return false;
             }
 
-            return ((TransactionType == other.TransactionType)
-                    && (DateTime == other.DateTime)
-                    && (Units == other.Units)
-                    && (Price == other.Price));
+            return (this.Symbol == other.Symbol)
+                    && (this.TransactionType == other.TransactionType)
+                    && (this.DateTime == other.DateTime)
+                    && (this.Units == other.Units)
+                    && (this.Price == other.Price)
+                    && (this.Currency == other.Currency);
         }
     }
 }
