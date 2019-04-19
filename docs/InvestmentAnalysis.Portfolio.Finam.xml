@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvestmentAnalysis.Portfolio.Finam</name>
+    </assembly>
+    <members>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio.#ctor(System.Collections.Generic.IEnumerable{InvestmentAnalysis.Portfolio.Finam.FinamTransaction})">
+            <summary>Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"></see> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.</summary>
+            <param name="collection">The collection whose elements are copied to the new list.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader"/> class for the specified file name.
+            </summary>
+            <param name="path">The complete file path to be read.</param>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.ReadXml(System.IO.Stream,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Reads the specified XML stream for a Portfolio schema.
+            </summary>
+            <param name="xmlStream">The XML stream.</param>
+            <param name="validationErrors">The validation errors.</param>
+            <returns></returns>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.OpenXml(System.IO.Stream,System.IO.Stream,System.Collections.Generic.ICollection{System.String})">
+            <summary>
+            Opens the XML stream, given an XSD validation.
+            </summary>
+            <param name="xmlStream">The XML stream.</param>
+            <param name="xsdStream">The XSD stream.</param>
+            <param name="validationErrors">The validation errors.</param>
+            <returns></returns>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.OpenXsd">
+            <summary>
+            Opens the XSD validation file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Account">
+            <summary>
+            Счет клиента.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Account.Name">
+            <summary>
+            Наименование счета клиента.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Client">
+            <summary>
+            Клиент.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Client.Name">
+            <summary>
+            Наименование клиента.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Contract">
+            <summary>
+            Договор с клиентом.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Contract.Name">
+            <summary>
+            Наименование договора.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.DepoAccount">
+            <summary>
+            Счет(а) депо.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.DepoAccount.Name">
+            <summary>
+            Наименование. (optional)
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Header">
+            <summary>
+            Заголовок документа.
+            </summary>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Requisites">
+            <summary>
+            Реквизиты документа.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Title">
+            <summary>
+            Заголовок документа.
+            </summary>
+            <value>The title.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Text">
+            <summary>
+            Заголовок отчета.
+            </summary>
+            <value>The text.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Firm">
+            <summary>
+            Наименование брокера.
+            </summary>
+            <value>The firm.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateBegin">
+            <summary>
+            Дата начала отчета.
+            </summary>
+            <value>The date begin.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateEnd">
+            <summary>
+            Дата окончания отчета.
+            </summary>
+            <value>The date end.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateCreate">
+            <summary>
+            Дата создания отчета.
+            </summary>
+            <value>The date create.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.AmountDays">
+            <summary>
+            Количество дней, за которые построен отчет.
+            </summary>
+            <value>The amount days.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Template.Name">
+            <summary>
+            Служебная информация.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Sections">
+            <summary>
+            Разделы "Отчета брокера".
+            </summary>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities">
+            <summary>
+            Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.Name">
+            <summary>
+            Название таблицы.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow">
+            <summary>
+            Строка таблицы "Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии".
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeDate">
+            <summary>
+            Дата сделки.
+            </summary>
+            <value>The trade date.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeTime">
+            <summary>
+            Время сделки. (optional)
+            </summary>
+            <value>The trade time.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ShortName">
+            <summary>
+            Краткое наименование ценной бумаги. (optional)
+            </summary>
+            <value>The short name.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ISIN">
+            <summary>
+            International Securities Identification Number. (optional)
+            </summary>
+            <value>The international securities identification number.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeType">
+            <summary>
+            Вид сделки / Операция.
+            </summary>
+            <value>The type of the trade.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Quantity">
+            <summary>
+            Количество (шт.). (optional)
+            </summary>
+            <value>The quantity.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Price">
+            <summary>
+            Цена сделки. (optional)
+            </summary>
+            <value>The price.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Currency">
+            <summary>
+            Валюта цены. (optional)
+            </summary>
+            <value>The currency.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.AccruedInterest">
+            <summary>
+            Накопленный купонный доход. (optional)
+            </summary>
+            <value>The acy.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeAmountInPriceCurrency">
+            <summary>
+            Сумма сделки в валюте цены. (optional)
+            </summary>
+            <value>The trade amount in price currency.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeAmountInPriceCurrencyWithAccruedInterest">
+            <summary>
+            Сумма сделки в валюте цены с НКД. (optional)
+            </summary>
+            <value>The trade amount in price currency with accrued interest.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PaymentCurrency">
+            <summary>
+            Валюта оплаты. (optional)
+            </summary>
+            <value>The payment currency.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.RubleExchangeRate">
+            <summary>
+            Курс к рублю. (optional)
+            </summary>
+            <value>The ruble exchange rate.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PaymentAmountInPriceCurrencyWithAccruedInterest">
+            <summary>
+            Сумма оплаты по сделке в валюте оплаты с НКД. (optional)
+            </summary>
+            <value>The payment amount in price currency with accrued interest.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Fee">
+            <summary>
+            Вознаграждение Брокера, биржевой сбор. (optional)
+            </summary>
+            <value>The fee.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.FeeCurrency">
+            <summary>
+            Валюта Вознаграждения Брокера, биржевого сбора. (optional)
+            </summary>
+            <value>The fee currency.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.DebtPayment">
+            <summary>
+            Задолженность по оплате. (optional)
+            </summary>
+            <value>he debt payment.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.DebtDelivery">
+            <summary>
+            Задолженность по поставке. (optional)
+            </summary>
+            <value>The debt delivery.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PlannedPaymentDate">
+            <summary>
+            Дата оплаты (план). (optional)
+            </summary>
+            <value>The planned payment date.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PlannedDeliveryDate">
+            <summary>
+            Дата поставки (план). (optional)
+            </summary>
+            <value>The planned delivery date.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ActualPaymentDate">
+            <summary>
+            Дата оплаты (факт). (optional)
+            </summary>
+            <value>The actual payment date.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ActualDeliveryDate">
+            <summary>
+            Дата поставки (факт). (optional)
+            </summary>
+            <value>The actual delivery date.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradingMode">
+            <summary>
+            Режим торгов. (optional)
+            </summary>
+            <value>The trading mode.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.StockExchange">
+            <summary>
+            Площадка. (optional)
+            </summary>
+            <value>The stock exchange.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.RequestNumber">
+            <summary>
+            Номер поручения/биржевой заявки. (optional)
+            </summary>
+            <value>The request number.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeNumber">
+            <summary>
+            № сделки. (optional)
+            </summary>
+            <value>The trade number.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Security">
+            <summary>
+            Ценная бумага (эмитент, вид, тип, категория, выпуск, транш, серия, № гос. регистрации). (optional)
+            </summary>
+            <value>The security.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Comment">
+            <summary>
+            Комментарии. (optional)
+            </summary>
+            <value>The comment.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal">
+            <summary>
+            Строка таблицы с итогами.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.Name">
+            <summary>
+            Итого.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.Fee">
+            <summary>
+            Сумма по колонке Вознаграждение Брокера, биржевой сбор. (optional)
+            </summary>
+            <value>The fee.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.FeeCurrency">
+            <summary>
+            Валюта Вознаграждения Брокера, биржевого сбора. (optional)
+            </summary>
+            <value>The fee currency.</value>
+        </member>
+    </members>
+</doc>
