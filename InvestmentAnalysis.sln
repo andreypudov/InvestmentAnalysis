@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.539
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentAnalysis.CommandLine", "src\InvestmentAnalysis.CommandLine\InvestmentAnalysis.CommandLine.csproj", "{F1E204AD-BAE8-49F5-A7DE-AA7191DF9A2E}"
 EndProject
@@ -13,9 +13,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{167E7198-4BF4-4A78-B564-83C4BB988F7E}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		stylecop.json = stylecop.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentAnalysis.Portfolio.Finam.Tests", "src\InvestmentAnalysis.Portfolio.Finam.Tests\InvestmentAnalysis.Portfolio.Finam.Tests.csproj", "{27C3CFAC-5E48-4F29-AF9A-45CFFFFFD8F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestmentAnalysis.Portfolio.Finam.Tests", "src\InvestmentAnalysis.Portfolio.Finam.Tests\InvestmentAnalysis.Portfolio.Finam.Tests.csproj", "{27C3CFAC-5E48-4F29-AF9A-45CFFFFFD8F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

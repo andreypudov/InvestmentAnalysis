@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvestmentAnalysis.CommandLine</name>
+    </assembly>
+    <members>
+        <member name="T:InvestmentAnalysis.CommandLine.CommandLineInterface">
+            <summary>
+            The InvestmentAnalysis CLI is a command-line tool providing greate experience for managing investment portfolios.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.CommandLine.CommandLineInterface.Main">
+            <summary>
+            The entry point.
+            </summary>
+        </member>
+    </members>
+</doc>

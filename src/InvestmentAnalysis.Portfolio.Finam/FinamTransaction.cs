@@ -48,7 +48,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             {
                 var hashCode = (int) TransactionType;
 
-                hashCode = (hashCode * 397) ^ Symbol.GetHashCode();
+                hashCode = (hashCode * 397) ^ Symbol.GetHashCode(StringComparison.Ordinal);
                 hashCode = (hashCode * 397) ^ TransactionType.GetHashCode();
                 hashCode = (hashCode * 397) ^ DateTime.GetHashCode();
                 hashCode = (hashCode * 397) ^ Units;
