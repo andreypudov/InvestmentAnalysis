@@ -8,18 +8,18 @@ namespace InvestmentAnalysis.Portfolio
     using System.Xml;
 
     /// <summary>
-    /// Provides access to factory methods for creating and configuring portfolio instance.
+    /// Provides access to factory methods for creating and configuring <see cref="IPortfolio{T}"/> instance.
     /// </summary>
-    /// <typeparam name="T">The type of <c>Portfolio</c>.</typeparam>
+    /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioFactoryContract))]
     public interface IPortfolioFactory<out T>
         where T : IPortfolio<ITransaction>
     {
         /// <summary>
-        /// Creates a portfolio with specified XML reader.
+        /// Creates a portfolio with specified <see cref="XmlReader"/>.
         /// </summary>
-        /// <param name="reader">The <c>XmlReader</c> containing the XML data to read.</param>
-        /// <returns>The created portfolio instance.</returns>
+        /// <param name="reader">The <see cref="XmlReader"/> containing the XML data to read.</param>
+        /// <returns>The created <see cref="IPortfolio{T}"/> instance.</returns>
         T CreatePortfolio(XmlReader reader);
     }
 }

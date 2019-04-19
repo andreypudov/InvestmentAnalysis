@@ -4,11 +4,19 @@
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
+    /// <summary>
+    /// Provides helper methods for currency management.
+    /// </summary>
     internal static class FinamCurrency
     {
+        /// <summary>
+        /// Converts the string representation of a currency to its ISO 4217 equivalent implemented by <c>Currency</c>.
+        /// </summary>
+        /// <param name="value">A string containing a currency to convert.</param>
+        /// <returns>A ISO 4217 equivalent to the currency specified in value.</returns>
         public static Currency Parse(string value)
         {
-            switch(value)
+            switch (value)
             {
                 case "Рубль":
                     return Currency.RUB;

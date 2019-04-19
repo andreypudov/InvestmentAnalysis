@@ -9,15 +9,15 @@ namespace InvestmentAnalysis.Portfolio
     /// <summary>
     /// Represents an investment portfolio writer.
     /// </summary>
-    /// <typeparam name="T">The type of <c>Portfolio</c>.</typeparam>
+    /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioWriterContract))]
     public interface IPortfolioWriter<in T>
         where T : IPortfolio<ITransaction>
     {
         /// <summary>
-        /// Writes the <c>IPortfolio</c> to the stream.
+        /// Writes the <see cref="IPortfolio{T}"/> to the stream.
         /// </summary>
-        /// <param name="portfolio">The instance of <c>Portfolio</c>.</param>
+        /// <param name="portfolio">The instance of <see cref="IPortfolio{T}"/>.</param>
         void Write(T portfolio);
     }
 }

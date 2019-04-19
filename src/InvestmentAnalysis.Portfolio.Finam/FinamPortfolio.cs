@@ -10,18 +10,29 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System.Diagnostics.Contracts;
     using System.Linq;
 
+    /// <summary>
+    /// The collection of individual transactions.
+    /// </summary>
     public class FinamPortfolio : IPortfolio<FinamTransaction>
     {
+        /// <summary>
+        /// Represents the empty <c>FinamPortfolio</c>.
+        /// </summary>
         public static readonly FinamPortfolio Empty = new NullPortfolio();
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinamPortfolio"/> class that is empty.
+        /// </summary>
         public FinamPortfolio()
         {
-            Transactions = Enumerable.Empty<FinamTransaction>();
+            this.Transactions = Enumerable.Empty<FinamTransaction>();
         }
 
-        /// <summary>Initializes a new instance of the <see cref="InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"></see> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.</summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinamPortfolio"/> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.
+        /// </summary>
         /// <param name="collection">The collection whose elements are copied to the new list.</param>
-        /// <exception cref="System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
         public FinamPortfolio(IEnumerable<FinamTransaction> collection)
         {
             Contract.Requires<ArgumentNullException>(collection != null);
@@ -30,9 +41,10 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 throw new ArgumentNullException(nameof(collection));
             }
 
-            Transactions = collection.ToImmutableList();
+            this.Transactions = collection.ToImmutableList();
         }
 
+        /// <inheritdoc/>
         public IEnumerable<FinamTransaction> Transactions
         {
             get;

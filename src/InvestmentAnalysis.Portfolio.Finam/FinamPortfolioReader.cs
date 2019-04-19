@@ -12,7 +12,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
     public sealed class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
-        private readonly string _path;
+        private readonly string path;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="FinamPortfolioReader"/> class for the specified file name.
@@ -20,12 +20,13 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="path">The complete file path to be read.</param>
         public FinamPortfolioReader(string path)
         {
-            _path = path ?? throw new ArgumentNullException(nameof(path));
+            this.path = path ?? throw new ArgumentNullException(nameof(path));
         }
 
+        /// <inheritdoc/>
         public FinamPortfolio Read()
         {
-            using (var stream = new FileStream(_path, FileMode.Open))
+            using (var stream = new FileStream(this.path, FileMode.Open))
             {
                 var validationErrors = new List<string>();
                 var portfolio = ReadXml(stream, validationErrors);

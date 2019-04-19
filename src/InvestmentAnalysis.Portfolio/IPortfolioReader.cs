@@ -9,15 +9,15 @@ namespace InvestmentAnalysis.Portfolio
     /// <summary>
     /// Represents an investment portfolio reader.
     /// </summary>
-    /// <typeparam name="T">The type of <c>Portfolio</c>.</typeparam>
+    /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioReaderContract))]
     public interface IPortfolioReader<out T>
         where T : IPortfolio<ITransaction>
     {
         /// <summary>
-        /// Reads the <c>IPortfolio</c> from the stream.
+        /// Reads the <see cref="IPortfolio{T}"/> from the stream.
         /// </summary>
-        /// <returns>The instance of <c>Portfolio</c>.</returns>
+        /// <returns>The instance of <see cref="IPortfolio{T}"/>.</returns>
         T Read();
     }
 }

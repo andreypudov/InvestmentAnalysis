@@ -10,48 +10,30 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System.Xml.Serialization;
     using InvestmentAnalysis.Portfolio.Finam.Report;
 
-    sealed class FinamPortfolioFactory : IPortfolioFactory<FinamPortfolio>
+    /// <summary>
+    /// Provides access to factory methods for creating and configuring <c>FinamPortfolio</c> instance.
+    /// </summary>
+    internal sealed class FinamPortfolioFactory : IPortfolioFactory<FinamPortfolio>
     {
         private const string RussianStandardTimeZoneId = "Russian Standard Time";
         private const string EuropeMoscowTimeZoneId = "Europe/Moscow";
 
-        private readonly TimeZoneInfo _russianStandardTime;
-        
-        internal FinamPortfolioFactory()
-        {
-            _russianStandardTime = TimeZoneInfo.GetSystemTimeZones()
+        private readonly TimeZoneInfo russianStandardTime = TimeZoneInfo.GetSystemTimeZones()
                 .First(tz => ((tz.Id == RussianStandardTimeZoneId) || (tz.Id == EuropeMoscowTimeZoneId)));
-        }
 
+        /// <inheritdoc/>
         public FinamPortfolio CreatePortfolio(XmlReader reader)
         {
             var serializer = new XmlSerializer(typeof(FinamReport));
-            var report = (FinamReport) serializer.Deserialize(reader);
+            var report = (FinamReport)serializer.Deserialize(reader);
 
             var transactions = report
                 .Sections
                 .TradingMovementsOfSecurities
                 .Rows
-                .Select(GetTradingMovementsTransaction);
+                .Select(this.GetTradingMovementsTransaction);
 
             return new FinamPortfolio(transactions);
-        }
-
-        private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
-        {
-            return new FinamTransaction(
-                row.ShortName,
-                GetTransactionType(row.TradeType),
-                TimeZoneInfo.ConvertTime(
-                        DateTime
-                            .ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture)
-                            .Add(row.TradeTime.TimeOfDay),
-                        _russianStandardTime,
-                        TimeZoneInfo.Utc)
-                    .Ticks,
-                (int) row.Quantity,
-                row.Price,
-                FinamCurrency.Parse(row.Currency));
         }
 
         private static TransactionType GetTransactionType(string tradeType)
@@ -64,7 +46,18 @@ namespace InvestmentAnalysis.Portfolio.Finam
                     return TransactionType.Sell;
                 default:
                     return TransactionType.Invalid;
-             }
+            }
+        }
+
+        private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
+        {
+            return new FinamTransaction(
+                symbol: row.ShortName,
+                transactionType: GetTransactionType(row.TradeType),
+                date: TimeZoneInfo.ConvertTime(DateTime.ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture).Add(row.TradeTime.TimeOfDay), this.russianStandardTime, TimeZoneInfo.Utc).Ticks,
+                units: (int)row.Quantity,
+                price: row.Price,
+                currency: FinamCurrency.Parse(row.Currency));
         }
     }
 }
