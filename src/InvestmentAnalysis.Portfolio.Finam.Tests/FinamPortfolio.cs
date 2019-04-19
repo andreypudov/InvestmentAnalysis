@@ -6,8 +6,14 @@ namespace InvestmentAnalysis.Portfolio.Finam.Tests
 {
     using Xunit;
 
+    /// <summary>
+    /// Test suite for FinamPortfolio.
+    /// </summary>
     public sealed class FinamPortfolio
     {
+        /// <summary>
+        /// Experimental test case.
+        /// </summary>
         [Fact]
         public void Test1()
         {

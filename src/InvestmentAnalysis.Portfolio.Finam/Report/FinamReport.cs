@@ -7,7 +7,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System;
     using System.Xml.Serialization;
 
-    [Serializable()]
+    [Serializable]
     [XmlRoot("REPORT_DOC")]
     public sealed class FinamReport
     {

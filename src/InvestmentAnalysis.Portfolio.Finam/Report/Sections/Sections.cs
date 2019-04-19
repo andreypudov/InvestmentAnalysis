@@ -10,7 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     /// <summary>
     /// Разделы "Отчета брокера".
     /// </summary>
-    [Serializable()]
+    [Serializable]
     public sealed class Sections
     {
         [XmlElement("DB9")]
