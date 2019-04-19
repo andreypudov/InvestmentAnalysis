@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Счет клиента.
+    /// The customer account [Счет клиента].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -18,12 +18,15 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class Account
     {
         /// <summary>
-        /// Наименование счета клиента.
+        /// Gets or sets the name of the customer account. [Наименование счета клиента].
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The name of the customer account [Наименование счета клиента].</value>
         [XmlAttribute]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets or sets the id of the customer account.
+        /// </summary>
         [XmlAttribute("ID")]
         public uint Id { get; set; }
     }

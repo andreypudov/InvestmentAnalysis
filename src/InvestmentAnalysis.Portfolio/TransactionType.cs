@@ -4,6 +4,9 @@
 
 namespace InvestmentAnalysis.Portfolio
 {
+    /// <summary>
+    /// The type of the transaction.
+    /// </summary>
     public enum TransactionType
     {
         Invalid, Buy, Sell, /* CoverShort, SellShort, */ Dividend, /* ReinvestDividend, Split, */ OtherExpense, OtherIncome

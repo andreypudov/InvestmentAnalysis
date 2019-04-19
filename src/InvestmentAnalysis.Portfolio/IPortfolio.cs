@@ -7,9 +7,17 @@ namespace InvestmentAnalysis.Portfolio
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
 
+    /// <summary>
+    /// The collection of individual transactions.
+    /// </summary>
+    /// <typeparam name="T">The type of <c>Transaction</c>.</typeparam>
     [ContractClass(typeof(PortfolioContract))]
-    public interface IPortfolio<out T> where T : ITransaction
+    public interface IPortfolio<out T>
+        where T : ITransaction
     {
+        /// <summary>
+        /// Gets enumerable collection of transactions.
+        /// </summary>
         IEnumerable<T> Transactions { get; }
     }
 }

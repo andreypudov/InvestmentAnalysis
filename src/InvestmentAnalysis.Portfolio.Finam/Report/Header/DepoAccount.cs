@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Счет(а) депо.
+    /// The custodial account [Счет(а) депо].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -18,9 +18,9 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class DepoAccount
     {
         /// <summary>
-        /// Наименование. (optional)
+        /// Gets or sets the name of the custodial account [Наименование]. (optional)
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The name of the custodial account [Наименование].</value>
         [XmlAttribute("N")]
         public string Name { get; set; }
     }

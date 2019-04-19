@@ -6,8 +6,18 @@ namespace InvestmentAnalysis.Portfolio
 {
     using System.Diagnostics.Contracts;
 
+    /// <summary>
+    /// Represents an investment portfolio reader.
+    /// </summary>
+    /// <typeparam name="T">The type of <c>Portfolio</c>.</typeparam>
     [ContractClass(typeof(PortfolioReaderContract))]
-    public interface IPortfolioReader<out T> where T : IPortfolio<ITransaction> {
+    public interface IPortfolioReader<out T>
+        where T : IPortfolio<ITransaction>
+    {
+        /// <summary>
+        /// Reads the <c>IPortfolio</c> from the stream.
+        /// </summary>
+        /// <returns>The instance of <c>Portfolio</c>.</returns>
         T Read();
     }
 }

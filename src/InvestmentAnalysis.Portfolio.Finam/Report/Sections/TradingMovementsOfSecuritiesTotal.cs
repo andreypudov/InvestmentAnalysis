@@ -18,21 +18,21 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class TradingMovementsOfSecuritiesTotal
     {
         /// <summary>
-        /// Итого.
+        /// Gets or sets the name of the total column [Итого].
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The name of the total column [Итого].</value>
         [XmlAttribute]
         public string Name { get; set; }
 
         /// <summary>
-        /// Сумма по колонке Вознаграждение Брокера, биржевой сбор. (optional)
+        /// Gets or sets the amount of broker reward. [Сумма по колонке Вознаграждение Брокера, биржевой сбор]. (optional)
         /// </summary>
         /// <value>The fee.</value>
         [XmlAttribute]
         public decimal Fee { get; set; }
 
         /// <summary>
-        /// Валюта Вознаграждения Брокера, биржевого сбора. (optional)
+        /// Gets or sets the broker reward currency [Валюта Вознаграждения Брокера, биржевого сбора]. (optional)
         /// </summary>
         /// <value>The fee currency.</value>
         [XmlAttribute("CurF")]

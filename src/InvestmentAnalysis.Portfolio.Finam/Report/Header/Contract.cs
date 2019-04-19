@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Договор с клиентом.
+    /// The customer agreement [Договор с клиентом].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -18,9 +18,9 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class Contract
     {
         /// <summary>
-        /// Наименование договора.
+        /// Gets or sets the name of the customer agreement [Наименование договора].
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The name of the customer agreement [Наименование договора].</value>
         [XmlAttribute]
         public string Name { get; set; }
     }
