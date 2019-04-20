@@ -1,0 +1,1161 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvestmentAnalysis.Portfolio</name>
+    </assembly>
+    <members>
+        <member name="T:InvestmentAnalysis.Portfolio.Currency">
+            <summary>
+            ISO 4217 Current currency and funds code list
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.Invalid">
+            <summary>
+            Invalid value of currency.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AED">
+            <summary>
+            2 United Arab Emirates dirham United Arab Emirates
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AFN">
+            <summary>
+            2 Afghan afghani Afghanistan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ALL">
+            <summary>
+            2 Albanian lek Albania
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AMD">
+            <summary>
+            2 Armenian dram Armenia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ANG">
+            <summary>
+            2 Netherlands Antillean guilder Curaçao (CW), Sint Maarten (SX)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AOA">
+            <summary>
+            2 Angolan kwanza Angola
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ARS">
+            <summary>
+            2 Argentine peso Argentina
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AUD">
+            <summary>
+            2 Australian dollar Australia, Christmas Island (CX), Cocos (Keeling) Islands (CC), Heard Island and McDonald Islands (HM), Kiribati (KI), Nauru (NR), Norfolk Island (NF), Tuvalu (TV)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AWG">
+            <summary>
+            2 Aruban florin Aruba
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.AZN">
+            <summary>
+            2 Azerbaijani manat Azerbaijan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BAM">
+            <summary>
+            2 Bosnia and Herzegovina convertible mark Bosnia and Herzegovina
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BBD">
+            <summary>
+            2 Barbados dollar Barbados
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BDT">
+            <summary>
+            2 Bangladeshi taka Bangladesh
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BGN">
+            <summary>
+            2 Bulgarian lev Bulgaria
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BHD">
+            <summary>
+            3 Bahraini dinar Bahrain
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BIF">
+            <summary>
+            0 Burundian franc Burundi
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BMD">
+            <summary>
+            2 Bermudian dollar Bermuda
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BND">
+            <summary>
+            2 Brunei dollar Brunei
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BOB">
+            <summary>
+            2 Boliviano Bolivia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BOV">
+            <summary>
+            2 Bolivian Mvdol (funds code) Bolivia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BRL">
+            <summary>
+            2 Brazilian real Brazil
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BSD">
+            <summary>
+            2 Bahamian dollar Bahamas
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BTN">
+            <summary>
+            2 Bhutanese ngultrum Bhutan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BWP">
+            <summary>
+            2 Botswana pula Botswana
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BYN">
+            <summary>
+            2 Belarusian ruble Belarus
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.BZD">
+            <summary>
+            2 Belize dollar Belize
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CAD">
+            <summary>
+            2 Canadian dollar Canada
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CDF">
+            <summary>
+            2 Congolese franc Democratic Republic of the Congo
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CHE">
+            <summary>
+            2 WIR Euro (complementary currency) Switzerland
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CHF">
+            <summary>
+            2 Swiss franc Switzerland, Liechtenstein (LI)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CHW">
+            <summary>
+            2 WIR Franc (complementary currency) Switzerland
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CLF">
+            <summary>
+            4 Unidad de Fomento (funds code) Chile
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CLP">
+            <summary>
+            0 Chilean peso Chile
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CNY">
+            <summary>
+            2 Renminbi (Chinese) yuan China
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.COP">
+            <summary>
+            2 Colombian peso Colombia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.COU">
+            <summary>
+            2 Unidad de Valor Real (UVR) (funds code) Colombia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CRC">
+            <summary>
+            2 Costa Rican colon Costa Rica
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CUC">
+            <summary>
+            2 Cuban convertible peso Cuba
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CUP">
+            <summary>
+            2 Cuban peso Cuba
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CVE">
+            <summary>
+            2 Cape Verde escudo Cabo Verde
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.CZK">
+            <summary>
+            2 Czech koruna Czechia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.DJF">
+            <summary>
+            0 Djiboutian franc Djibouti
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.DKK">
+            <summary>
+            2 Danish krone Denmark, Faroe Islands (FO), Greenland (GL)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.DOP">
+            <summary>
+            2 Dominican peso Dominican Republic
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.DZD">
+            <summary>
+            2 Algerian dinar Algeria
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.EGP">
+            <summary>
+            2 Egyptian pound Egypt
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ERN">
+            <summary>
+            2 Eritrean nakfa Eritrea
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ETB">
+            <summary>
+            2 Ethiopian birr Ethiopia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.EUR">
+            <summary>
+            2 Euro Åland Islands (AX), European Union (EU), Andorra (AD), Austria (AT), Belgium (BE), Cyprus (CY), Estonia (EE), Finland (FI), France (FR), French Southern and Antarctic Lands (TF), Germany (DE), Greece (GR), Guadeloupe (GP), Ireland (IE), Italy (IT), Latvia (LV), Lithuania (LT), Luxembourg (LU), Malta (MT), French Guiana (GF), Martinique (MQ), Mayotte (YT), Monaco (MC), Montenegro (ME), Netherlands (NL), Portugal (PT), Réunion (RE), Saint Barthélemy (BL), Saint Martin (MF), Saint Pierre and Miquelon (PM), San Marino (SM), Slovakia (SK), Slovenia (SI), Spain (ES), Holy See (VA)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.FJD">
+            <summary>
+            2 Fiji dollar Fiji
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.FKP">
+            <summary>
+            2 Falkland Islands pound Falkland Islands (pegged to GBP 1:1)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GBP">
+            <summary>
+            2 Pound sterling United Kingdom, British Indian Ocean Territory (IO) (also uses USD), the Isle of Man (IM, see Manx pound), Jersey (JE, see Jersey pound), and Guernsey (GG, see Guernsey pound)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GEL">
+            <summary>
+            2 Georgian lari Georgia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GHS">
+            <summary>
+            2 Ghanaian cedi Ghana
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GIP">
+            <summary>
+            2 Gibraltar pound Gibraltar (pegged to GBP 1:1)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GMD">
+            <summary>
+            2 Gambian dalasi Gambia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GNF">
+            <summary>
+            0 Guinean franc Guinea
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GTQ">
+            <summary>
+            2 Guatemalan quetzal Guatemala
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.GYD">
+            <summary>
+            2 Guyanese dollar Guyana
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.HKD">
+            <summary>
+            2 Hong Kong dollar Hong Kong
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.HNL">
+            <summary>
+            2 Honduran lempira Honduras
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.HRK">
+            <summary>
+            2 Croatian kuna Croatia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.HTG">
+            <summary>
+            2 Haitian gourde Haiti
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.HUF">
+            <summary>
+            2 Hungarian forint Hungary
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.IDR">
+            <summary>
+            2 Indonesian rupiah Indonesia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ILS">
+            <summary>
+            2 Israeli new shekel Israel, Palestinian Authority
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.INR">
+            <summary>
+            2 Indian rupee India, Bhutan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.IQD">
+            <summary>
+            3 Iraqi dinar Iraq
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.IRR">
+            <summary>
+            2 Iranian rial Iran
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ISK">
+            <summary>
+            0 Icelandic króna Iceland
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.JMD">
+            <summary>
+            2 Jamaican dollar Jamaica
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.JOD">
+            <summary>
+            3 Jordanian dinar Jordan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.JPY">
+            <summary>
+            0 Japanese yen Japan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KES">
+            <summary>
+            2 Kenyan shilling Kenya
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KGS">
+            <summary>
+            2 Kyrgyzstani som Kyrgyzstan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KHR">
+            <summary>
+            2 Cambodian riel Cambodia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KMF">
+            <summary>
+            0 Comoro franc Comoros
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KPW">
+            <summary>
+            2 North Korean won North Korea
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KRW">
+            <summary>
+            0 South Korean won South Korea
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KWD">
+            <summary>
+            3 Kuwaiti dinar Kuwait
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KYD">
+            <summary>
+            2 Cayman Islands dollar Cayman Islands
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.KZT">
+            <summary>
+            2 Kazakhstani tenge Kazakhstan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LAK">
+            <summary>
+            2 Lao kip Laos
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LBP">
+            <summary>
+            2 Lebanese pound Lebanon
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LKR">
+            <summary>
+            2 Sri Lankan rupee Sri Lanka
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LRD">
+            <summary>
+            2 Liberian dollar Liberia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LSL">
+            <summary>
+            2 Lesotho loti Lesotho
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.LYD">
+            <summary>
+            3 Libyan dinar Libya
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MAD">
+            <summary>
+            2 Moroccan dirham Morocco, Western Sahara
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MDL">
+            <summary>
+            2 Moldovan leu Moldova
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MGA">
+            <summary>
+            2 Malagasy ariary Madagascar
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MKD">
+            <summary>
+            2 Macedonian denar North Macedonia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MMK">
+            <summary>
+            2 Myanmar kyat Myanmar
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MNT">
+            <summary>
+            2 Mongolian tögrög Mongolia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MOP">
+            <summary>
+            2 Macanese pataca Macau
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MRU">
+            <summary>
+            2 Mauritanian ouguiya Mauritania
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MUR">
+            <summary>
+            2 Mauritian rupee Mauritius
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MVR">
+            <summary>
+            2 Maldivian rufiyaa Maldives
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MWK">
+            <summary>
+            2 Malawian kwacha Malawi
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MXN">
+            <summary>
+            2 Mexican peso Mexico
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MXV">
+            <summary>
+            2 Mexican Unidad de Inversion (UDI) (funds code) Mexico
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MYR">
+            <summary>
+            2 Malaysian ringgit Malaysia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.MZN">
+            <summary>
+            2 Mozambican metical Mozambique
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NAD">
+            <summary>
+            2 Namibian dollar Namibia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NGN">
+            <summary>
+            2 Nigerian naira Nigeria
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NIO">
+            <summary>
+            2 Nicaraguan córdoba Nicaragua
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NOK">
+            <summary>
+            2 Norwegian krone Norway, Svalbard and Jan Mayen (SJ), Bouvet Island (BV)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NPR">
+            <summary>
+            2 Nepalese rupee Nepal
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.NZD">
+            <summary>
+            2 New Zealand dollar New Zealand, Cook Islands (CK), Niue (NU), Pitcairn Islands (PN; see also Pitcairn Islands dollar), Tokelau (TK)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.OMR">
+            <summary>
+            3 Omani rial Oman
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PAB">
+            <summary>
+            2 Panamanian balboa Panama
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PEN">
+            <summary>
+            2 Peruvian sol Peru
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PGK">
+            <summary>
+            2 Papua New Guinean kina Papua New Guinea
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PHP">
+            <summary>
+            2 Philippine peso[14] Philippines
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PKR">
+            <summary>
+            2 Pakistani rupee Pakistan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PLN">
+            <summary>
+            2 Polish złoty Poland
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.PYG">
+            <summary>
+            0 Paraguayan guaraní Paraguay
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.QAR">
+            <summary>
+            2 Qatari riyal Qatar
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.RON">
+            <summary>
+            2 Romanian leu Romania
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.RSD">
+            <summary>
+            2 Serbian dinar Serbia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.RUB">
+            <summary>
+            2 Russian ruble Russia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.RWF">
+            <summary>
+            0 Rwandan franc Rwanda
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SAR">
+            <summary>
+            2 Saudi riyal Saudi Arabia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SBD">
+            <summary>
+            2 Solomon Islands dollar Solomon Islands
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SCR">
+            <summary>
+            2 Seychelles rupee Seychelles
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SDG">
+            <summary>
+            2 Sudanese pound Sudan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SEK">
+            <summary>
+            2 Swedish krona/kronor Sweden
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SGD">
+            <summary>
+            2 Singapore dollar Singapore
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SHP">
+            <summary>
+            2 Saint Helena pound Saint Helena (SH-SH), Ascension Island (SH-AC), Tristan da Cunha
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SLL">
+            <summary>
+            2 Sierra Leonean leone Sierra Leone
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SOS">
+            <summary>
+            2 Somali shilling Somalia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SRD">
+            <summary>
+            2 Surinamese dollar Suriname
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SSP">
+            <summary>
+            2 South Sudanese pound South Sudan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.STN">
+            <summary>
+            2 São Tomé and Príncipe dobra São Tomé and Príncipe
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SVC">
+            <summary>
+            2 Salvadoran colón El Salvador
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SYP">
+            <summary>
+            2 Syrian pound Syria
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.SZL">
+            <summary>
+            2 Swazi lilangeni Eswatini
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.THB">
+            <summary>
+            2 Thai baht Thailand
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TJS">
+            <summary>
+            2 Tajikistani somoni Tajikistan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TMT">
+            <summary>
+            2 Turkmenistan manat Turkmenistan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TND">
+            <summary>
+            3 Tunisian dinar Tunisia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TOP">
+            <summary>
+            2 Tongan paʻanga Tonga
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TRY">
+            <summary>
+            2 Turkish lira Turkey
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TTD">
+            <summary>
+            2 Trinidad and Tobago dollar Trinidad and Tobago
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TWD">
+            <summary>
+            2 New Taiwan dollar Taiwan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.TZS">
+            <summary>
+            2 Tanzanian shilling Tanzania
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UAH">
+            <summary>
+            2 Ukrainian hryvnia Ukraine
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UGX">
+            <summary>
+            0 Ugandan shilling Uganda
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.USD">
+            <summary>
+            2 United States dollar United States, American Samoa (AS), Barbados (BB) (as well as Barbados Dollar), Bermuda (BM) (as well as Bermudian Dollar), British Indian Ocean Territory (IO) (also uses GBP), British Virgin Islands (VG), Caribbean Netherlands (BQ - Bonaire, Sint Eustatius and Saba), Ecuador (EC), El Salvador (SV), Guam (GU), Haiti (HT), Marshall Islands (MH), Federated States of Micronesia (FM), Northern Mariana Islands (MP), Palau (PW), Panama (PA) (as well as Panamanian Balboa), Puerto Rico (PR), Timor-Leste (TL), Turks and Caicos Islands (TC), U.S. Virgin Islands (VI), United States Minor Outlying Islands (UM)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.USN">
+            <summary>
+            2 United States dollar (next day) (funds code) United States
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UYI">
+            <summary>
+            0 Uruguay Peso en Unidades Indexadas (URUIURUI) (funds code) Uruguay
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UYU">
+            <summary>
+            2 Uruguayan peso Uruguay
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UYW">
+            <summary>
+            4 Unidad previsional Uruguay
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.UZS">
+            <summary>
+            2 Uzbekistan som Uzbekistan
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.VES">
+            <summary>
+            2 Venezuelan bolívar soberano Venezuela
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.VND">
+            <summary>
+            0 Vietnamese đồng Vietnam
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.VUV">
+            <summary>
+            0 Vanuatu vatu Vanuatu
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.WST">
+            <summary>
+            2 Samoan tala Samoa
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XAF">
+            <summary>
+            0 CFA franc BEAC Cameroon (CM), Central African Republic (CF), Republic of the Congo (CG), Chad (TD), Equatorial Guinea (GQ), Gabon (GA)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XAG">
+            <summary>
+            . Silver (one troy ounce)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XAU">
+            <summary>
+            . Gold (one troy ounce)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XBA">
+            <summary>
+            . European Composite Unit (EURCO) (bond market unit)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XBB">
+            <summary>
+            . European Monetary Unit (E.M.U.-6) (bond market unit)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XBC">
+            <summary>
+            . European Unit of Account 9 (E.U.A.-9) (bond market unit)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XBD">
+            <summary>
+            . European Unit of Account 17 (E.U.A.-17) (bond market unit)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XCD">
+            <summary>
+            2 East Caribbean dollar Anguilla (AI), Antigua and Barbuda (AG), Dominica (DM), Grenada (GD), Montserrat (MS), Saint Kitts and Nevis (KN), Saint Lucia (LC), Saint Vincent and the Grenadines (VC)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XDR">
+            <summary>
+            . Special drawing rights International Monetary Fund
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XOF">
+            <summary>
+            0 CFA franc BCEAO Benin (BJ), Burkina Faso (BF), Côte d'Ivoire (CI), Guinea-Bissau (GW), Mali (ML), Niger (NE), Senegal (SN), Togo (TG)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XPD">
+            <summary>
+            . Palladium (one troy ounce)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XPF">
+            <summary>
+            0 CFP franc (franc Pacifique) French territories of the Pacific Ocean: French Polynesia (PF), New Caledonia (NC), Wallis and Futuna (WF)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XPT">
+            <summary>
+            . Platinum (one troy ounce)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XSU">
+            <summary>
+            . SUCRE Unified System for Regional Compensation (SUCRE)
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XTS">
+            <summary>
+            . Code reserved for testing
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XUA">
+            <summary>
+            ADB Unit of Account African Development Bank
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.XXX">
+            <summary>
+            No currency
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.YER">
+            <summary>
+            2 Yemeni rial Yemen
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ZAR">
+            <summary>
+            2 South African rand Lesotho, Namibia, South Africa
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ZMW">
+            <summary>
+            2 Zambian kwacha Zambia
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Currency.ZWL">
+            <summary>
+            2 Zimbabwean dollar Zimbabwe
+            </summary>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IPortfolio`1">
+            <summary>
+            The collection of individual transactions.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ITransaction"/>.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IPortfolio`1.Transactions">
+            <summary>
+            Gets enumerable collection of transactions.
+            </summary>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IPortfolioFactory`1">
+            <summary>
+            Provides access to factory methods for creating and configuring <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> instance.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</typeparam>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.IPortfolioFactory`1.CreatePortfolio(System.Xml.XmlReader)">
+            <summary>
+            Creates a portfolio with specified <see cref="T:System.Xml.XmlReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> containing the XML data to read.</param>
+            <returns>The created <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> instance.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IPortfolioReader`1">
+            <summary>
+            Represents an investment portfolio reader.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</typeparam>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.IPortfolioReader`1.Read">
+            <summary>
+            Reads the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> from the stream.
+            </summary>
+            <returns>The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IPortfolioWriter`1">
+            <summary>
+            Represents an investment portfolio writer.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</typeparam>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.IPortfolioWriter`1.Write(`0)">
+            <summary>
+            Writes the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> to the stream.
+            </summary>
+            <param name="portfolio">The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</param>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.ITransaction">
+            <summary>
+            Represents a financial transaction.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.Symbol">
+            <summary>
+            Gets the ticker symbol of the stock.
+            </summary>
+            <value>The ticker symbol of the stock.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.TransactionType">
+            <summary>
+            Gets the type of the transaction.
+            </summary>
+            <value>The type of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.DateTime">
+            <summary>
+            Gets the date and time of the transaction.
+            </summary>
+            <value>The date and time of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.Units">
+            <summary>
+            Gets the units of the transaction.
+            </summary>
+            <value>The units of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.Price">
+            <summary>
+            Gets the price of the individual unit.
+            </summary>
+            <value>The price of the individual unit.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction.Currency">
+            <summary>
+            Gets the currency of the transaction.
+            </summary>
+            <value>The currency of the transaction..</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PortfolioContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.PortfolioContract.Transactions">
+            <summary>
+            Gets enumerable collection of transactions.
+            </summary>
+            <value>The enumerable collection of transactions.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PortfolioFactoryContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioFactory`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioFactoryContract.CreatePortfolio(System.Xml.XmlReader)">
+            <summary>
+            Creates a portfolio with specified <see cref="T:System.Xml.XmlReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> containing the XML data to read.</param>
+            <returns>The created <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> instance.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PortfolioReaderContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioReader`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderContract.Read">
+            <summary>
+            Reads the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> from the stream.
+            </summary>
+            <returns>The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PortfolioReaderException">
+            <summary>
+            Represents errors that occur during reading of the portfolio.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.PortfolioReaderException"/> class.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.PortfolioReaderException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.PortfolioReaderException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference if no inner exception is specified.</param>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.PortfolioReaderException"/> class with additional user-defined information about the exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="errors">Additional user-defined information about the exception.</param>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PortfolioWriterContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioWriter`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioWriterContract.Write(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction})">
+            <summary>
+            Writes the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> to the stream.
+            </summary>
+            <param name="portfolio">The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</param>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.TransactionContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Symbol">
+            <summary>
+            Gets the ticker symbol of the stock.
+            </summary>
+            <value>The ticker symbol of the stock.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.TransactionType">
+            <summary>
+            Gets the type of the transaction.
+            </summary>
+            <value>The type of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.DateTime">
+            <summary>
+            Gets the date and time of the transaction.
+            </summary>
+            <value>The date and time of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Units">
+            <summary>
+            Gets the units of the transaction.
+            </summary>
+            <value>The units of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Price">
+            <summary>
+            Gets the price of the individual unit.
+            </summary>
+            <value>The price of the individual unit.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Currency">
+            <summary>
+            Gets the currency of the transaction.
+            </summary>
+            <value>The currency of the transaction..</value>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.TransactionContract.Equals(InvestmentAnalysis.Portfolio.ITransaction)">
+            <summary>
+            Determines whether the specified <see cref="T:InvestmentAnalysis.Portfolio.ITransaction"/> is equal to the current <see cref="T:InvestmentAnalysis.Portfolio.TransactionContract"/>.
+            </summary>
+            <param name="other">The <see cref="T:InvestmentAnalysis.Portfolio.ITransaction"/> to compare with the current <see cref="T:InvestmentAnalysis.Portfolio.TransactionContract"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:InvestmentAnalysis.Portfolio.ITransaction"/> is equal to the current
+            <see cref="T:InvestmentAnalysis.Portfolio.TransactionContract"/>; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.TransactionType">
+            <summary>
+            The type of the transaction.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.Invalid">
+            <summary>
+            The transaction is invalid.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.Buy">
+            <summary>
+            The buy type of the transaction.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.Sell">
+            <summary>
+            The sell type of the transaction.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.Dividend">
+            <summary>
+            The dividend type of the transaction.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.OtherExpense">
+            <summary>
+            The other expense type of the transaction.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.TransactionType.OtherIncome">
+            <summary>
+            The other income type of the transaction.
+            </summary>
+        </member>
+    </members>
+</doc>

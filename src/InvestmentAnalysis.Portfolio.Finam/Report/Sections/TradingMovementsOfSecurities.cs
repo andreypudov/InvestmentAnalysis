@@ -9,7 +9,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии.
+    /// The list of transactions represents secutiry tradings [Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
@@ -19,9 +19,9 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class TradingMovementsOfSecurities
     {
         /// <summary>
-        /// Название таблицы.
+        /// The name of the table [Название таблицы].
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The name of the table.</value>
         [XmlAttribute]
         public string Name { get; set; }
 

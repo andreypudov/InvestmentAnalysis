@@ -6,9 +6,16 @@ namespace InvestmentAnalysis.Portfolio
 {
     using System.Diagnostics.Contracts;
 
+    /// <summary>
+    /// The contract class for <see cref="IPortfolioWriter{T}"/>.
+    /// </summary>
     [ContractClassFor(typeof(IPortfolioWriter<>))]
     public abstract class PortfolioWriterContract : IPortfolioWriter<IPortfolio<ITransaction>>
     {
+        /// <summary>
+        /// Writes the <see cref="IPortfolio{T}"/> to the stream.
+        /// </summary>
+        /// <param name="portfolio">The instance of <see cref="IPortfolio{T}"/>.</param>
         public void Write(IPortfolio<ITransaction> portfolio)
         {
             Contract.Requires(portfolio != null);

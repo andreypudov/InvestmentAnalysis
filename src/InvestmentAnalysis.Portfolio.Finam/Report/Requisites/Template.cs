@@ -7,6 +7,9 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System;
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// Template of the report.
+    /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(
         "Microsoft.CodeAnalysis.FxCopAnalyzers",
@@ -15,9 +18,9 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class Template
     {
         /// <summary>
-        /// Служебная информация.
+        /// Gets or sets the service information [Служебная информация].
         /// </summary>
-        /// <value>The name.</value>
+        /// <value>The service information [Служебная информация].</value>
         [XmlAttribute]
         public string Name { get; set; }
     }

@@ -8,11 +8,15 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Разделы "Отчета брокера".
+    /// The sections of the broker report [Разделы "Отчета брокера"].
     /// </summary>
     [Serializable]
     public sealed class Sections
     {
+        /// <summary>
+        /// Gets or sets the trading movements of securities [Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии].
+        /// </summary>
+        /// <value>The trading movements of securities.</value>
         [XmlElement("DB9")]
         public TradingMovementsOfSecurities TradingMovementsOfSecurities { get; set; }
     }

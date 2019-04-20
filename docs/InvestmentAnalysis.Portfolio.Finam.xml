@@ -4,16 +4,59 @@
         <name>InvestmentAnalysis.Portfolio.Finam</name>
     </assembly>
     <members>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamCurrency">
+            <summary>
+            Provides helper methods for currency management.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamCurrency.Parse(System.String)">
+            <summary>
+            Converts the string representation of a currency to its ISO 4217 equivalent implemented by <c>Currency</c>.
+            </summary>
+            <param name="value">A string containing a currency to convert.</param>
+            <returns>A ISO 4217 equivalent to the currency specified in value.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio">
+            <summary>
+            The collection of individual transactions.
+            </summary>
+        </member>
+        <member name="F:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio.Empty">
+            <summary>
+            Represents the empty <c>FinamPortfolio</c>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"/> class that is empty.
+            </summary>
+        </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio.#ctor(System.Collections.Generic.IEnumerable{InvestmentAnalysis.Portfolio.Finam.FinamTransaction})">
-            <summary>Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"></see> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.</summary>
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"/> class that contains elements copied from the specified collection and has sufficient capacity to accommodate the number of elements copied.
+            </summary>
             <param name="collection">The collection whose elements are copied to the new list.</param>
             <exception cref="T:System.ArgumentNullException"><paramref name="collection">collection</paramref> is null.</exception>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio.Transactions">
+            <inheritdoc/>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioFactory">
+            <summary>
+            Provides access to factory methods for creating and configuring <c>FinamPortfolio</c> instance.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioFactory.CreatePortfolio(System.Xml.XmlReader)">
+            <inheritdoc/>
         </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader"/> class for the specified file name.
             </summary>
             <param name="path">The complete file path to be read.</param>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.Read">
+            <inheritdoc/>
         </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.ReadXml(System.IO.Stream,System.Collections.Generic.ICollection{System.String})">
             <summary>
@@ -40,52 +83,93 @@
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Account">
             <summary>
-            Счет клиента.
+            The customer account [Счет клиента].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Account.Name">
             <summary>
-            Наименование счета клиента.
+            Gets or sets the name of the customer account. [Наименование счета клиента].
             </summary>
-            <value>The name.</value>
+            <value>The name of the customer account [Наименование счета клиента].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Account.Id">
+            <summary>
+            Gets or sets the id of the customer account.
+            </summary>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Client">
             <summary>
-            Клиент.
+            The customer [Клиент].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Client.Name">
             <summary>
-            Наименование клиента.
+            Gets or sets the name of the customer [Наименование клиента].
             </summary>
-            <value>The name.</value>
+            <value>The name of the customer [Наименование клиента].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Contract">
             <summary>
-            Договор с клиентом.
+            The customer agreement [Договор с клиентом].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Contract.Name">
             <summary>
-            Наименование договора.
+            Gets or sets the name of the customer agreement [Наименование договора].
             </summary>
-            <value>The name.</value>
+            <value>The name of the customer agreement [Наименование договора].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.DepoAccount">
             <summary>
-            Счет(а) депо.
+            The custodial account [Счет(а) депо].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.DepoAccount.Name">
             <summary>
-            Наименование. (optional)
+            Gets or sets the name of the custodial account [Наименование]. (optional)
             </summary>
-            <value>The name.</value>
+            <value>The name of the custodial account [Наименование].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Header">
             <summary>
-            Заголовок документа.
+            The header of portfolio document [Заголовок документа].
             </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.IsReference">
+            <summary>
+            Gets or sets a value indicating whether report is reference [Тип отчета: справка]. (optional)
+            </summary>
+            <value><c>true</c> if report is reference [Тип отчета: справка]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.IsShortForm">
+            <summary>
+            Gets or sets a value indicating whether report is short form [Тип отчета: краткая форма]. (optional)
+            </summary>
+            <value><c>true</c> if report is short form [Тип отчета: краткая форма]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.Account">
+            <summary>
+            Gets or sets the customer account [Счет клиента].
+            </summary>
+            <value>The customer account [Счет клиента].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.Client">
+            <summary>
+            Gets or sets the customer [Клиент].
+            </summary>
+            <value>The customer [Клиент].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.Contract">
+            <summary>
+            Gets or sets the customer agreement [Договор с клиентом].
+            </summary>
+            <value>The customer agreement [Договор с клиентом].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.DepoAccount">
+            <summary>
+            Gets or sets the custodial account [Счет(а) депо].
+            </summary>
+            <value>The custodial account [Счет(а) депо].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Requisites">
             <summary>
@@ -94,67 +178,84 @@
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Title">
             <summary>
-            Заголовок документа.
+            Gets or sets the title of the document [Заголовок документа].
             </summary>
-            <value>The title.</value>
+            <value>The title of the document [Заголовок документа].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Text">
             <summary>
-            Заголовок отчета.
+            Gets or sets the title of the report [Заголовок отчета].
             </summary>
-            <value>The text.</value>
+            <value>The title of the report [Заголовок отчета].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Firm">
             <summary>
-            Наименование брокера.
+            Gets or sets the name of the broker [Наименование брокера].
             </summary>
-            <value>The firm.</value>
+            <value>The name of the broker [Наименование брокера].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateBegin">
             <summary>
-            Дата начала отчета.
+            Gets or sets the start date of the report [Дата начала отчета].
             </summary>
-            <value>The date begin.</value>
+            <value>The start date of the report [Дата начала отчета].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateEnd">
             <summary>
-            Дата окончания отчета.
+            Gets or sets the end date of the report [Дата окончания отчета].
             </summary>
-            <value>The date end.</value>
+            <value>The end date of the report [Дата окончания отчета].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.DateCreate">
             <summary>
-            Дата создания отчета.
+            Gets or sets the creation date of the report [Дата создания отчета].
             </summary>
-            <value>The date create.</value>
+            <value>The creation date of the report [Дата создания отчета].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.AmountDays">
             <summary>
-            Количество дней, за которые построен отчет.
+            Gets or sets the amount of days in the report [Количество дней, за которые построен отчет].
             </summary>
-            <value>The amount days.</value>
+            <value>The amount of days in the report [Количество дней, за которые построен отчет].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Template">
+            <summary>
+            Gets or sets the template of the report.
+            </summary>
+            <value>The template of the report.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Template">
+            <summary>
+            Template of the report.
+            </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Template.Name">
             <summary>
-            Служебная информация.
+            Gets or sets the service information [Служебная информация].
             </summary>
-            <value>The name.</value>
+            <value>The service information [Служебная информация].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Sections">
             <summary>
-            Разделы "Отчета брокера".
+            The sections of the broker report [Разделы "Отчета брокера"].
             </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Sections.TradingMovementsOfSecurities">
+            <summary>
+            Gets or sets the trading movements of securities [Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии].
+            </summary>
+            <value>The trading movements of securities.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities">
             <summary>
-            Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии.
+            The list of transactions represents secutiry tradings [Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.Name">
             <summary>
-            Название таблицы.
+            The name of the table [Название таблицы].
             </summary>
-            <value>The name.</value>
+            <value>The name of the table.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow">
             <summary>
@@ -336,19 +437,19 @@
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.Name">
             <summary>
-            Итого.
+            Gets or sets the name of the total column [Итого].
             </summary>
-            <value>The name.</value>
+            <value>The name of the total column [Итого].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.Fee">
             <summary>
-            Сумма по колонке Вознаграждение Брокера, биржевой сбор. (optional)
+            Gets or sets the amount of broker reward. [Сумма по колонке Вознаграждение Брокера, биржевой сбор]. (optional)
             </summary>
             <value>The fee.</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal.FeeCurrency">
             <summary>
-            Валюта Вознаграждения Брокера, биржевого сбора. (optional)
+            Gets or sets the broker reward currency [Валюта Вознаграждения Брокера, биржевого сбора]. (optional)
             </summary>
             <value>The fee currency.</value>
         </member>

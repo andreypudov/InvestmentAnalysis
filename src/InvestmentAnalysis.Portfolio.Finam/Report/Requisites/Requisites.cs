@@ -18,54 +18,58 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class Requisites
     {
         /// <summary>
-        /// Заголовок документа.
+        /// Gets or sets the title of the document [Заголовок документа].
         /// </summary>
-        /// <value>The title.</value>
+        /// <value>The title of the document [Заголовок документа].</value>
         [XmlAttribute]
         public string Title { get; set; }
 
         /// <summary>
-        /// Заголовок отчета.
+        /// Gets or sets the title of the report [Заголовок отчета].
         /// </summary>
-        /// <value>The text.</value>
+        /// <value>The title of the report [Заголовок отчета].</value>
         [XmlAttribute]
         public string Text { get; set; }
 
         /// <summary>
-        /// Наименование брокера.
+        /// Gets or sets the name of the broker [Наименование брокера].
         /// </summary>
-        /// <value>The firm.</value>
+        /// <value>The name of the broker [Наименование брокера].</value>
         [XmlAttribute]
         public string Firm { get; set; }
 
         /// <summary>
-        /// Дата начала отчета.
+        /// Gets or sets the start date of the report [Дата начала отчета].
         /// </summary>
-        /// <value>The date begin.</value>
+        /// <value>The start date of the report [Дата начала отчета].</value>
         [XmlAttribute]
         public string DateBegin { get; set; }
 
         /// <summary>
-        /// Дата окончания отчета.
+        /// Gets or sets the end date of the report [Дата окончания отчета].
         /// </summary>
-        /// <value>The date end.</value>
+        /// <value>The end date of the report [Дата окончания отчета].</value>
         [XmlAttribute]
         public string DateEnd { get; set; }
 
         /// <summary>
-        /// Дата создания отчета.
+        /// Gets or sets the creation date of the report [Дата создания отчета].
         /// </summary>
-        /// <value>The date create.</value>
+        /// <value>The creation date of the report [Дата создания отчета].</value>
         [XmlAttribute]
         public string DateCreate { get; set; }
 
         /// <summary>
-        /// Количество дней, за которые построен отчет.
+        /// Gets or sets the amount of days in the report [Количество дней, за которые построен отчет].
         /// </summary>
-        /// <value>The amount days.</value>
+        /// <value>The amount of days in the report [Количество дней, за которые построен отчет].</value>
         [XmlAttribute]
         public string AmountDays { get; set; }
 
+        /// <summary>
+        /// Gets or sets the template of the report.
+        /// </summary>
+        /// <value>The template of the report.</value>
         [XmlElement("TEMPLATE")]
         public Template Template { get; set; }
     }
