@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// The header of portfolio document [Заголовок документа].
+    /// The header of the portfolio document [Заголовок документа].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(

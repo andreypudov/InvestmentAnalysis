@@ -19,22 +19,33 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     public sealed class TradingMovementsOfSecurities
     {
         /// <summary>
-        /// The name of the table [Название таблицы].
+        /// Initializes a new instance of the <see cref="TradingMovementsOfSecurities"/> class.
+        /// </summary>
+        public TradingMovementsOfSecurities()
+        {
+            this.Rows = new Collection<TradingMovementsOfSecuritiesRow>();
+            this.Total = new Collection<TradingMovementsOfSecuritiesTotal>();
+        }
+
+        /// <summary>
+        /// Gets or sets the name of the table [Название таблицы].
         /// </summary>
         /// <value>The name of the table.</value>
         [XmlAttribute]
         public string Name { get; set; }
 
+        /// <summary>
+        /// Gets the rows of the trading movements of securities.
+        /// </summary>
+        /// <value>The rows of the trading movements of securities.</value>
         [XmlElement("R")]
         public Collection<TradingMovementsOfSecuritiesRow> Rows { get; private set; }
 
+        /// <summary>
+        /// Gets the total rows of the trading movements of securities.
+        /// </summary>
+        /// <value>The total rows of the trading movements of securities.</value>
         [XmlElement("T")]
         public Collection<TradingMovementsOfSecuritiesTotal> Total { get; private set; }
-
-        public TradingMovementsOfSecurities()
-        {
-            Rows = new Collection<TradingMovementsOfSecuritiesRow>();
-            Total = new Collection<TradingMovementsOfSecuritiesTotal>();
-        }
     }
 }

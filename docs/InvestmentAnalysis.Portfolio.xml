@@ -996,7 +996,7 @@
             <summary>
             Gets the currency of the transaction.
             </summary>
-            <value>The currency of the transaction..</value>
+            <value>The currency of the transaction.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.PortfolioContract">
             <summary>

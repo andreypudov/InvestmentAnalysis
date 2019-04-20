@@ -49,6 +49,9 @@
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioFactory.CreatePortfolio(System.Xml.XmlReader)">
             <inheritdoc/>
         </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader">
+            <inheritdoc/>
+        </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.#ctor(System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader"/> class for the specified file name.
@@ -64,7 +67,7 @@
             </summary>
             <param name="xmlStream">The XML stream.</param>
             <param name="validationErrors">The validation errors.</param>
-            <returns></returns>
+            <returns>The new instance of <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPortfolio"/> with data from the xmlStream.</returns>
         </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.OpenXml(System.IO.Stream,System.IO.Stream,System.Collections.Generic.ICollection{System.String})">
             <summary>
@@ -73,13 +76,77 @@
             <param name="xmlStream">The XML stream.</param>
             <param name="xsdStream">The XSD stream.</param>
             <param name="validationErrors">The validation errors.</param>
-            <returns></returns>
+            <returns>The new instance of <see cref="T:System.Xml.XmlReader"/>.</returns>
         </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPortfolioReader.OpenXsd">
             <summary>
             Opens the XSD validation file.
             </summary>
-            <returns></returns>
+            <returns>The new instance of <see cref="T:System.IO.Stream"/>.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.#ctor(System.String,InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Int32,System.Decimal,InvestmentAnalysis.Portfolio.Currency)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> class.
+            </summary>
+            <param name="symbol">The ticker symbol of the stock.</param>
+            <param name="transactionType">The type of the transaction.</param>
+            <param name="date">The date and time of the transaction.</param>
+            <param name="units">The units of the transaction.</param>
+            <param name="price">The price of the individual unit.</param>
+            <param name="currency">The currency of the transaction.</param>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Symbol">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.TransactionType">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.DateTime">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Units">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Price">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Currency">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Equals(InvestmentAnalysis.Portfolio.ITransaction)">
+            <inheritdoc/>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.FinamReport">
+            <summary>
+            The portfolio report of Finam broker.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.FinamReport.Requisites">
+            <summary>
+            Gets or sets the details of the portfolio document [Реквизиты документа].
+            </summary>
+            <value>The details of the portfolio document [Реквизиты документа].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.FinamReport.Header">
+            <summary>
+            Gets or sets the header of the portfolio document [Заголовок документа].
+            </summary>
+            <value>The header of the portfolio document [Заголовок документа].</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.FinamReport.Sections">
+            <summary>
+            Gets or sets the sections of the broker report [Разделы "Отчета брокера"].
+            </summary>
+            <value>The sections of the broker report [Разделы "Отчета брокера"].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Account">
             <summary>
@@ -132,7 +199,7 @@
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Header">
             <summary>
-            The header of portfolio document [Заголовок документа].
+            The header of the portfolio document [Заголовок документа].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Header.IsReference">
@@ -173,7 +240,7 @@
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.Requisites">
             <summary>
-            Реквизиты документа.
+            Details of the document [Реквизиты документа].
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.Requisites.Title">
@@ -251,11 +318,28 @@
             The list of transactions represents secutiry tradings [Торговые движения ценных бумаг (включая незавершенные сделки), в т.ч. Комиссии].
             </summary>
         </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities"/> class.
+            </summary>
+        </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.Name">
             <summary>
-            The name of the table [Название таблицы].
+            Gets or sets the name of the table [Название таблицы].
             </summary>
             <value>The name of the table.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.Rows">
+            <summary>
+            Gets the rows of the trading movements of securities.
+            </summary>
+            <value>The rows of the trading movements of securities.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecurities.Total">
+            <summary>
+            Gets the total rows of the trading movements of securities.
+            </summary>
+            <value>The total rows of the trading movements of securities.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow">
             <summary>
@@ -264,171 +348,171 @@
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeDate">
             <summary>
-            Дата сделки.
+            Gets or sets the date of transaction [Дата сделки].
             </summary>
-            <value>The trade date.</value>
+            <value>The date of transaction [Дата сделки].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeTime">
             <summary>
-            Время сделки. (optional)
+            Gets or sets the time of transaction [Время сделки]. (optional)
             </summary>
-            <value>The trade time.</value>
+            <value>The time of transaction [Время сделки].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ShortName">
             <summary>
-            Краткое наименование ценной бумаги. (optional)
+            Gets or sets the short name of security [Краткое наименование ценной бумаги]. (optional)
             </summary>
-            <value>The short name.</value>
+            <value>The short name of security [Краткое наименование ценной бумаги].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ISIN">
             <summary>
-            International Securities Identification Number. (optional)
+            Gets or sets the International Securities Identification Number. (optional)
             </summary>
             <value>The international securities identification number.</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeType">
             <summary>
-            Вид сделки / Операция.
+            Gets or sets the type of transaction [Вид сделки / Операция].
             </summary>
-            <value>The type of the trade.</value>
+            <value>The type of transaction [Вид сделки / Операция].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Quantity">
             <summary>
-            Количество (шт.). (optional)
+            Gets or sets the quantity of securities [Количество (шт.)]. (optional)
             </summary>
-            <value>The quantity.</value>
+            <value>The quantity of securities [Количество (шт.)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Price">
             <summary>
-            Цена сделки. (optional)
+            Gets or sets the price of security [Цена сделки]. (optional)
             </summary>
-            <value>The price.</value>
+            <value>The price of security [Цена сделки].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Currency">
             <summary>
-            Валюта цены. (optional)
+            Gets or sets the currency of the price [Валюта цены]. (optional)
             </summary>
-            <value>The currency.</value>
+            <value>The currency of the price [Валюта цены].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.AccruedInterest">
             <summary>
-            Накопленный купонный доход. (optional)
+            Gets or sets the accrued interest [Накопленный купонный доход]. (optional)
             </summary>
-            <value>The acy.</value>
+            <value>The accrued interest [Накопленный купонный доход].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeAmountInPriceCurrency">
             <summary>
-            Сумма сделки в валюте цены. (optional)
+            Gets or sets the total price of the transaction [Сумма сделки в валюте цены]. (optional)
             </summary>
-            <value>The trade amount in price currency.</value>
+            <value>The total price of the transaction [Сумма сделки в валюте цены].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeAmountInPriceCurrencyWithAccruedInterest">
             <summary>
-            Сумма сделки в валюте цены с НКД. (optional)
+            Gets or sets the total price of the transaction with accrued interest [Сумма сделки в валюте цены с НКД]. (optional)
             </summary>
-            <value>The trade amount in price currency with accrued interest.</value>
+            <value>The total price of the transaction with accrued interest [Сумма сделки в валюте цены с НКД].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PaymentCurrency">
             <summary>
-            Валюта оплаты. (optional)
+            Gets or sets the currency of the payment [Валюта оплаты]. (optional)
             </summary>
-            <value>The payment currency.</value>
+            <value>The currency of the payment [Валюта оплаты].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.RubleExchangeRate">
             <summary>
-            Курс к рублю. (optional)
+            Gets or sets the exchange rate of the Rubble [Курс к рублю]. (optional)
             </summary>
-            <value>The ruble exchange rate.</value>
+            <value>The exchange rate of the Rubble [Курс к рублю].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PaymentAmountInPriceCurrencyWithAccruedInterest">
             <summary>
-            Сумма оплаты по сделке в валюте оплаты с НКД. (optional)
+            Gets or sets the total price of the transaction with accrued interest in the currency of the payment [Сумма оплаты по сделке в валюте оплаты с НКД]. (optional)
             </summary>
-            <value>The payment amount in price currency with accrued interest.</value>
+            <value>The total price of the transaction with accrued interest in the currency of the payment [Сумма оплаты по сделке в валюте оплаты с НКД].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Fee">
             <summary>
-            Вознаграждение Брокера, биржевой сбор. (optional)
+            Gets or sets the amount of fee [Вознаграждение Брокера, биржевой сбор]. (optional)
             </summary>
-            <value>The fee.</value>
+            <value>The amount of fee [Вознаграждение Брокера, биржевой сбор].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.FeeCurrency">
             <summary>
-            Валюта Вознаграждения Брокера, биржевого сбора. (optional)
+            Gets or sets the currency of the fee [Валюта Вознаграждения Брокера, биржевого сбора]. (optional)
             </summary>
-            <value>The fee currency.</value>
+            <value>The currency of the fee [Валюта Вознаграждения Брокера, биржевого сбора].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.DebtPayment">
             <summary>
-            Задолженность по оплате. (optional)
+            Gets or sets the debt of payment [Задолженность по оплате]. (optional)
             </summary>
-            <value>he debt payment.</value>
+            <value>he debt of payment [Задолженность по оплате].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.DebtDelivery">
             <summary>
-            Задолженность по поставке. (optional)
+            Gets or sets the debt of delivery [Задолженность по поставке]. (optional)
             </summary>
-            <value>The debt delivery.</value>
+            <value>The debt of delivery [Задолженность по поставке].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PlannedPaymentDate">
             <summary>
-            Дата оплаты (план). (optional)
+            Gets or sets the planned date of payment [Дата оплаты (план)]. (optional)
             </summary>
-            <value>The planned payment date.</value>
+            <value>The planned date of payment [Дата оплаты (план)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.PlannedDeliveryDate">
             <summary>
-            Дата поставки (план). (optional)
+            Gets or sets the planned date of delivery [Дата поставки (план)]. (optional)
             </summary>
-            <value>The planned delivery date.</value>
+            <value>The planned date of delivery [Дата поставки (план)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ActualPaymentDate">
             <summary>
-            Дата оплаты (факт). (optional)
+            Gets or sets the actual date of payment [Дата оплаты (факт)]. (optional)
             </summary>
-            <value>The actual payment date.</value>
+            <value>The actual date of payment [Дата оплаты (факт)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.ActualDeliveryDate">
             <summary>
-            Дата поставки (факт). (optional)
+            Gets or sets the actual date of delivery [Дата поставки (факт)]. (optional)
             </summary>
-            <value>The actual delivery date.</value>
+            <value>The actual date of delivery [Дата поставки (факт)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradingMode">
             <summary>
-            Режим торгов. (optional)
+            Gets or sets the settlement date of transaction [Режим торгов]. (optional)
             </summary>
-            <value>The trading mode.</value>
+            <value>The settlement date of transaction [Режим торгов].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.StockExchange">
             <summary>
-            Площадка. (optional)
+            Gets or sets the name of the stock exchange [Площадка]. (optional)
             </summary>
-            <value>The stock exchange.</value>
+            <value>The name of the stock exchange [Площадка].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.RequestNumber">
             <summary>
-            Номер поручения/биржевой заявки. (optional)
+            Gets or sets the number of exchange order [Номер поручения/биржевой заявки]. (optional)
             </summary>
-            <value>The request number.</value>
+            <value>The number of exchange order [Номер поручения/биржевой заявки].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.TradeNumber">
             <summary>
-            № сделки. (optional)
+            Gets or sets the number of transaction [№ сделки]. (optional)
             </summary>
-            <value>The trade number.</value>
+            <value>The number of transaction [№ сделки].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Security">
             <summary>
-            Ценная бумага (эмитент, вид, тип, категория, выпуск, транш, серия, № гос. регистрации). (optional)
+            Gets or sets the full name of security [Ценная бумага (эмитент, вид, тип, категория, выпуск, транш, серия, № гос. регистрации)]. (optional)
             </summary>
-            <value>The security.</value>
+            <value>The name of security [Ценная бумага (эмитент, вид, тип, категория, выпуск, транш, серия, № гос. регистрации)].</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesRow.Comment">
             <summary>
-            Комментарии. (optional)
+            Gets or sets the note [Комментарии]. (optional)
             </summary>
-            <value>The comment.</value>
+            <value>The note [Комментарии].</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.TradingMovementsOfSecuritiesTotal">
             <summary>

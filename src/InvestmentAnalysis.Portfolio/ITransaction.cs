@@ -46,7 +46,7 @@ namespace InvestmentAnalysis.Portfolio
         /// <summary>
         /// Gets the currency of the transaction.
         /// </summary>
-        /// <value>The currency of the transaction..</value>
+        /// <value>The currency of the transaction.</value>
         Currency Currency { get; }
     }
 }

@@ -10,6 +10,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System.Reflection;
     using System.Xml;
 
+    /// <inheritdoc/>
     public sealed class FinamPortfolioReader : IPortfolioReader<FinamPortfolio>
     {
         private readonly string path;
@@ -42,7 +43,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// </summary>
         /// <param name="xmlStream">The XML stream.</param>
         /// <param name="validationErrors">The validation errors.</param>
-        /// <returns></returns>
+        /// <returns>The new instance of <see cref="FinamPortfolio"/> with data from the xmlStream.</returns>
         private static FinamPortfolio ReadXml(Stream xmlStream, ICollection<string> validationErrors)
         {
             var portfolio = FinamPortfolio.Empty;
@@ -62,7 +63,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="xmlStream">The XML stream.</param>
         /// <param name="xsdStream">The XSD stream.</param>
         /// <param name="validationErrors">The validation errors.</param>
-        /// <returns></returns>
+        /// <returns>The new instance of <see cref="XmlReader"/>.</returns>
         private static XmlReader OpenXml(Stream xmlStream, Stream xsdStream, ICollection<string> validationErrors)
         {
             validationErrors.Clear();
@@ -70,7 +71,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             var xmlReaderSettings = new XmlReaderSettings();
             xmlReaderSettings.Schemas.Add(null, XmlReader.Create(xsdStream));
             xmlReaderSettings.ValidationType = ValidationType.Schema;
-            xmlReaderSettings.ValidationEventHandler += ((sender, e) => validationErrors.Add(e.Message));
+            xmlReaderSettings.ValidationEventHandler += (sender, e) => validationErrors.Add(e.Message);
 
             var xmlValidator = XmlReader.Create(xmlStream, xmlReaderSettings);
 
@@ -80,7 +81,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <summary>
         /// Opens the XSD validation file.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>The new instance of <see cref="Stream"/>.</returns>
         private static Stream OpenXsd()
         {
             return Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(FinamPortfolioReader), "Schema.xsd");

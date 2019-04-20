@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Portfolio.Finam.Report
     using System.Xml.Serialization;
 
     /// <summary>
-    /// Реквизиты документа.
+    /// Details of the document [Реквизиты документа].
     /// </summary>
     [Serializable]
     [System.Diagnostics.CodeAnalysis.SuppressMessage(

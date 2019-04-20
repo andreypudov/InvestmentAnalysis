@@ -4,5 +4,15 @@
         <name>InvestmentAnalysis.Portfolio.Finam.Tests</name>
     </assembly>
     <members>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.Tests.FinamPortfolio">
+            <summary>
+            Test suite for FinamPortfolio.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.Tests.FinamPortfolio.Test1">
+            <summary>
+            Experimental test case.
+            </summary>
+        </member>
     </members>
 </doc>

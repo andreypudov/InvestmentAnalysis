@@ -6,20 +6,18 @@ namespace InvestmentAnalysis.Portfolio.Finam
 {
     using System;
 
+    /// <inheritdoc/>
     public sealed class FinamTransaction : ITransaction
     {
-        public string Symbol { get; }
-
-        public TransactionType TransactionType { get; }
-
-        public long DateTime { get; }
-
-        public int Units { get; }
-
-        public decimal Price { get; }
-
-        public Currency Currency { get; }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinamTransaction"/> class.
+        /// </summary>
+        /// <param name="symbol">The ticker symbol of the stock.</param>
+        /// <param name="transactionType">The type of the transaction.</param>
+        /// <param name="date">The date and time of the transaction.</param>
+        /// <param name="units">The units of the transaction.</param>
+        /// <param name="price">The price of the individual unit.</param>
+        /// <param name="currency">The currency of the transaction.</param>
         public FinamTransaction(string symbol, TransactionType transactionType, long date, int units, decimal price, Currency currency)
         {
             this.Symbol = symbol;
@@ -30,6 +28,25 @@ namespace InvestmentAnalysis.Portfolio.Finam
             this.Currency = currency;
         }
 
+        /// <inheritdoc/>
+        public string Symbol { get; }
+
+        /// <inheritdoc/>
+        public TransactionType TransactionType { get; }
+
+        /// <inheritdoc/>
+        public long DateTime { get; }
+
+        /// <inheritdoc/>
+        public int Units { get; }
+
+        /// <inheritdoc/>
+        public decimal Price { get; }
+
+        /// <inheritdoc/>
+        public Currency Currency { get; }
+
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if ((obj == null) || (this.GetType() != obj.GetType()))
@@ -46,6 +63,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
                    && (this.Currency == transaction.Currency);
         }
 
+        /// <inheritdoc/>
         public override int GetHashCode()
         {
             unchecked
@@ -63,6 +81,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
         }
 
+        /// <inheritdoc/>
         public bool Equals(ITransaction other)
         {
             if (other == null)
