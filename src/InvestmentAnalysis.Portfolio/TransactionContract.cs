@@ -7,16 +7,16 @@ namespace InvestmentAnalysis.Portfolio
     using System.Diagnostics.Contracts;
 
     /// <summary>
-    /// The contract class for <see cref="ITransaction"/>.
+    /// The contract class for <see cref="ITransaction{T}"/>.
     /// </summary>
-    [ContractClassFor(typeof(ITransaction))]
-    public abstract class TransactionContract : ITransaction
+    [ContractClassFor(typeof(ITransaction<>))]
+    public abstract class TransactionContract : ITransaction<ISecurity>
     {
         /// <summary>
-        /// Gets the ticker symbol of the stock.
+        /// Gets the financial security.
         /// </summary>
-        /// <value>The ticker symbol of the stock.</value>
-        public string Symbol => Contract.Result<string>();
+        /// <value>The financial security.</value>
+        public ISecurity Security => Contract.Result<ISecurity>();
 
         /// <summary>
         /// Gets the type of the transaction.
@@ -47,13 +47,5 @@ namespace InvestmentAnalysis.Portfolio
         /// </summary>
         /// <value>The currency of the transaction..</value>
         public Currency Currency => Contract.Result<Currency>();
-
-        /// <summary>
-        /// Determines whether the specified <see cref="ITransaction"/> is equal to the current <see cref="TransactionContract"/>.
-        /// </summary>
-        /// <param name="other">The <see cref="ITransaction"/> to compare with the current <see cref="TransactionContract"/>.</param>
-        /// <returns><c>true</c> if the specified <see cref="ITransaction"/> is equal to the current
-        /// <see cref="TransactionContract"/>; otherwise, <c>false</c>.</returns>
-        public bool Equals(ITransaction other) => Contract.Result<bool>();
     }
 }

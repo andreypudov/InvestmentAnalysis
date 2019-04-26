@@ -84,21 +84,55 @@
             </summary>
             <returns>The new instance of <see cref="T:System.IO.Stream"/>.</returns>
         </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/> class.
+            </summary>
+            <param name="securityId">The international securities identification number.</param>
+            <param name="symbol">The ticker symbol of the stock.</param>
+            <param name="description">The description of security.</param>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.ISIN">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.Symbol">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.Description">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.Equals(System.Object)">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.GetHashCode">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamSecurity.Equals(InvestmentAnalysis.Portfolio.Finam.FinamSecurity)">
+            <summary>
+            Determines whether the specified <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/> is equal to the current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/>.
+            </summary>
+            <param name="other">The <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/> to compare with the current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/> is equal to the
+            current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity"/>; otherwise, <c>false</c>.</returns>
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction">
             <inheritdoc/>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.#ctor(System.String,InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Int32,System.Decimal,InvestmentAnalysis.Portfolio.Currency)">
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.#ctor(InvestmentAnalysis.Portfolio.Finam.FinamSecurity,InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Int32,System.Decimal,InvestmentAnalysis.Portfolio.Currency)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> class.
             </summary>
-            <param name="symbol">The ticker symbol of the stock.</param>
+            <param name="security">The financial security.</param>
             <param name="transactionType">The type of the transaction.</param>
             <param name="date">The date and time of the transaction.</param>
             <param name="units">The units of the transaction.</param>
             <param name="price">The price of the individual unit.</param>
             <param name="currency">The currency of the transaction.</param>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Symbol">
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Security">
             <inheritdoc/>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.TransactionType">
@@ -122,8 +156,13 @@
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Equals(InvestmentAnalysis.Portfolio.ITransaction)">
-            <inheritdoc/>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Equals(InvestmentAnalysis.Portfolio.Finam.FinamTransaction)">
+            <summary>
+            Determines whether the specified <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> is equal to the current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/>.
+            </summary>
+            <param name="other">The <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> to compare with the current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/>.</param>
+            <returns><c>true</c> if the specified <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> is equal to
+            the current <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/>; otherwise, <c>false</c>.</returns>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.Report.FinamReport">
             <summary>

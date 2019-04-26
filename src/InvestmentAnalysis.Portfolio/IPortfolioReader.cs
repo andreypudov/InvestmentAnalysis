@@ -12,7 +12,7 @@ namespace InvestmentAnalysis.Portfolio
     /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioReaderContract))]
     public interface IPortfolioReader<out T>
-        where T : IPortfolio<ITransaction>
+        where T : IPortfolio<ITransaction<ISecurity>>
     {
         /// <summary>
         /// Reads the <see cref="IPortfolio{T}"/> from the stream.

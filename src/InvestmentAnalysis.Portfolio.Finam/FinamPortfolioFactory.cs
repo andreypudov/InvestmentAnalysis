@@ -52,7 +52,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
         {
             return new FinamTransaction(
-                symbol: row.ShortName,
+                security: new FinamSecurity(row.ISIN, row.ShortName, row.Security),
                 transactionType: GetTransactionType(row.TradeType),
                 date: TimeZoneInfo.ConvertTime(DateTime.ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture).Add(row.TradeTime.TimeOfDay), this.russianStandardTime, TimeZoneInfo.Utc).Ticks,
                 units: (int)row.Quantity,

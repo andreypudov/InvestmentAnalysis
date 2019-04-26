@@ -10,13 +10,13 @@ namespace InvestmentAnalysis.Portfolio
     /// The contract class for <see cref="IPortfolioWriter{T}"/>.
     /// </summary>
     [ContractClassFor(typeof(IPortfolioWriter<>))]
-    public abstract class PortfolioWriterContract : IPortfolioWriter<IPortfolio<ITransaction>>
+    public abstract class PortfolioWriterContract : IPortfolioWriter<IPortfolio<ITransaction<ISecurity>>>
     {
         /// <summary>
         /// Writes the <see cref="IPortfolio{T}"/> to the stream.
         /// </summary>
         /// <param name="portfolio">The instance of <see cref="IPortfolio{T}"/>.</param>
-        public void Write(IPortfolio<ITransaction> portfolio)
+        public void Write(IPortfolio<ITransaction<ISecurity>> portfolio)
         {
             Contract.Requires(portfolio != null);
         }

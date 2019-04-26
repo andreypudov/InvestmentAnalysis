@@ -10,16 +10,16 @@ namespace InvestmentAnalysis.Portfolio
     /// The contract class for <see cref="IPortfolioReader{T}"/>.
     /// </summary>
     [ContractClassFor(typeof(IPortfolioReader<>))]
-    public abstract class PortfolioReaderContract : IPortfolioReader<IPortfolio<ITransaction>>
+    public abstract class PortfolioReaderContract : IPortfolioReader<IPortfolio<ITransaction<ISecurity>>>
     {
         /// <summary>
         /// Reads the <see cref="IPortfolio{T}"/> from the stream.
         /// </summary>
         /// <returns>The instance of <see cref="IPortfolio{T}"/>.</returns>
         [Pure]
-        public IPortfolio<ITransaction> Read()
+        public IPortfolio<ITransaction<ISecurity>> Read()
         {
-            return Contract.Result<IPortfolio<ITransaction>>();
+            return Contract.Result<IPortfolio<ITransaction<ISecurity>>>();
         }
     }
 }

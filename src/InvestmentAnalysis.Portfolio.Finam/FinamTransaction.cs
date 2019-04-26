@@ -7,20 +7,20 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System;
 
     /// <inheritdoc/>
-    public sealed class FinamTransaction : ITransaction
+    public sealed class FinamTransaction : ITransaction<FinamSecurity>, IEquatable<FinamTransaction>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinamTransaction"/> class.
         /// </summary>
-        /// <param name="symbol">The ticker symbol of the stock.</param>
+        /// <param name="security">The financial security.</param>
         /// <param name="transactionType">The type of the transaction.</param>
         /// <param name="date">The date and time of the transaction.</param>
         /// <param name="units">The units of the transaction.</param>
         /// <param name="price">The price of the individual unit.</param>
         /// <param name="currency">The currency of the transaction.</param>
-        public FinamTransaction(string symbol, TransactionType transactionType, long date, int units, decimal price, Currency currency)
+        public FinamTransaction(FinamSecurity security, TransactionType transactionType, long date, int units, decimal price, Currency currency)
         {
-            this.Symbol = symbol;
+            this.Security = security;
             this.TransactionType = transactionType;
             this.DateTime = date;
             this.Units = units;
@@ -29,7 +29,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         }
 
         /// <inheritdoc/>
-        public string Symbol { get; }
+        public FinamSecurity Security { get; }
 
         /// <inheritdoc/>
         public TransactionType TransactionType { get; }
@@ -55,7 +55,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
 
             var transaction = (FinamTransaction)obj;
-            return (this.Symbol == transaction.Symbol)
+            return (this.Security == transaction.Security)
                    && (this.TransactionType == transaction.TransactionType)
                    && (this.DateTime == transaction.DateTime)
                    && (this.Units == transaction.Units)
@@ -68,9 +68,8 @@ namespace InvestmentAnalysis.Portfolio.Finam
         {
             unchecked
             {
-                var hashCode = (int)this.TransactionType;
+                var hashCode = this.Security.GetHashCode();
 
-                hashCode = (hashCode * 397) ^ this.Symbol.GetHashCode(StringComparison.Ordinal);
                 hashCode = (hashCode * 397) ^ this.TransactionType.GetHashCode();
                 hashCode = (hashCode * 397) ^ this.DateTime.GetHashCode();
                 hashCode = (hashCode * 397) ^ this.Units;
@@ -81,15 +80,20 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
         }
 
-        /// <inheritdoc/>
-        public bool Equals(ITransaction other)
+        /// <summary>
+        /// Determines whether the specified <see cref="FinamTransaction"/> is equal to the current <see cref="FinamTransaction"/>.
+        /// </summary>
+        /// <param name="other">The <see cref="FinamTransaction"/> to compare with the current <see cref="FinamTransaction"/>.</param>
+        /// <returns><c>true</c> if the specified <see cref="FinamTransaction"/> is equal to
+        /// the current <see cref="FinamTransaction"/>; otherwise, <c>false</c>.</returns>
+        public bool Equals(FinamTransaction other)
         {
             if (other == null)
             {
                 return false;
             }
 
-            return (this.Symbol == other.Symbol)
+            return (this.Security == other.Security)
                     && (this.TransactionType == other.TransactionType)
                     && (this.DateTime == other.DateTime)
                     && (this.Units == other.Units)

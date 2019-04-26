@@ -4,20 +4,21 @@
 
 namespace InvestmentAnalysis.Portfolio
 {
-    using System;
     using System.Diagnostics.Contracts;
 
     /// <summary>
     /// Represents a financial transaction.
     /// </summary>
+    /// <typeparam name="T">The type of <see cref="ISecurity"/>.</typeparam>
     [ContractClass(typeof(TransactionContract))]
-    public interface ITransaction : IEquatable<ITransaction>
+    public interface ITransaction<out T>
+        where T : ISecurity
     {
         /// <summary>
-        /// Gets the ticker symbol of the stock.
+        /// Gets the financial security.
         /// </summary>
-        /// <value>The ticker symbol of the stock.</value>
-        string Symbol { get; }
+        /// <value>The financial security.</value>
+        T Security { get; }
 
         /// <summary>
         /// Gets the type of the transaction.

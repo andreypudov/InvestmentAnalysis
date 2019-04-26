@@ -11,12 +11,12 @@ namespace InvestmentAnalysis.Portfolio
     /// The contract class for <see cref="IPortfolio{T}"/>.
     /// </summary>
     [ContractClassFor(typeof(IPortfolio<>))]
-    public abstract class PortfolioContract : IPortfolio<ITransaction>
+    public abstract class PortfolioContract : IPortfolio<ITransaction<ISecurity>>
     {
         /// <summary>
         /// Gets enumerable collection of transactions.
         /// </summary>
         /// <value>The enumerable collection of transactions.</value>
-        public IEnumerable<ITransaction> Transactions { get; } = Contract.Result<IEnumerable<ITransaction>>();
+        public IEnumerable<ITransaction<ISecurity>> Transactions { get; } = Contract.Result<IEnumerable<ITransaction<ISecurity>>>();
     }
 }
