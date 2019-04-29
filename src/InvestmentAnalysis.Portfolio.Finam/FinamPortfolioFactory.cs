@@ -11,16 +11,10 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using InvestmentAnalysis.Portfolio.Finam.Report;
 
     /// <summary>
-    /// Provides access to factory methods for creating and configuring <c>FinamPortfolio</c> instance.
+    /// Provides access to factory methods for creating and configuring <see cref="FinamPortfolio"/> instance.
     /// </summary>
     internal sealed class FinamPortfolioFactory : IPortfolioFactory<FinamPortfolio>
     {
-        private const string RussianStandardTimeZoneId = "Russian Standard Time";
-        private const string EuropeMoscowTimeZoneId = "Europe/Moscow";
-
-        private readonly TimeZoneInfo russianStandardTime = TimeZoneInfo.GetSystemTimeZones()
-                .First(tz => ((tz.Id == RussianStandardTimeZoneId) || (tz.Id == EuropeMoscowTimeZoneId)));
-
         /// <inheritdoc/>
         public FinamPortfolio CreatePortfolio(XmlReader reader)
         {
@@ -36,28 +30,9 @@ namespace InvestmentAnalysis.Portfolio.Finam
             return new FinamPortfolio(transactions);
         }
 
-        private static TransactionType GetTransactionType(string tradeType)
-        {
-            switch (tradeType)
-            {
-                case "Покупка":
-                    return TransactionType.Buy;
-                case "Продажа":
-                    return TransactionType.Sell;
-                default:
-                    return TransactionType.Invalid;
-            }
-        }
-
         private FinamTransaction GetTradingMovementsTransaction(TradingMovementsOfSecuritiesRow row)
         {
-            return new FinamTransaction(
-                security: new FinamSecurity(row.ISIN, row.ShortName, row.Security),
-                transactionType: GetTransactionType(row.TradeType),
-                date: TimeZoneInfo.ConvertTime(DateTime.ParseExact(row.TradeDate, "dd.MM.yyyy", System.Globalization.CultureInfo.InvariantCulture).Add(row.TradeTime.TimeOfDay), this.russianStandardTime, TimeZoneInfo.Utc).Ticks,
-                units: (int)row.Quantity,
-                price: row.Price,
-                currency: FinamCurrency.Parse(row.Currency));
+            return FinamTransactionFactory.CreateTransaction(row);
         }
     }
 }

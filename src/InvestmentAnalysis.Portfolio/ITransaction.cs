@@ -15,12 +15,6 @@ namespace InvestmentAnalysis.Portfolio
         where T : ISecurity
     {
         /// <summary>
-        /// Gets the financial security.
-        /// </summary>
-        /// <value>The financial security.</value>
-        T Security { get; }
-
-        /// <summary>
         /// Gets the type of the transaction.
         /// </summary>
         /// <value>The type of the transaction.</value>
@@ -33,12 +27,6 @@ namespace InvestmentAnalysis.Portfolio
         long DateTime { get; }
 
         /// <summary>
-        /// Gets the units of the transaction.
-        /// </summary>
-        /// <value>The units of the transaction.</value>
-        int Units { get; }
-
-        /// <summary>
         /// Gets the price of the individual unit.
         /// </summary>
         /// <value>The price of the individual unit.</value>
@@ -49,5 +37,10 @@ namespace InvestmentAnalysis.Portfolio
         /// </summary>
         /// <value>The currency of the transaction.</value>
         Currency Currency { get; }
+
+        /// <summary>
+        /// Gets the description of the transaction.
+        /// </summary>
+        string Description { get; }
     }
 }

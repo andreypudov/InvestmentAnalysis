@@ -4,7 +4,6 @@
 
 namespace InvestmentAnalysis.Portfolio
 {
-    using System;
     using System.Diagnostics.Contracts;
 
     /// <summary>

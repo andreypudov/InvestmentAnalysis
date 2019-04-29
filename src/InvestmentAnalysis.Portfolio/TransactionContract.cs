@@ -13,12 +13,6 @@ namespace InvestmentAnalysis.Portfolio
     public abstract class TransactionContract : ITransaction<ISecurity>
     {
         /// <summary>
-        /// Gets the financial security.
-        /// </summary>
-        /// <value>The financial security.</value>
-        public ISecurity Security => Contract.Result<ISecurity>();
-
-        /// <summary>
         /// Gets the type of the transaction.
         /// </summary>
         /// <value>The type of the transaction.</value>
@@ -31,12 +25,6 @@ namespace InvestmentAnalysis.Portfolio
         public long DateTime => Contract.Result<int>();
 
         /// <summary>
-        /// Gets the units of the transaction.
-        /// </summary>
-        /// <value>The units of the transaction.</value>
-        public int Units => Contract.Result<int>();
-
-        /// <summary>
         /// Gets the price of the individual unit.
         /// </summary>
         /// <value>The price of the individual unit.</value>
@@ -47,5 +35,11 @@ namespace InvestmentAnalysis.Portfolio
         /// </summary>
         /// <value>The currency of the transaction..</value>
         public Currency Currency => Contract.Result<Currency>();
+
+        /// <summary>
+        /// Gets the description of the transaction.
+        /// </summary>
+        /// <value>The description of the transaction..</value>
+        public string Description => Contract.Result<string>();
     }
 }
