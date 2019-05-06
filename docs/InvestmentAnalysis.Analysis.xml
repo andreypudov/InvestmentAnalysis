@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvestmentAnalysis.Analysis</name>
+    </assembly>
+    <members>
+        <member name="T:InvestmentAnalysis.Analysis.AnalysisContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Analysis.IAnalysis"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.AnalysisContract.SomeData">
+            <inheritdoc/>
+        </member>
+        <member name="T:InvestmentAnalysis.Analysis.IAnalysis">
+            <summary>
+            The base interface for analysis.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.IAnalysis.SomeData">
+            <summary>
+            Gets some data.
+            </summary>
+            <value>Some data.</value>
+        </member>
+    </members>
+</doc>
