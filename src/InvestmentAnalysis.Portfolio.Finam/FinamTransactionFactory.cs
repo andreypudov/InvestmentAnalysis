@@ -50,8 +50,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 transactionType: (row.TradeType == BuyTransaction) ? TransactionType.Buy : TransactionType.Sell,
                 date: GetTransactionDateTime(row),
                 units: (int)row.Quantity,
-                price: row.Price,
-                currency: FinamCurrency.Parse(row.Currency),
+                price: new FinamPrice(row.Price, FinamCurrency.Parse(row.Currency)),
                 description: row.Comment);
         }
 
@@ -60,8 +59,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             return new FinamServiceTransaction(
                 transactionType: TransactionType.OtherExpense,
                 date: GetTransactionDateTime(row),
-                price: row.Fee,
-                currency: FinamCurrency.Parse(row.FeeCurrency),
+                price: new FinamPrice(row.Fee, FinamCurrency.Parse(row.FeeCurrency)),
                 description: row.Comment);
         }
 

@@ -7,7 +7,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System;
 
     /// <inheritdoc/>
-    public sealed class FinamTradeTransaction : FinamTransaction, ITradeTransaction<FinamSecurity>, IEquatable<FinamTradeTransaction>
+    public sealed class FinamTradeTransaction : FinamTransaction, ITradeTransaction<FinamSecurity, FinamPrice>, IEquatable<FinamTradeTransaction>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinamTradeTransaction"/> class.
@@ -17,10 +17,9 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="date">The date and time of the transaction.</param>
         /// <param name="units">The units of the transaction.</param>
         /// <param name="price">The price of the individual unit.</param>
-        /// <param name="currency">The currency of the transaction.</param>
         /// <param name="description">The description of the transaction.</param>
-        public FinamTradeTransaction(FinamSecurity security, TransactionType transactionType, long date, int units, decimal price, Currency currency, string description)
-            : base(transactionType, date, price, currency, description)
+        public FinamTradeTransaction(FinamSecurity security, TransactionType transactionType, long date, int units, FinamPrice price, string description)
+            : base(transactionType, date, price, description)
         {
             this.Security = security;
             this.Units = units;

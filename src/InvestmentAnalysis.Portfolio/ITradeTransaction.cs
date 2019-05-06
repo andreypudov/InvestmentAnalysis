@@ -10,9 +10,11 @@ namespace InvestmentAnalysis.Portfolio
     /// Represents a financial transaction.
     /// </summary>
     /// <typeparam name="T">The type of <see cref="ISecurity"/>.</typeparam>
+    /// <typeparam name="P">The type of <see cref="IPrice{T}"/>.</typeparam>
     [ContractClass(typeof(TradeTransactionContract))]
-    public interface ITradeTransaction<out T> : ITransaction<T>
+    public interface ITradeTransaction<out T, out P> : ITransaction<T, P>
         where T : ISecurity
+        where P : IPrice<T>
     {
         /// <summary>
         /// Gets the financial security.

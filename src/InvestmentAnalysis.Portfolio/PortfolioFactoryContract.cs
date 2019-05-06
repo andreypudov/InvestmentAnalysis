@@ -11,7 +11,7 @@ namespace InvestmentAnalysis.Portfolio
     /// The contract class for <see cref="IPortfolioFactory{T}"/>.
     /// </summary>
     [ContractClassFor(typeof(IPortfolioFactory<>))]
-    public abstract class PortfolioFactoryContract : IPortfolioFactory<IPortfolio<ITransaction<ISecurity>>>
+    public abstract class PortfolioFactoryContract : IPortfolioFactory<IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>>
     {
         /// <summary>
         /// Creates a portfolio with specified <see cref="XmlReader"/>.
@@ -19,11 +19,11 @@ namespace InvestmentAnalysis.Portfolio
         /// <param name="reader">The <see cref="XmlReader"/> containing the XML data to read.</param>
         /// <returns>The created <see cref="IPortfolio{T}"/> instance.</returns>
         [Pure]
-        public IPortfolio<ITransaction<ISecurity>> CreatePortfolio(XmlReader reader)
+        public IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> CreatePortfolio(XmlReader reader)
         {
             Contract.Requires(reader != null);
 
-            return Contract.Result<IPortfolio<ITransaction<ISecurity>>>();
+            return Contract.Result<IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>>();
         }
     }
 }

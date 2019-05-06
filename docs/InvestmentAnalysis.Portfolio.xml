@@ -909,11 +909,34 @@
             2 Zimbabwean dollar Zimbabwe
             </summary>
         </member>
+        <member name="T:InvestmentAnalysis.Portfolio.HistoryPriceContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IHistoryPrice`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.HistoryPriceContract.DateTime">
+            <summary>
+            Gets the date and time of the price.
+            </summary>
+            <value>The date and time of the price.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IHistoryPrice`1">
+            <summary>
+            Represents a historical price of the security.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoryPrice`1.DateTime">
+            <summary>
+            Gets the date and time of the price.
+            </summary>
+            <value>The date and time of the price.</value>
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.IPortfolio`1">
             <summary>
             The collection of individual transactions.
             </summary>
-            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`1"/>.</typeparam>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`2"/>.</typeparam>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.IPortfolio`1.Transactions">
             <summary>
@@ -957,6 +980,24 @@
             </summary>
             <param name="portfolio">The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</param>
         </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IPrice`1">
+            <summary>
+            Represents a price of the security.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IPrice`1.Price">
+            <summary>
+            Gets the price of the security.
+            </summary>
+            <value>The price of the security.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IPrice`1.Currency">
+            <summary>
+            Gets the currency of the security.
+            </summary>
+            <value>The currency of the security.</value>
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.ISecurity">
             <summary>
             Represents a financial security.
@@ -980,55 +1021,51 @@
             </summary>
             <value>The description of security.</value>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.ITradeTransaction`1">
+        <member name="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2">
             <summary>
             Represents a financial transaction.
             </summary>
             <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
+            <typeparam name="P">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.</typeparam>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`1.Security">
+        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`2.Security">
             <summary>
             Gets the financial security.
             </summary>
             <value>The financial security.</value>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`1.Units">
+        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`2.Units">
             <summary>
             Gets the units of the transaction.
             </summary>
             <value>The units of the transaction.</value>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.ITransaction`1">
+        <member name="T:InvestmentAnalysis.Portfolio.ITransaction`2">
             <summary>
             Represents a financial transaction.
             </summary>
             <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
+            <typeparam name="P">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.</typeparam>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`1.TransactionType">
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.TransactionType">
             <summary>
             Gets the type of the transaction.
             </summary>
             <value>The type of the transaction.</value>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`1.DateTime">
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.DateTime">
             <summary>
             Gets the date and time of the transaction.
             </summary>
             <value>The date and time of the transaction.</value>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`1.Price">
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.Price">
             <summary>
             Gets the price of the individual unit.
             </summary>
             <value>The price of the individual unit.</value>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`1.Currency">
-            <summary>
-            Gets the currency of the transaction.
-            </summary>
-            <value>The currency of the transaction.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`1.Description">
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.Description">
             <summary>
             Gets the description of the transaction.
             </summary>
@@ -1102,11 +1139,28 @@
             The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioWriter`1"/>.
             </summary>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.PortfolioWriterContract.Write(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity}})">
+        <member name="M:InvestmentAnalysis.Portfolio.PortfolioWriterContract.Write(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
             <summary>
             Writes the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> to the stream.
             </summary>
             <param name="portfolio">The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</param>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.PriceContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.PriceContract.Price">
+            <summary>
+            Gets the price of the security.
+            </summary>
+            <value>The price of the security.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.PriceContract.Currency">
+            <summary>
+            Gets the currency of the security.
+            </summary>
+            <value>The currency of the security.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.SecurityContract">
             <summary>
@@ -1124,7 +1178,7 @@
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.TradeTransactionContract">
             <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITradeTransaction`1"/>.
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2"/>.
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.TradeTransactionContract.Security">
@@ -1141,7 +1195,7 @@
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.TransactionContract">
             <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`1"/>.
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`2"/>.
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.TransactionType">
@@ -1161,12 +1215,6 @@
             Gets the price of the individual unit.
             </summary>
             <value>The price of the individual unit.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Currency">
-            <summary>
-            Gets the currency of the transaction.
-            </summary>
-            <value>The currency of the transaction..</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Description">
             <summary>

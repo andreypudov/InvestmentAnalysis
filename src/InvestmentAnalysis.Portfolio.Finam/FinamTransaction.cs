@@ -4,10 +4,8 @@
 
 namespace InvestmentAnalysis.Portfolio.Finam
 {
-    using System;
-
     /// <inheritdoc/>
-    public abstract class FinamTransaction : ITransaction<FinamSecurity>
+    public abstract class FinamTransaction : ITransaction<FinamSecurity, FinamPrice>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinamTransaction"/> class.
@@ -15,14 +13,12 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="transactionType">The type of the transaction.</param>
         /// <param name="date">The date and time of the transaction.</param>
         /// <param name="price">The price of the individual unit.</param>
-        /// <param name="currency">The currency of the transaction.</param>
         /// <param name="description">The description of the transaction.</param>
-        public FinamTransaction(TransactionType transactionType, long date, decimal price, Currency currency, string description)
+        public FinamTransaction(TransactionType transactionType, long date, FinamPrice price, string description)
         {
             this.TransactionType = transactionType;
             this.DateTime = date;
             this.Price = price;
-            this.Currency = currency;
             this.Description = description;
         }
 
@@ -33,10 +29,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
         public long DateTime { get; }
 
         /// <inheritdoc/>
-        public decimal Price { get; }
-
-        /// <inheritdoc/>
-        public Currency Currency { get; }
+        public FinamPrice Price { get; }
 
         /// <inheritdoc/>
         public string Description { get; }

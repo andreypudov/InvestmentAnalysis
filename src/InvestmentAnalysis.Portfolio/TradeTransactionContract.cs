@@ -7,10 +7,10 @@ namespace InvestmentAnalysis.Portfolio
     using System.Diagnostics.Contracts;
 
     /// <summary>
-    /// The contract class for <see cref="ITradeTransaction{T}"/>.
+    /// The contract class for <see cref="ITradeTransaction{T, P}"/>.
     /// </summary>
-    [ContractClassFor(typeof(ITradeTransaction<>))]
-    public abstract class TradeTransactionContract : TransactionContract, ITradeTransaction<ISecurity>
+    [ContractClassFor(typeof(ITradeTransaction<,>))]
+    public abstract class TradeTransactionContract : TransactionContract, ITradeTransaction<ISecurity, IPrice<ISecurity>>
     {
         /// <summary>
         /// Gets the financial security.

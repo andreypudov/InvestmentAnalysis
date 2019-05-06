@@ -10,9 +10,11 @@ namespace InvestmentAnalysis.Portfolio
     /// Represents a financial transaction.
     /// </summary>
     /// <typeparam name="T">The type of <see cref="ISecurity"/>.</typeparam>
+    /// <typeparam name="P">The type of <see cref="IPrice{T}"/>.</typeparam>
     [ContractClass(typeof(TransactionContract))]
-    public interface ITransaction<out T>
+    public interface ITransaction<out T, out P>
         where T : ISecurity
+        where P : IPrice<T>
     {
         /// <summary>
         /// Gets the type of the transaction.
@@ -30,13 +32,7 @@ namespace InvestmentAnalysis.Portfolio
         /// Gets the price of the individual unit.
         /// </summary>
         /// <value>The price of the individual unit.</value>
-        decimal Price { get; }
-
-        /// <summary>
-        /// Gets the currency of the transaction.
-        /// </summary>
-        /// <value>The currency of the transaction.</value>
-        Currency Currency { get; }
+        P Price { get; }
 
         /// <summary>
         /// Gets the description of the transaction.

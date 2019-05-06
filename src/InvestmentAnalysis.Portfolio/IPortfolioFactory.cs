@@ -13,7 +13,7 @@ namespace InvestmentAnalysis.Portfolio
     /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioFactoryContract))]
     public interface IPortfolioFactory<out T>
-        where T : IPortfolio<ITransaction<ISecurity>>
+        where T : IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>
     {
         /// <summary>
         /// Creates a portfolio with specified <see cref="XmlReader"/>.

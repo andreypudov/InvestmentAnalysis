@@ -84,6 +84,22 @@
             </summary>
             <returns>The new instance of <see cref="T:System.IO.Stream"/>.</returns>
         </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamPrice">
+            <inheritdoc/>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPrice.#ctor(System.Decimal,InvestmentAnalysis.Portfolio.Currency)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamPrice"/> class.
+            </summary>
+            <param name="price">The the price of the security.</param>
+            <param name="currency">The currency of the security.</param>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamPrice.Price">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamPrice.Currency">
+            <inheritdoc/>
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamSecurity">
             <inheritdoc/>
         </member>
@@ -121,14 +137,13 @@
         <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamServiceTransaction">
             <inheritdoc/>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamServiceTransaction.#ctor(InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Decimal,InvestmentAnalysis.Portfolio.Currency,System.String)">
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamServiceTransaction.#ctor(InvestmentAnalysis.Portfolio.TransactionType,System.Int64,InvestmentAnalysis.Portfolio.Finam.FinamPrice,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamServiceTransaction"/> class.
             </summary>
             <param name="transactionType">The type of the transaction.</param>
             <param name="date">The date and time of the transaction.</param>
             <param name="price">The price of the individual unit.</param>
-            <param name="currency">The currency of the transaction.</param>
             <param name="description">The description of the transaction.</param>
         </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamServiceTransaction.Equals(System.Object)">
@@ -148,7 +163,7 @@
         <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamTradeTransaction">
             <inheritdoc/>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTradeTransaction.#ctor(InvestmentAnalysis.Portfolio.Finam.FinamSecurity,InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Int32,System.Decimal,InvestmentAnalysis.Portfolio.Currency,System.String)">
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTradeTransaction.#ctor(InvestmentAnalysis.Portfolio.Finam.FinamSecurity,InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Int32,InvestmentAnalysis.Portfolio.Finam.FinamPrice,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTradeTransaction"/> class.
             </summary>
@@ -157,7 +172,6 @@
             <param name="date">The date and time of the transaction.</param>
             <param name="units">The units of the transaction.</param>
             <param name="price">The price of the individual unit.</param>
-            <param name="currency">The currency of the transaction.</param>
             <param name="description">The description of the transaction.</param>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTradeTransaction.Security">
@@ -183,14 +197,13 @@
         <member name="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction">
             <inheritdoc/>
         </member>
-        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.#ctor(InvestmentAnalysis.Portfolio.TransactionType,System.Int64,System.Decimal,InvestmentAnalysis.Portfolio.Currency,System.String)">
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.#ctor(InvestmentAnalysis.Portfolio.TransactionType,System.Int64,InvestmentAnalysis.Portfolio.Finam.FinamPrice,System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.Finam.FinamTransaction"/> class.
             </summary>
             <param name="transactionType">The type of the transaction.</param>
             <param name="date">The date and time of the transaction.</param>
             <param name="price">The price of the individual unit.</param>
-            <param name="currency">The currency of the transaction.</param>
             <param name="description">The description of the transaction.</param>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.TransactionType">
@@ -200,9 +213,6 @@
             <inheritdoc/>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Price">
-            <inheritdoc/>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Currency">
             <inheritdoc/>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamTransaction.Description">

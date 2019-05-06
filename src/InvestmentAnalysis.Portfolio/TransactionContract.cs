@@ -7,10 +7,10 @@ namespace InvestmentAnalysis.Portfolio
     using System.Diagnostics.Contracts;
 
     /// <summary>
-    /// The contract class for <see cref="ITransaction{T}"/>.
+    /// The contract class for <see cref="ITransaction{T, P}"/>.
     /// </summary>
-    [ContractClassFor(typeof(ITransaction<>))]
-    public abstract class TransactionContract : ITransaction<ISecurity>
+    [ContractClassFor(typeof(ITransaction<,>))]
+    public abstract class TransactionContract : ITransaction<ISecurity, IPrice<ISecurity>>
     {
         /// <summary>
         /// Gets the type of the transaction.
@@ -28,13 +28,7 @@ namespace InvestmentAnalysis.Portfolio
         /// Gets the price of the individual unit.
         /// </summary>
         /// <value>The price of the individual unit.</value>
-        public decimal Price => Contract.Result<decimal>();
-
-        /// <summary>
-        /// Gets the currency of the transaction.
-        /// </summary>
-        /// <value>The currency of the transaction..</value>
-        public Currency Currency => Contract.Result<Currency>();
+        public IPrice<ISecurity> Price => Contract.Result<IPrice<ISecurity>>();
 
         /// <summary>
         /// Gets the description of the transaction.

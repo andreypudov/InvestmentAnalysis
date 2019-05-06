@@ -26,11 +26,11 @@ namespace InvestmentAnalysis.CommandLine
                 {
                     case TransactionType.Buy:
                     case TransactionType.Sell:
-                        var entry = transaction as ITradeTransaction<ISecurity>;
+                        var entry = transaction as ITradeTransaction<ISecurity, IPrice<ISecurity>>;
                         Console.WriteLine($"{new DateTime(entry.DateTime).ToShortDateString(), 10} "
                             + $"{entry.Security.Symbol, -16} "
                             + $"{(entry.TransactionType == TransactionType.Buy ? "BUY" : "SELL"), -6} "
-                            + $"{entry.Price, -10} {entry.Currency, -4}");
+                            + $"{entry.Price.Price, -10} {entry.Price.Currency, -4}");
                         break;
                 }
             }

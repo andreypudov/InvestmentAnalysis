@@ -7,7 +7,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
     using System;
 
     /// <inheritdoc/>
-    public sealed class FinamServiceTransaction : FinamTransaction, ITransaction<FinamSecurity>, IEquatable<FinamServiceTransaction>
+    public sealed class FinamServiceTransaction : FinamTransaction, ITransaction<FinamSecurity, FinamPrice>, IEquatable<FinamServiceTransaction>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="FinamServiceTransaction"/> class.
@@ -15,10 +15,9 @@ namespace InvestmentAnalysis.Portfolio.Finam
         /// <param name="transactionType">The type of the transaction.</param>
         /// <param name="date">The date and time of the transaction.</param>
         /// <param name="price">The price of the individual unit.</param>
-        /// <param name="currency">The currency of the transaction.</param>
         /// <param name="description">The description of the transaction.</param>
-        public FinamServiceTransaction(TransactionType transactionType, long date, decimal price, Currency currency, string description)
-            : base(transactionType, date, price, currency, description)
+        public FinamServiceTransaction(TransactionType transactionType, long date, FinamPrice price, string description)
+            : base(transactionType, date, price, description)
         {
             // intentionally left blank
         }

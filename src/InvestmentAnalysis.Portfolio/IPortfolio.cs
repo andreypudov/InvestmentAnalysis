@@ -10,10 +10,10 @@ namespace InvestmentAnalysis.Portfolio
     /// <summary>
     /// The collection of individual transactions.
     /// </summary>
-    /// <typeparam name="T">The type of <see cref="ITransaction{T}"/>.</typeparam>
+    /// <typeparam name="T">The type of <see cref="ITransaction{T, P}"/>.</typeparam>
     [ContractClass(typeof(PortfolioContract))]
     public interface IPortfolio<out T>
-        where T : ITransaction<ISecurity>
+        where T : ITransaction<ISecurity, IPrice<ISecurity>>
     {
         /// <summary>
         /// Gets enumerable collection of transactions.

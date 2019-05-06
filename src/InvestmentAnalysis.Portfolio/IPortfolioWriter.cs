@@ -12,7 +12,7 @@ namespace InvestmentAnalysis.Portfolio
     /// <typeparam name="T">The type of <see cref="IPortfolio{T}"/>.</typeparam>
     [ContractClass(typeof(PortfolioWriterContract))]
     public interface IPortfolioWriter<in T>
-        where T : IPortfolio<ITransaction<ISecurity>>
+        where T : IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>
     {
         /// <summary>
         /// Writes the <see cref="IPortfolio{T}"/> to the stream.
