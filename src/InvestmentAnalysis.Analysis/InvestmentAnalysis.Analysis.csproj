@@ -28,15 +28,4 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="Currency.cs" />
-    <Compile Remove="IPortfolioFactory.cs" />
-    <Compile Remove="IPortfolioReader.cs" />
-    <Compile Remove="PortfolioContract.cs" />
-    <Compile Remove="PortfolioFactoryContract.cs" />
-    <Compile Remove="PortfolioReaderContract.cs" />
-    <Compile Remove="PortfolioReaderException.cs" />
-    <Compile Remove="PortfolioWriterContract.cs" />
-    <Compile Remove="SecurityContract.cs" />
-  </ItemGroup>
 </Project>
