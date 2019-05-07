@@ -67,6 +67,7 @@ Global
 		$0.CSharpFormattingPolicy = $3
 		$3.scope = text/x-csharp
 		$0.StandardHeader = $4
+		$4.Text = @<copyright file="${FileName}" company="Andrey Pudov">\n    Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.\n</copyright>
 		$0.VersionControlPolicy = $5
 	EndGlobalSection
 EndGlobal
