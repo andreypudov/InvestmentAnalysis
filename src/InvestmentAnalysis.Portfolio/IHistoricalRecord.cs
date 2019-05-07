@@ -31,9 +31,14 @@ namespace InvestmentAnalysis.Portfolio
         IHistoryPrice<T> Open { get; }
 
         /// <summary>
-        /// Gets the final price at which a security is traded on a trading day
+        /// Gets the final price at which a security is traded on a trading day.
         /// </summary>
         IHistoryPrice<T> Close { get; }
+
+        /// <summary>
+        /// Gets the volume of trading of a security.
+        /// </summary>
+        long Volume { get; }
 
         /// <summary>
         /// Gets the date and time of the record.

@@ -25,6 +25,9 @@ namespace InvestmentAnalysis.Portfolio.Contracts
         public IHistoryPrice<ISecurity> Close => Contract.Result<IHistoryPrice<ISecurity>>();
 
         /// <inheritdoc/>
+        public long Volume => Contract.Result<long>();
+
+        /// <inheritdoc/>
         public long DateTime => Contract.Result<long>();
     }
 }
