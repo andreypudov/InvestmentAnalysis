@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace InvestmentAnalysis.Portfolio
+namespace InvestmentAnalysis.Portfolio.Contracts
 {
     using System.Diagnostics.Contracts;
 
@@ -12,16 +12,10 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(ITradeTransaction<,>))]
     public abstract class TradeTransactionContract : TransactionContract, ITradeTransaction<ISecurity, IPrice<ISecurity>>
     {
-        /// <summary>
-        /// Gets the financial security.
-        /// </summary>
-        /// <value>The financial security.</value>
+        /// <inheritdoc />
         public ISecurity Security => Contract.Result<ISecurity>();
 
-        /// <summary>
-        /// Gets the units of the transaction.
-        /// </summary>
-        /// <value>The units of the transaction.</value>
+        /// <inheritdoc />
         public int Units => Contract.Result<int>();
     }
 }

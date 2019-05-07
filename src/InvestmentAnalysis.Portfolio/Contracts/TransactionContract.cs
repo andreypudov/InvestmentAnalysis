@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace InvestmentAnalysis.Portfolio
+namespace InvestmentAnalysis.Portfolio.Contracts
 {
     using System.Diagnostics.Contracts;
 
@@ -12,28 +12,16 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(ITransaction<,>))]
     public abstract class TransactionContract : ITransaction<ISecurity, IPrice<ISecurity>>
     {
-        /// <summary>
-        /// Gets the type of the transaction.
-        /// </summary>
-        /// <value>The type of the transaction.</value>
+        /// <inheritdoc />
         public TransactionType TransactionType => Contract.Result<TransactionType>();
 
-        /// <summary>
-        /// Gets the date and time of the transaction.
-        /// </summary>
-        /// <value>The date and time of the transaction.</value>
+        /// <inheritdoc />
         public long DateTime => Contract.Result<int>();
 
-        /// <summary>
-        /// Gets the price of the individual unit.
-        /// </summary>
-        /// <value>The price of the individual unit.</value>
+        /// <inheritdoc />
         public IPrice<ISecurity> Price => Contract.Result<IPrice<ISecurity>>();
 
-        /// <summary>
-        /// Gets the description of the transaction.
-        /// </summary>
-        /// <value>The description of the transaction..</value>
+        /// <inheritdoc />
         public string Description => Contract.Result<string>();
     }
 }

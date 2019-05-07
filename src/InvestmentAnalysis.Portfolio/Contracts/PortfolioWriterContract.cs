@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace InvestmentAnalysis.Portfolio
+namespace InvestmentAnalysis.Portfolio.Contracts
 {
     using System.Diagnostics.Contracts;
 
@@ -12,13 +12,7 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(IPortfolioWriter<>))]
     public abstract class PortfolioWriterContract : IPortfolioWriter<IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>>
     {
-        /// <summary>
-        /// Writes the <see cref="IPortfolio{T}"/> to the stream.
-        /// </summary>
-        /// <param name="portfolio">The instance of <see cref="IPortfolio{T}"/>.</param>
-        public void Write(IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> portfolio)
-        {
-            Contract.Requires(portfolio != null);
-        }
+        /// <inheritdoc />
+        public void Write(IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> portfolio) => Contract.Requires(portfolio != null);
     }
 }

@@ -5,6 +5,7 @@
 namespace InvestmentAnalysis.Portfolio
 {
     using System.Diagnostics.Contracts;
+    using InvestmentAnalysis.Portfolio.Contracts;
 
     /// <summary>
     /// Represents an investment portfolio reader.

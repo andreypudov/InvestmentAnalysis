@@ -6,6 +6,7 @@ namespace InvestmentAnalysis.Portfolio
 {
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
+    using InvestmentAnalysis.Portfolio.Contracts;
 
     /// <summary>
     /// The collection of individual transactions.

@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace InvestmentAnalysis.Portfolio
+namespace InvestmentAnalysis.Portfolio.Contracts
 {
     using System.Collections.Generic;
     using System.Diagnostics.Contracts;
@@ -13,10 +13,7 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(IPortfolio<>))]
     public abstract class PortfolioContract : IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>>
     {
-        /// <summary>
-        /// Gets enumerable collection of transactions.
-        /// </summary>
-        /// <value>The enumerable collection of transactions.</value>
+        /// <inheritdoc />
         public IEnumerable<ITransaction<ISecurity, IPrice<ISecurity>>> Transactions { get; } = Contract.Result<IEnumerable<ITransaction<ISecurity, IPrice<ISecurity>>>>();
     }
 }

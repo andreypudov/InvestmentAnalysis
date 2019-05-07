@@ -2,7 +2,7 @@
 //     Copyright (c) Andrey Pudov. All Rights Reserved. Licensed under the Apache License, Version 2.0. See LICENSE.txt in the project root for license information.
 // </copyright>
 
-namespace InvestmentAnalysis.Portfolio
+namespace InvestmentAnalysis.Portfolio.Contracts
 {
     using System.Diagnostics.Contracts;
 
@@ -12,10 +12,7 @@ namespace InvestmentAnalysis.Portfolio
     [ContractClassFor(typeof(IHistoryPrice<>))]
     public abstract class HistoryPriceContract : PriceContract, IHistoryPrice<ISecurity>
     {
-        /// <summary>
-        /// Gets the date and time of the price.
-        /// </summary>
-        /// <value>The date and time of the price.</value>
+        /// <inheritdoc />
         public long DateTime => Contract.Result<int>();
     }
 }

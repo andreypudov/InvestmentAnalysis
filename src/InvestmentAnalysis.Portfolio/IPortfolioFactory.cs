@@ -6,6 +6,7 @@ namespace InvestmentAnalysis.Portfolio
 {
     using System.Diagnostics.Contracts;
     using System.Xml;
+    using InvestmentAnalysis.Portfolio.Contracts;
 
     /// <summary>
     /// Provides access to factory methods for creating and configuring <see cref="IPortfolio{T}"/> instance.

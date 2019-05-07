@@ -4,6 +4,133 @@
         <name>InvestmentAnalysis.Portfolio</name>
     </assembly>
     <members>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.HistoricalProviderContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IHistoricalProvider"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Contracts.HistoricalProviderContract.GetPrices(InvestmentAnalysis.Portfolio.ISecurity,System.Int64,System.Int64)">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IHistoricalRecord`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.High">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.Low">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.Open">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.Close">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.DateTime">
+            <inheritdoc/>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.HistoryPriceContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IHistoryPrice`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoryPriceContract.DateTime">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.PortfolioContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.PortfolioContract.Transactions">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.PortfolioFactoryContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioFactory`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Contracts.PortfolioFactoryContract.CreatePortfolio(System.Xml.XmlReader)">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.PortfolioReaderContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioReader`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Contracts.PortfolioReaderContract.Read">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.PortfolioWriterContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioWriter`1"/>.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Contracts.PortfolioWriterContract.Write(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.PriceContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Price">
+            <summary>
+            Gets the price of the security.
+            </summary>
+            <value>The price of the security.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Currency">
+            <summary>
+            Gets the currency of the security.
+            </summary>
+            <value>The currency of the security.</value>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.SecurityContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.SecurityContract.ISIN">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.SecurityContract.Symbol">
+            <inheritdoc/>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.SecurityContract.Description">
+            <inheritdoc/>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract.Security">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract.Units">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.Contracts.TransactionContract">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`2"/>.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.TransactionType">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.DateTime">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.Price">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.Description">
+            <inheritdoc />
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.Currency">
             <summary>
             ISO 4217 Current currency and funds code list
@@ -909,16 +1036,51 @@
             2 Zimbabwean dollar Zimbabwe
             </summary>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.HistoryPriceContract">
+        <member name="T:InvestmentAnalysis.Portfolio.IHistoricalProvider">
             <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IHistoryPrice`1"/>.
+            The collection of historical security prices.
             </summary>
         </member>
-        <member name="P:InvestmentAnalysis.Portfolio.HistoryPriceContract.DateTime">
+        <member name="M:InvestmentAnalysis.Portfolio.IHistoricalProvider.GetPrices(InvestmentAnalysis.Portfolio.ISecurity,System.Int64,System.Int64)">
             <summary>
-            Gets the date and time of the price.
+            Returns the collection of historical prices for the <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/> on the provided date range.
             </summary>
-            <value>The date and time of the price.</value>
+            <param name="security">The financial security.</param>
+            <param name="startDate">The start date for the query.</param>
+            <param name="endDate">The end date for the query</param>
+            <returns>The collection of historical prices for the <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/> on the provided date range.</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Portfolio.IHistoricalRecord`1">
+            <summary>
+            The historical record of security price.
+            </summary>
+            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.High">
+            <summary>
+            Gets the highest price of a security trading.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.Low">
+            <summary>
+            Gets the lowest price of a security trading.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.Open">
+            <summary>
+            Gets the open price of a security trading.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.Close">
+            <summary>
+            Gets the final price at which a security is traded on a trading day
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.DateTime">
+            <summary>
+            Gets the date and time of the record.
+            </summary>
+            <value>The date and time of the record.</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.IHistoryPrice`1">
             <summary>
@@ -1070,40 +1232,6 @@
             Gets the description of the transaction.
             </summary>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.PortfolioContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.PortfolioContract.Transactions">
-            <summary>
-            Gets enumerable collection of transactions.
-            </summary>
-            <value>The enumerable collection of transactions.</value>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.PortfolioFactoryContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioFactory`1"/>.
-            </summary>
-        </member>
-        <member name="M:InvestmentAnalysis.Portfolio.PortfolioFactoryContract.CreatePortfolio(System.Xml.XmlReader)">
-            <summary>
-            Creates a portfolio with specified <see cref="T:System.Xml.XmlReader"/>.
-            </summary>
-            <param name="reader">The <see cref="T:System.Xml.XmlReader"/> containing the XML data to read.</param>
-            <returns>The created <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> instance.</returns>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.PortfolioReaderContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioReader`1"/>.
-            </summary>
-        </member>
-        <member name="M:InvestmentAnalysis.Portfolio.PortfolioReaderContract.Read">
-            <summary>
-            Reads the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> from the stream.
-            </summary>
-            <returns>The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</returns>
-        </member>
         <member name="T:InvestmentAnalysis.Portfolio.PortfolioReaderException">
             <summary>
             Represents errors that occur during reading of the portfolio.
@@ -1133,94 +1261,6 @@
             </summary>
             <param name="message">The error message that explains the reason for the exception.</param>
             <param name="errors">Additional user-defined information about the exception.</param>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.PortfolioWriterContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPortfolioWriter`1"/>.
-            </summary>
-        </member>
-        <member name="M:InvestmentAnalysis.Portfolio.PortfolioWriterContract.Write(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
-            <summary>
-            Writes the <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/> to the stream.
-            </summary>
-            <param name="portfolio">The instance of <see cref="T:InvestmentAnalysis.Portfolio.IPortfolio`1"/>.</param>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.PriceContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.PriceContract.Price">
-            <summary>
-            Gets the price of the security.
-            </summary>
-            <value>The price of the security.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.PriceContract.Currency">
-            <summary>
-            Gets the currency of the security.
-            </summary>
-            <value>The currency of the security.</value>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.SecurityContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.SecurityContract.ISIN">
-            <inheritdoc/>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.SecurityContract.Symbol">
-            <inheritdoc/>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.SecurityContract.Description">
-            <inheritdoc/>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.TradeTransactionContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TradeTransactionContract.Security">
-            <summary>
-            Gets the financial security.
-            </summary>
-            <value>The financial security.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TradeTransactionContract.Units">
-            <summary>
-            Gets the units of the transaction.
-            </summary>
-            <value>The units of the transaction.</value>
-        </member>
-        <member name="T:InvestmentAnalysis.Portfolio.TransactionContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`2"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.TransactionType">
-            <summary>
-            Gets the type of the transaction.
-            </summary>
-            <value>The type of the transaction.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.DateTime">
-            <summary>
-            Gets the date and time of the transaction.
-            </summary>
-            <value>The date and time of the transaction.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Price">
-            <summary>
-            Gets the price of the individual unit.
-            </summary>
-            <value>The price of the individual unit.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.TransactionContract.Description">
-            <summary>
-            Gets the description of the transaction.
-            </summary>
-            <value>The description of the transaction..</value>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.TransactionType">
             <summary>
