@@ -5,6 +5,7 @@
 namespace InvestmentAnalysis.Analysis
 {
     using System.Diagnostics.Contracts;
+    using InvestmentAnalysis.Portfolio;
 
     /// <summary>
     /// The contract class for <see cref="IAnalysis"/>.
@@ -13,6 +14,6 @@ namespace InvestmentAnalysis.Analysis
     public abstract class AnalysisContract : IAnalysis
     {
         /// <inheritdoc/>
-        public string SomeData { get; } = Contract.Result<string>();
+        public IAnalysisResult Analyze(IPortfolio<ITradeTransaction<ISecurity, IPrice<ISecurity>>> portfolio) => Contract.Result<IAnalysisResult>();
     }
 }

@@ -29,6 +29,9 @@
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.Close">
             <inheritdoc/>
         </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.Volume">
+            <inheritdoc/>
+        </member>
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.HistoricalRecordContract.DateTime">
             <inheritdoc/>
         </member>
@@ -1073,7 +1076,12 @@
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.Close">
             <summary>
-            Gets the final price at which a security is traded on a trading day
+            Gets the final price at which a security is traded on a trading day.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.Volume">
+            <summary>
+            Gets the volume of trading of a security.
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.IHistoricalRecord`1.DateTime">

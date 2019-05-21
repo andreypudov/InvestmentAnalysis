@@ -5,6 +5,7 @@
 namespace InvestmentAnalysis.Analysis
 {
     using System.Diagnostics.Contracts;
+    using InvestmentAnalysis.Portfolio;
 
     /// <summary>
     /// The base interface for analysis.
@@ -13,9 +14,10 @@ namespace InvestmentAnalysis.Analysis
     public interface IAnalysis
     {
         /// <summary>
-        /// Gets some data.
+        /// Returns the result of portfolio analysis.
         /// </summary>
-        /// <value>Some data.</value>
-        string SomeData { get; }
+        /// <param name="portfolio">The collection of individual transactions.</param>
+        /// <returns>The result of portfolio analysis</returns>
+        IAnalysisResult<ISecurity, IPrice<ISecurity>> Analyze(IPortfolio<ITradeTransaction<ISecurity, IPrice<ISecurity>>> portfolio);
     }
 }
