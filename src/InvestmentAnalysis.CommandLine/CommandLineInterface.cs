@@ -5,6 +5,7 @@
 namespace InvestmentAnalysis.CommandLine
 {
     using System;
+    using InvestmentAnalysis.Analysis.PortfolioPerformance;
     using InvestmentAnalysis.Portfolio;
     using InvestmentAnalysis.Portfolio.Finam;
 
@@ -19,6 +20,7 @@ namespace InvestmentAnalysis.CommandLine
         private static void Main(/* string[] args */)
         {
             var portfolio = new FinamPortfolioReader(@"SamplePortfolio.xml").Read();
+            var analysis = new PortfolioPerformanceAnalysis().Analyze(portfolio);
 
             foreach (var transaction in portfolio.Transactions)
             {
@@ -33,6 +35,11 @@ namespace InvestmentAnalysis.CommandLine
                             + $"{entry.Price.Price, -10} {entry.Price.Currency, -4}");
                         break;
                 }
+            }
+
+            foreach (var entry in analysis.Result)
+            {
+                Console.WriteLine($"Key: {entry.Key, 16}, Value: {entry.Value}");
             }
         }
     }

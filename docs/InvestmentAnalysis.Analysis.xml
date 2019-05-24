@@ -4,24 +4,51 @@
         <name>InvestmentAnalysis.Analysis</name>
     </assembly>
     <members>
-        <member name="T:InvestmentAnalysis.Analysis.AnalysisContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Analysis.IAnalysis"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Analysis.AnalysisContract.SomeData">
-            <inheritdoc/>
-        </member>
-        <member name="T:InvestmentAnalysis.Analysis.IAnalysis">
+        <member name="T:InvestmentAnalysis.Analysis.IAnalysis`4">
             <summary>
             The base interface for analysis.
             </summary>
+            <typeparam name="K">The type of the keys in the analysis result.</typeparam>
+            <typeparam name="V">The type of the values in the analysis result.</typeparam>
+            <typeparam name="E">The type of the analysis result entry.</typeparam>
+            <typeparam name="R">The type of the analysis result.</typeparam>
         </member>
-        <member name="P:InvestmentAnalysis.Analysis.IAnalysis.SomeData">
+        <member name="M:InvestmentAnalysis.Analysis.IAnalysis`4.Analyze(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
             <summary>
-            Gets some data.
+            Returns the result of portfolio analysis.
             </summary>
-            <value>Some data.</value>
+            <param name="portfolio">The collection of individual transactions.</param>
+            <returns>The result of portfolio analysis</returns>
+        </member>
+        <member name="T:InvestmentAnalysis.Analysis.IAnalysisResult`3">
+            <summary>
+            Represents the general result of portfolio analysis.
+            </summary>
+            <typeparam name="K">The type of the keys in the analysis result.</typeparam>
+            <typeparam name="V">The type of the values in the analysis result.</typeparam>
+            <typeparam name="E">The type of the analysis result entry.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.IAnalysisResult`3.Result">
+            <summary>
+            Gets the result of the portfolio analysis.
+            </summary>
+        </member>
+        <member name="T:InvestmentAnalysis.Analysis.IAnalysisResultEntry`2">
+            <summary>
+            Represents the entry of the portfolio analysis result.
+            </summary>
+            <typeparam name="K">The type of the keys in the analysis result.</typeparam>
+            <typeparam name="V">The type of the values in the analysis result.</typeparam>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.IAnalysisResultEntry`2.Key">
+            <summary>
+            Gets the key in the analysis result.
+            </summary>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.IAnalysisResultEntry`2.Value">
+            <summary>
+            Gets the value in the analysis result.
+            </summary>
         </member>
     </members>
 </doc>

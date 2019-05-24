@@ -5,20 +5,19 @@
 namespace InvestmentAnalysis.Analysis
 {
     using System.Collections.Generic;
-    using InvestmentAnalysis.Portfolio;
 
     /// <summary>
     /// Represents the general result of portfolio analysis.
     /// </summary>
     /// <typeparam name="K">The type of the keys in the analysis result.</typeparam>
     /// <typeparam name="V">The type of the values in the analysis result.</typeparam>
-    public interface IAnalysisResult<out K, out V>
-        where K : ISecurity
-        where V : IPrice<K>
+    /// <typeparam name="E">The type of the analysis result entry.</typeparam>
+    public interface IAnalysisResult<out K, out V, out E>
+        where E : IAnalysisResultEntry<K, V>
     {
         /// <summary>
         /// Gets the result of the portfolio analysis.
         /// </summary>
-        IEnumerable<IAnalysisResultEntry<K, V>> Result { get; }
+        IEnumerable<E> Result { get; }
     }
 }

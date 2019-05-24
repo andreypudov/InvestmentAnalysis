@@ -4,16 +4,12 @@
 
 namespace InvestmentAnalysis.Analysis
 {
-    using InvestmentAnalysis.Portfolio;
-
     /// <summary>
     /// Represents the entry of the portfolio analysis result.
     /// </summary>
     /// <typeparam name="K">The type of the keys in the analysis result.</typeparam>
     /// <typeparam name="V">The type of the values in the analysis result.</typeparam>
     public interface IAnalysisResultEntry<out K, out V>
-        where K : ISecurity
-        where V : IPrice<K>
     {
         /// <summary>
         /// Gets the key in the analysis result.

@@ -23,6 +23,8 @@
     <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\InvestmentAnalysis.Analysis.PortfolioPerformance\InvestmentAnalysis.Analysis.PortfolioPerformance.csproj" />
+    <ProjectReference Include="..\InvestmentAnalysis.Analysis\InvestmentAnalysis.Analysis.csproj" />
     <ProjectReference Include="..\InvestmentAnalysis.Portfolio.Finam\InvestmentAnalysis.Portfolio.Finam.csproj" />
     <ProjectReference Include="..\InvestmentAnalysis.Portfolio\InvestmentAnalysis.Portfolio.csproj" />
   </ItemGroup>

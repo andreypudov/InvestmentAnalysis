@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InvestmentAnalysis.Analysis.PortfolioPerformance</name>
+    </assembly>
+    <members>
+        <member name="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysis">
+            <summary>
+            The performance analysis.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysis.Analyze(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult">
+            <summary>
+            Represents the performance analysis result of the portfolio.
+            </summary>
+        </member>
+        <member name="M:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult.#ctor(System.Collections.Generic.Dictionary{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}.Enumerator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult"/> class.
+            </summary>
+            <param name="enumerator">The enumerator of the analysis results.</param>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult.Result">
+            <inheritdoc />
+        </member>
+        <member name="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResultEntry">
+            <inheritdoc />
+        </member>
+        <member name="M:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResultEntry.#ctor(System.Collections.Generic.KeyValuePair{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResultEntry"/> class.
+            </summary>
+            <param name="current">The current value of analysis result enumeration.</param>
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResultEntry.Key">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResultEntry.Value">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
