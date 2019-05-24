@@ -4,6 +4,18 @@
         <name>InvestmentAnalysis.Analysis</name>
     </assembly>
     <members>
+        <member name="T:InvestmentAnalysis.Analysis.AnalysisContract`4">
+            <summary>
+            The contract class for <see cref="T:InvestmentAnalysis.Analysis.IAnalysis`4"/>.
+            </summary>
+            <typeparam name="K">The type of the keys in the analysis result.</typeparam>
+            <typeparam name="V">The type of the values in the analysis result.</typeparam>
+            <typeparam name="E">The type of the analysis result entry.</typeparam>
+            <typeparam name="R">The type of the analysis result.</typeparam>
+        </member>
+        <member name="M:InvestmentAnalysis.Analysis.AnalysisContract`4.Analyze(InvestmentAnalysis.Portfolio.IPortfolio{InvestmentAnalysis.Portfolio.ITransaction{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}})">
+            <inheritdoc />
+        </member>
         <member name="T:InvestmentAnalysis.Analysis.IAnalysis`4">
             <summary>
             The base interface for analysis.

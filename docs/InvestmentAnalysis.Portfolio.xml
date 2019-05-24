@@ -81,16 +81,10 @@
             </summary>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Price">
-            <summary>
-            Gets the price of the security.
-            </summary>
-            <value>The price of the security.</value>
+            <inheritdoc />
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Currency">
-            <summary>
-            Gets the currency of the security.
-            </summary>
-            <value>The currency of the security.</value>
+            <inheritdoc />
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.Contracts.SecurityContract">
             <summary>

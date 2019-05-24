@@ -8,7 +8,7 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
     using InvestmentAnalysis.Portfolio;
 
     /// <inheritdoc />
-    public class PortfolioPerformanceAnalysisResultEntry : IAnalysisResultEntry<ISecurity, IPrice<ISecurity>>
+    public sealed class PortfolioPerformanceAnalysisResultEntry : IAnalysisResultEntry<ISecurity, IPrice<ISecurity>>
     {
         private readonly KeyValuePair<ISecurity, IPrice<ISecurity>> current;
 

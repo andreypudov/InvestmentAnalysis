@@ -10,7 +10,7 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
     /// <summary>
     /// The performance analysis.
     /// </summary>
-    public class PortfolioPerformanceAnalysis : IAnalysis<ISecurity, IPrice<ISecurity>, PortfolioPerformanceAnalysisResultEntry, PortfolioPerformanceAnalysisResult>
+    public sealed class PortfolioPerformanceAnalysis : IAnalysis<ISecurity, IPrice<ISecurity>, PortfolioPerformanceAnalysisResultEntry, PortfolioPerformanceAnalysisResult>
     {
         /// <inheritdoc />
         public PortfolioPerformanceAnalysisResult Analyze(IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> portfolio)

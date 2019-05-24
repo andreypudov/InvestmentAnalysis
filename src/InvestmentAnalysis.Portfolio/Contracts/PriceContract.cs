@@ -12,16 +12,10 @@ namespace InvestmentAnalysis.Portfolio.Contracts
     [ContractClassFor(typeof(IPrice<>))]
     public abstract class PriceContract : IPrice<ISecurity>
     {
-        /// <summary>
-        /// Gets the price of the security.
-        /// </summary>
-        /// <value>The price of the security.</value>
+        /// <inheritdoc />
         public decimal Price => Contract.Result<decimal>();
 
-        /// <summary>
-        /// Gets the currency of the security.
-        /// </summary>
-        /// <value>The currency of the security.</value>
+        /// <inheritdoc />
         public Currency Currency => Contract.Result<Currency>();
     }
 }
