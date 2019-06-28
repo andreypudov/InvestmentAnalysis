@@ -100,17 +100,6 @@
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.SecurityContract.Description">
             <inheritdoc/>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract">
-            <summary>
-            The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2"/>.
-            </summary>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract.Security">
-            <inheritdoc />
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TradeTransactionContract.Units">
-            <inheritdoc />
-        </member>
         <member name="T:InvestmentAnalysis.Portfolio.Contracts.TransactionContract">
             <summary>
             The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ITransaction`2"/>.
@@ -120,6 +109,12 @@
             <inheritdoc />
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.DateTime">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.Security">
+            <inheritdoc />
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.Units">
             <inheritdoc />
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.TransactionContract.Price">
@@ -1185,25 +1180,6 @@
             </summary>
             <value>The description of security.</value>
         </member>
-        <member name="T:InvestmentAnalysis.Portfolio.ITradeTransaction`2">
-            <summary>
-            Represents a financial transaction.
-            </summary>
-            <typeparam name="T">The type of <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.</typeparam>
-            <typeparam name="P">The type of <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.</typeparam>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`2.Security">
-            <summary>
-            Gets the financial security.
-            </summary>
-            <value>The financial security.</value>
-        </member>
-        <member name="P:InvestmentAnalysis.Portfolio.ITradeTransaction`2.Units">
-            <summary>
-            Gets the units of the transaction.
-            </summary>
-            <value>The units of the transaction.</value>
-        </member>
         <member name="T:InvestmentAnalysis.Portfolio.ITransaction`2">
             <summary>
             Represents a financial transaction.
@@ -1222,6 +1198,18 @@
             Gets the date and time of the transaction.
             </summary>
             <value>The date and time of the transaction.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.Security">
+            <summary>
+            Gets the financial security.
+            </summary>
+            <value>The financial security.</value>
+        </member>
+        <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.Units">
+            <summary>
+            Gets the units of the transaction.
+            </summary>
+            <value>The units of the transaction.</value>
         </member>
         <member name="P:InvestmentAnalysis.Portfolio.ITransaction`2.Price">
             <summary>

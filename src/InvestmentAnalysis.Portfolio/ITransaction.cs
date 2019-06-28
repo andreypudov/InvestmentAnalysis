@@ -30,6 +30,18 @@ namespace InvestmentAnalysis.Portfolio
         long DateTime { get; }
 
         /// <summary>
+        /// Gets the financial security.
+        /// </summary>
+        /// <value>The financial security.</value>
+        T Security { get; }
+
+        /// <summary>
+        /// Gets the units of the transaction.
+        /// </summary>
+        /// <value>The units of the transaction.</value>
+        int Units { get; }
+
+        /// <summary>
         /// Gets the price of the individual unit.
         /// </summary>
         /// <value>The price of the individual unit.</value>

@@ -10,6 +10,11 @@ namespace InvestmentAnalysis.Portfolio.Finam
     public sealed class FinamSecurity : ISecurity, IEquatable<FinamSecurity>
     {
         /// <summary>
+        /// Represents the security string. This field is read-only.
+        /// </summary>
+        public static readonly FinamSecurity Empty = new FinamSecurity();
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="FinamSecurity"/> class.
         /// </summary>
         /// <param name="securityId">The international securities identification number.</param>
@@ -20,6 +25,16 @@ namespace InvestmentAnalysis.Portfolio.Finam
             this.ISIN = securityId;
             this.Symbol = symbol;
             this.Description = description;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FinamSecurity"/> class.
+        /// </summary>
+        private FinamSecurity()
+        {
+            this.ISIN = string.Empty;
+            this.Symbol = string.Empty;
+            this.Description = string.Empty;
         }
 
         /// <inheritdoc/>
@@ -41,8 +56,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
 
             var security = (FinamSecurity)obj;
             return (this.ISIN == security.ISIN)
-                   && (this.Symbol == security.Symbol)
-                   && (this.Description == security.Description);
+                   && (this.Symbol == security.Symbol);
         }
 
         /// <inheritdoc/>
@@ -53,7 +67,6 @@ namespace InvestmentAnalysis.Portfolio.Finam
                 var hashCode = this.ISIN.GetHashCode(StringComparison.Ordinal);
 
                 hashCode = (hashCode * 397) ^ this.Symbol.GetHashCode(StringComparison.Ordinal);
-                hashCode = (hashCode * 397) ^ this.Description.GetHashCode(StringComparison.Ordinal);
 
                 return hashCode;
             }
@@ -73,8 +86,7 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
 
             return (this.ISIN == other.ISIN)
-                    && (this.Symbol == other.Symbol)
-                    && (this.Description == other.Description);
+                    && (this.Symbol == other.Symbol);
         }
     }
 }

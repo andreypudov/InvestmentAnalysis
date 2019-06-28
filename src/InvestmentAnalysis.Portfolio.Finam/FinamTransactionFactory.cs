@@ -43,20 +43,20 @@ namespace InvestmentAnalysis.Portfolio.Finam
             }
         }
 
-        private static FinamTradeTransaction CreateBuyOrSellTransaction(TradingMovementsOfSecuritiesRow row)
+        private static FinamTransaction CreateBuyOrSellTransaction(TradingMovementsOfSecuritiesRow row)
         {
-            return new FinamTradeTransaction(
-                security: new FinamSecurity(row.ISIN, row.ShortName, row.Security),
+            return new FinamTransaction(
                 transactionType: (row.TradeType == BuyTransaction) ? TransactionType.Buy : TransactionType.Sell,
                 date: GetTransactionDateTime(row),
+                security: new FinamSecurity(row.ISIN, row.ShortName, row.Security),
                 units: (int)row.Quantity,
                 price: new FinamPrice(row.Price, FinamCurrency.Parse(row.Currency)),
                 description: row.Comment);
         }
 
-        private static FinamServiceTransaction CreateFeeTransaction(TradingMovementsOfSecuritiesRow row)
+        private static FinamTransaction CreateFeeTransaction(TradingMovementsOfSecuritiesRow row)
         {
-            return new FinamServiceTransaction(
+            return new FinamTransaction(
                 transactionType: TransactionType.OtherExpense,
                 date: GetTransactionDateTime(row),
                 price: new FinamPrice(row.Fee, FinamCurrency.Parse(row.FeeCurrency)),

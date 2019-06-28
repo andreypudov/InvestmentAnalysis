@@ -19,6 +19,12 @@ namespace InvestmentAnalysis.Portfolio.Contracts
         public long DateTime => Contract.Result<int>();
 
         /// <inheritdoc />
+        public ISecurity Security => Contract.Result<ISecurity>();
+
+        /// <inheritdoc />
+        public int Units => Contract.Result<int>();
+
+        /// <inheritdoc />
         public IPrice<ISecurity> Price => Contract.Result<IPrice<ISecurity>>();
 
         /// <inheritdoc />

@@ -28,11 +28,10 @@ namespace InvestmentAnalysis.CommandLine
                 {
                     case TransactionType.Buy:
                     case TransactionType.Sell:
-                        var entry = transaction as ITradeTransaction<ISecurity, IPrice<ISecurity>>;
-                        Console.WriteLine($"{new DateTime(entry.DateTime).ToShortDateString(), 10} "
-                            + $"{entry.Security.Symbol, -16} "
-                            + $"{(entry.TransactionType == TransactionType.Buy ? "BUY" : "SELL"), -6} "
-                            + $"{entry.Price.Price, -10} {entry.Price.Currency, -4}");
+                        Console.WriteLine($"{new DateTime(transaction.DateTime).ToShortDateString(), 10} "
+                            + $"{transaction.Security.Symbol, -16} "
+                            + $"{(transaction.TransactionType == TransactionType.Buy ? "BUY" : "SELL"), -6} "
+                            + $"{transaction.Price.Price, -10} {transaction.Price.Currency, -4}");
                         break;
                 }
             }
