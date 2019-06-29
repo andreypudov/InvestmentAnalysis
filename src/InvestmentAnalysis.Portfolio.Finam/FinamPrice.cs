@@ -27,6 +27,12 @@ namespace InvestmentAnalysis.Portfolio.Finam
         public Currency Currency { get; }
 
         /// <inheritdoc/>
+        public IPrice<ISecurity> Create(decimal price)
+        {
+            return new FinamPrice(price, this.Currency);
+        }
+
+        /// <inheritdoc/>
         public override bool Equals(object obj)
         {
             if ((obj == null) || (this.GetType() != obj.GetType()))

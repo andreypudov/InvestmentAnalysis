@@ -17,5 +17,8 @@ namespace InvestmentAnalysis.Portfolio.Contracts
 
         /// <inheritdoc />
         public Currency Currency => Contract.Result<Currency>();
+
+        /// <inheritdoc />
+        public IPrice<ISecurity> Create(decimal price) => Contract.Result<IPrice<ISecurity>>();
     }
 }

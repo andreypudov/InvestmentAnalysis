@@ -17,11 +17,11 @@
             Represents the performance analysis result of the portfolio.
             </summary>
         </member>
-        <member name="M:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult.#ctor(System.Collections.Generic.Dictionary{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}}.Enumerator)">
+        <member name="M:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult.#ctor(System.Collections.Generic.Dictionary{InvestmentAnalysis.Portfolio.ISecurity,InvestmentAnalysis.Portfolio.IPrice{InvestmentAnalysis.Portfolio.ISecurity}})">
             <summary>
             Initializes a new instance of the <see cref="T:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult"/> class.
             </summary>
-            <param name="enumerator">The enumerator of the analysis results.</param>
+            <param name="results">The collection of the analysis results.</param>
         </member>
         <member name="P:InvestmentAnalysis.Analysis.PortfolioPerformance.PortfolioPerformanceAnalysisResult.Result">
             <inheritdoc />

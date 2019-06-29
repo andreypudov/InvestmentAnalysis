@@ -100,6 +100,9 @@
         <member name="P:InvestmentAnalysis.Portfolio.Finam.FinamPrice.Currency">
             <inheritdoc/>
         </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPrice.Create(System.Decimal)">
+            <inheritdoc/>
+        </member>
         <member name="M:InvestmentAnalysis.Portfolio.Finam.FinamPrice.Equals(System.Object)">
             <inheritdoc/>
         </member>

@@ -86,6 +86,9 @@
         <member name="P:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Currency">
             <inheritdoc />
         </member>
+        <member name="M:InvestmentAnalysis.Portfolio.Contracts.PriceContract.Create(System.Decimal)">
+            <inheritdoc />
+        </member>
         <member name="T:InvestmentAnalysis.Portfolio.Contracts.SecurityContract">
             <summary>
             The contract class for <see cref="T:InvestmentAnalysis.Portfolio.ISecurity"/>.
@@ -1156,6 +1159,13 @@
             Gets the currency of the security.
             </summary>
             <value>The currency of the security.</value>
+        </member>
+        <member name="M:InvestmentAnalysis.Portfolio.IPrice`1.Create(System.Decimal)">
+            <summary>
+            Initializes a new instance of the <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/> class with specified price.
+            </summary>
+            <param name="price">The price of the security.</param>
+            <returns>A new instance of the <see cref="T:InvestmentAnalysis.Portfolio.IPrice`1"/>.</returns>
         </member>
         <member name="T:InvestmentAnalysis.Portfolio.ISecurity">
             <summary>

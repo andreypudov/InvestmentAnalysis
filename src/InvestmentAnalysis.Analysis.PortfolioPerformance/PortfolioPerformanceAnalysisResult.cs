@@ -12,15 +12,15 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
     /// </summary>
     public sealed class PortfolioPerformanceAnalysisResult : IAnalysisResult<ISecurity, IPrice<ISecurity>, PortfolioPerformanceAnalysisResultEntry>
     {
-        private readonly Dictionary<ISecurity, IPrice<ISecurity>>.Enumerator enumerator;
+        private readonly Dictionary<ISecurity, IPrice<ISecurity>> results;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PortfolioPerformanceAnalysisResult"/> class.
         /// </summary>
-        /// <param name="enumerator">The enumerator of the analysis results.</param>
-        public PortfolioPerformanceAnalysisResult(Dictionary<ISecurity, IPrice<ISecurity>>.Enumerator enumerator)
+        /// <param name="results">The collection of the analysis results.</param>
+        public PortfolioPerformanceAnalysisResult(Dictionary<ISecurity, IPrice<ISecurity>> results)
         {
-            this.enumerator = enumerator;
+            this.results = results;
         }
 
         /// <inheritdoc />
@@ -28,9 +28,11 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
         {
             get
             {
-                while (this.enumerator.MoveNext())
+                var enumerator = this.results.GetEnumerator();
+
+                while (enumerator.MoveNext())
                 {
-                    yield return new PortfolioPerformanceAnalysisResultEntry(this.enumerator.Current);
+                    yield return new PortfolioPerformanceAnalysisResultEntry(enumerator.Current);
                 }
             }
         }

@@ -4,7 +4,7 @@
 
 namespace InvestmentAnalysis.Analysis.PortfolioPerformance
 {
-    using System.Collections.Generic;
+    using System.Linq;
     using InvestmentAnalysis.Portfolio;
 
     /// <summary>
@@ -15,8 +15,18 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
         /// <inheritdoc />
         public PortfolioPerformanceAnalysisResult Analyze(IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> portfolio)
         {
-            var dictionary = new Dictionary<ISecurity, IPrice<ISecurity>>();
-            return new PortfolioPerformanceAnalysisResult(dictionary.GetEnumerator());
+            var dictionary = portfolio.Transactions
+                .Where(t => (t.TransactionType == TransactionType.Buy) || (t.TransactionType == TransactionType.Sell))
+                .GroupBy(t => t.Security)
+                .Select(t => new
+                {
+                    t.First().Security,
+                    Price = t.First().Price
+                        .Create(t.Sum(p => (p.Price.Price * p.Units * (p.TransactionType == TransactionType.Buy ? -1 : 1))))
+                })
+                .ToDictionary(d => d.Security, d => d.Price);
+
+            return new PortfolioPerformanceAnalysisResult(dictionary);
         }
     }
 }

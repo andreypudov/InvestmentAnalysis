@@ -31,6 +31,7 @@ namespace InvestmentAnalysis.CommandLine
                         Console.WriteLine($"{new DateTime(transaction.DateTime).ToShortDateString(), 10} "
                             + $"{transaction.Security.Symbol, -16} "
                             + $"{(transaction.TransactionType == TransactionType.Buy ? "BUY" : "SELL"), -6} "
+                            + $"{transaction.Units, -4} "
                             + $"{transaction.Price.Price, -10} {transaction.Price.Currency, -4}");
                         break;
                 }
@@ -38,7 +39,7 @@ namespace InvestmentAnalysis.CommandLine
 
             foreach (var entry in analysis.Result)
             {
-                Console.WriteLine($"Key: {entry.Key, 16}, Value: {entry.Value}");
+                Console.WriteLine($"Key: {entry.Key.Symbol, 16}, Value: {entry.Value.Price}");
             }
         }
     }

@@ -26,5 +26,12 @@ namespace InvestmentAnalysis.Portfolio
         /// </summary>
         /// <value>The currency of the security.</value>
         Currency Currency { get; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IPrice{T}"/> class with specified price.
+        /// </summary>
+        /// <param name="price">The price of the security.</param>
+        /// <returns>A new instance of the <see cref="IPrice{T}"/>.</returns>
+        IPrice<ISecurity> Create(decimal price);
     }
 }
