@@ -4,6 +4,7 @@
 
 namespace InvestmentAnalysis.Analysis.PortfolioPerformance
 {
+    using System;
     using System.Linq;
     using InvestmentAnalysis.Portfolio;
 
@@ -12,6 +13,19 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
     /// </summary>
     public sealed class PortfolioPerformanceAnalysis : IAnalysis<ISecurity, IPrice<ISecurity>, PortfolioPerformanceAnalysisResultEntry, PortfolioPerformanceAnalysisResult>
     {
+        private static readonly Func<ITransaction<ISecurity, IPrice<ISecurity>>, decimal> TransactionCost = transaction =>
+        {
+            var price = transaction.Price.Price;
+
+            if (transaction.TransactionType == TransactionType.Buy)
+            {
+                return price * transaction.Units * -1;
+            }
+
+            // transaction.TransactionType == TransactionType.Sell
+            return price * transaction.Units;
+        };
+
         /// <inheritdoc />
         public PortfolioPerformanceAnalysisResult Analyze(IPortfolio<ITransaction<ISecurity, IPrice<ISecurity>>> portfolio)
         {
@@ -21,8 +35,7 @@ namespace InvestmentAnalysis.Analysis.PortfolioPerformance
                 .Select(t => new
                 {
                     t.First().Security,
-                    Price = t.First().Price
-                        .Create(t.Sum(p => (p.Price.Price * p.Units * (p.TransactionType == TransactionType.Buy ? -1 : 1))))
+                    Price = t.First().Price.Create(t.Sum(TransactionCost))
                 })
                 .ToDictionary(d => d.Security, d => d.Price);
 

@@ -22,6 +22,7 @@ namespace InvestmentAnalysis.CommandLine
             var portfolio = new FinamPortfolioReader(@"SamplePortfolio.xml").Read();
             var analysis = new PortfolioPerformanceAnalysis().Analyze(portfolio);
 
+            Console.WriteLine("Transactions:");
             foreach (var transaction in portfolio.Transactions)
             {
                 switch (transaction.TransactionType)
@@ -31,15 +32,16 @@ namespace InvestmentAnalysis.CommandLine
                         Console.WriteLine($"{new DateTime(transaction.DateTime).ToShortDateString(), 10} "
                             + $"{transaction.Security.Symbol, -16} "
                             + $"{(transaction.TransactionType == TransactionType.Buy ? "BUY" : "SELL"), -6} "
-                            + $"{transaction.Units, -4} "
+                            + $"{transaction.Units, -6} "
                             + $"{transaction.Price.Price, -10} {transaction.Price.Currency, -4}");
                         break;
                 }
             }
 
+            Console.WriteLine("\nPerformance Analysis:");
             foreach (var entry in analysis.Result)
             {
-                Console.WriteLine($"Key: {entry.Key.Symbol, 16}, Value: {entry.Value.Price}");
+                Console.WriteLine($"  {entry.Key.Symbol, -16} {entry.Value.Price, -14} {entry.Value.Currency, -4}");
             }
         }
     }
