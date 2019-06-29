@@ -5,6 +5,8 @@
 namespace InvestmentAnalysis.CommandLine
 {
     using System;
+    using System.CommandLine;
+    using System.IO;
     using InvestmentAnalysis.Analysis.PortfolioPerformance;
     using InvestmentAnalysis.Portfolio;
     using InvestmentAnalysis.Portfolio.Finam;
@@ -15,11 +17,17 @@ namespace InvestmentAnalysis.CommandLine
     internal sealed class CommandLineInterface
     {
         /// <summary>
-        /// The entry point.
+        /// Investment portfolio analysis tool. Copyright (c) Andrey Pudov. All Rights Reserved.
         /// </summary>
-        private static void Main(/* string[] args */)
+        /// <param name="portfolioOption">The path to the portfolio report file.</param>
+        private static void Main(FileInfo portfolioOption)
         {
-            var portfolio = new FinamPortfolioReader(@"SamplePortfolio.xml").Read();
+            if ((portfolioOption.Exists != true) || (portfolioOption.Attributes != FileAttributes.Normal))
+            {
+                throw new ArgumentException($"Invalid value of the portfolio report argument.");
+            }
+
+            var portfolio = new FinamPortfolioReader(portfolioOption.FullName).Read();
             var analysis = new PortfolioPerformanceAnalysis().Analyze(portfolio);
 
             Console.WriteLine("Transactions:");

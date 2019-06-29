@@ -9,10 +9,11 @@
             The InvestmentAnalysis CLI is a command-line tool providing greate experience for managing investment portfolios.
             </summary>
         </member>
-        <member name="M:InvestmentAnalysis.CommandLine.CommandLineInterface.Main">
+        <member name="M:InvestmentAnalysis.CommandLine.CommandLineInterface.Main(System.IO.FileInfo)">
             <summary>
-            The entry point.
+            Investment portfolio analysis tool. Copyright (c) Andrey Pudov. All Rights Reserved.
             </summary>
+            <param name="portfolioOption">The path to the portfolio report file.</param>
         </member>
     </members>
 </doc>
