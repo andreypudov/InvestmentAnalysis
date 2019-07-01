@@ -5,7 +5,6 @@
 namespace InvestmentAnalysis.CommandLine
 {
     using System;
-    using System.CommandLine;
     using System.IO;
     using InvestmentAnalysis.Analysis.PortfolioPerformance;
     using InvestmentAnalysis.Portfolio;
